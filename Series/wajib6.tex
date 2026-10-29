@@ -1,0 +1,324 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{3pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{
+    label=\arabic*),
+    itemsep=5pt,
+    topsep=3pt
+}
+
+\setlist[itemize]{
+    itemsep=3pt,
+    topsep=3pt
+}
+
+\arraycolsep=3pt
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+
+
+\rule{\textwidth}{1pt}
+
+\begin{center}
+
+{\khatt\textbf{
+الفصل 6 : الذكاء الاصطناعي متعدد الأنماط
+}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+
+
+
+
+%================================================
+% النشاط الأول
+%================================================
+
+\section*{\khatt\underline{النشاط الأول: فهم صورة باستعمال الذكاء الاصطناعي}}
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item اختر صورة بسيطة تحتوي على معلومات، مثل:
+
+\begin{itemize}
+
+    \item مخطط بياني.
+
+    \item جدول.
+
+    \item صورة علمية.
+
+    \item رسم توضيحي.
+
+\end{itemize}
+
+ثم ارفع الصورة إلى إحدى أدوات الذكاء الاصطناعي
+متعددة الأنماط، مثل:
+
+\textenglish{ChatGPT} أو \textenglish{Gemini} أو
+\textenglish{Claude}.
+
+%------------------------------------------------
+
+\item اكتب أمرًا يطلب من الأداة فهم الصورة وشرحها.
+
+مثال:
+
+\begin{center}
+
+\textbf{
+حلل هذه الصورة واشرح لي المعلومات الموجودة فيها
+بطريقة بسيطة
+}
+
+\end{center}
+
+اكتب الأمر الذي استعملته:
+
+
+
+%------------------------------------------------
+
+\item اكتب باختصار ماذا فهمت الأداة من الصورة:
+
+%------------------------------------------------
+
+\item قارن بين إجابة الذكاء الاصطناعي والصورة الأصلية:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\centering\arraybackslash}m{4cm}|
+>{\centering\arraybackslash}m{5cm}|
+>{\centering\arraybackslash}m{5cm}|}
+
+\hline
+
+\textbf{العنصر}
+&
+\textbf{إجابة الذكاء الاصطناعي}
+&
+\textbf{المعلومة الصحيحة في الصورة}
+\\
+
+\hline
+
+الأرقام
+&
+&
+\\[0.7cm]
+
+\hline
+
+المعلومات
+&
+&
+\\[0.7cm]
+
+\hline
+
+العلاقات بين العناصر
+&
+&
+\\[0.7cm]
+
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item هل كانت إجابة الذكاء الاصطناعي صحيحة؟
+
+ضع علامة:
+
+\begin{center}
+
+$\square$ نعم
+
+\hspace{2cm}
+
+$\square$ لا
+
+\hspace{2cm}
+
+$\square$ كانت صحيحة جزئيًا
+
+\end{center}
+
+
+
+\end{enumerate}
+
+
+%================================================
+% النشاط الثاني
+%================================================
+
+\section*{\khatt\underline{النشاط الثاني (واجب منزلي): تحويل النص إلى مخطط}}
+
+\textbf{يُنجز هذا النشاط في المنزل ويُسلَّم في الحصة القادمة.}
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item اختر فقرة قصيرة من إحدى موادك الدراسية.
+
+يفضل أن تحتوي الفقرة على عدة مفاهيم مرتبطة ببعضها.
+
+%------------------------------------------------
+
+\item أعط النص لأداة ذكاء اصطناعي واطلب منها
+تحويله إلى مخطط مفاهيمي.
+
+مثال:
+
+\begin{center}
+
+\textbf{
+``حوّل هذا النص إلى مخطط مفاهيمي بسيط يوضح
+العلاقة بين المفاهيم الرئيسية.''
+}
+
+\end{center}
+
+%------------------------------------------------
+
+\item اكتب الأمر الذي استعملته:
+
+
+%------------------------------------------------
+
+\item ارسم المخطط الذي اقترحته الأداة في المساحة التالية:
+
+\begin{center}
+
+\fbox{
+\parbox[c][5cm][c]{13cm}{
+\centering
+\textbf{ }
+}}
+
+\end{center}
+
+%------------------------------------------------
+
+\item هل يحتوي المخطط على أهم أفكار النص؟
+
+\begin{center}
+
+$\square$ نعم
+
+\hspace{2cm}
+
+$\square$ لا
+
+\hspace{2cm}
+
+$\square$ بعض الأفكار فقط
+
+\end{center}
+
+%------------------------------------------------
+
+\item هل توجد علاقة غير صحيحة بين بعض المفاهيم؟
+
+إذا نعم، اذكرها:
+
+
+
+%------------------------------------------------
+
+\item هل أضفت أو حذفت شيئًا من المخطط؟
+
+اشرح باختصار:
+
+
+
+\end{enumerate}
+
+
+\end{document}

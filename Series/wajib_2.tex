@@ -1,0 +1,325 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{3pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{
+    label=\arabic*),
+    itemsep=4pt,
+    topsep=3pt
+}
+
+\setlist[itemize]{
+    itemsep=2pt,
+    topsep=2pt
+}
+
+\arraycolsep=3pt
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\begin{center}
+
+{\Large\khatt\textbf{سلسلة تمارين رقم 2}}
+
+\vspace{0.15cm}
+
+{\Large\khatt\textbf{فهم كيفية تعلم الذكاء الاصطناعي}}
+
+\vspace{0.1cm}
+
+{\khatt\textbf{البيانات ـ التدريب ـ الاختبار}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\begin{center}
+{\khatt\textbf{الفصل 2: فهم كيفية تعلم الذكاء الاصطناعي}}
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+%================================================
+% النشاط الأول
+%================================================
+
+\section*{\khatt\underline{النشاط الأول: من البيانات إلى النموذج}}
+
+يعتمد تعلم الآلة على البيانات لاكتشاف الأنماط والعلاقات،
+ثم استعمال ما تعلمه النموذج لإنتاج توقعات أو تصنيفات جديدة.
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item اربط كل مفهوم بالتعريف المناسب:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\raggedleft\arraybackslash}m{4.2cm}|
+>{\raggedleft\arraybackslash}m{10cm}|}
+
+\hline
+\textbf{المفهوم} & \textbf{التعريف} \\
+
+\hline
+بيانات التدريب
+&
+البيانات التي يستعملها النموذج للتعلم واكتشاف الأنماط.
+\\
+\hline
+
+التدريب
+&
+عملية يتعلم خلالها النموذج من البيانات والعلاقات الموجودة فيها.
+\\
+\hline
+
+بيانات الاختبار
+&
+بيانات تستعمل لتقييم النموذج بعد تدريبه.
+\\
+\hline
+
+الانحياز الخوارزمي
+&
+إنتاج نتائج غير عادلة أو غير دقيقة بسبب مشكلات في البيانات
+أو طريقة تصميم الخوارزمية.
+\\
+\hline
+
+التمثيلات
+&
+الطريقة التي يتم بها تمثيل المعلومات داخل البيانات حتى يتمكن
+النظام من معالجتها.
+\\
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item لدينا مجموعة من الصور تحتوي على:
+
+\begin{itemize}
+
+    \item 500 صورة لهواتف ذكية.
+    \item 500 صورة لحواسيب محمولة.
+    \item 100 صورة لأجهزة لوحية.
+
+\end{itemize}
+
+يريد طالب تدريب نموذج يستطيع التمييز بين هذه الأجهزة.
+
+\begin{enumerate}
+
+    \item ما الذي يمكن اعتباره \textbf{بيانات التدريب}؟
+    
+    \item لماذا يجب أن تكون البيانات متنوعة وممثلة للحالات المختلفة؟
+    
+    \item ماذا يمكن أن يحدث إذا كانت أغلب الصور من نوع واحد فقط؟
+
+\end{enumerate}
+
+%------------------------------------------------
+
+\item بعد تدريب النموذج، استعمل الطالب صورًا جديدة لم يستعملها
+أثناء التدريب.
+
+\begin{enumerate}
+
+    \item ما الهدف من استعمال هذه الصور؟
+    
+    \item هل تعتبر هذه الصور بيانات تدريب أم بيانات اختبار؟
+    
+    \item ماذا يمكن أن نستنتج إذا كانت نتائج النموذج ضعيفة جدًا
+    على هذه الصور؟
+
+\end{enumerate}
+
+%------------------------------------------------
+
+\item أكمل السلسلة التالية:
+
+\begin{center}
+
+\textbf{
+البيانات
+$\leftarrow$
+التدريب
+$\leftarrow$
+النموذج
+$\leftarrow$
+الاختبار
+$\leftarrow$
+النتيجة
+}
+
+\end{center}
+
+اشرح باختصار دور كل مرحلة.
+
+\end{enumerate}
+
+%================================================
+% النشاط الثاني
+%================================================
+
+\section*{\khatt\underline{النشاط الثاني (واجب منزلي): اكتشاف الانحياز الخوارزمي}}
+
+\textbf{يُنجز هذا النشاط في المنزل ويُسلَّم في الحصة القادمة.}
+
+تؤثر جودة البيانات وطريقة تمثيلها في نتائج النموذج.
+وقد يؤدي نقص البيانات أو عدم تنوعها إلى نتائج غير عادلة
+أو غير دقيقة.
+
+\begin{enumerate}
+
+\item تخيل أن جامعة درّبت نظامًا للتعرف على صور الطلبة،
+لكن مجموعة التدريب تحتوي على صور لطلبة من فئة واحدة فقط.
+
+\begin{enumerate}
+
+    \item ما المشكلة المحتملة في بيانات التدريب؟
+    
+    \item ما نوع الانحياز الذي يمكن أن يظهر؟
+    
+    \item كيف يمكن تحسين مجموعة البيانات؟
+    
+\end{enumerate}
+
+%------------------------------------------------
+
+\item صنّف الحالات التالية إلى:
+
+\textbf{بيانات جيدة وممثلة} أو \textbf{بيانات غير ممثلة}.
+
+\begin{center}
+
+\begin{tabular}{|
+>{\raggedleft\arraybackslash}m{9.5cm}|
+>{\centering\arraybackslash}m{5cm}|}
+
+\hline
+\textbf{الحالة} & \textbf{التصنيف} \\
+
+\hline
+مجموعة صور تحتوي على أنواع وأحجام وإضاءات مختلفة.
+& \\[0.4cm]
+\hline
+
+تدريب نموذج على صور ملتقطة في ظروف إضاءة واحدة فقط.
+& \\[0.4cm]
+\hline
+
+استعمال بيانات تمثل مختلف الحالات التي سيواجهها النظام.
+& \\[0.4cm]
+\hline
+
+تدريب نظام على عينة صغيرة جدًا لا تمثل المستخدمين.
+& \\[0.4cm]
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item اذكر طريقتين يمكن من خلالهما تقليل خطر الانحياز
+الخوارزمي أثناء إعداد بيانات التدريب.
+
+%------------------------------------------------
+
+\item لماذا لا يكفي أن نقول:
+\begin{center}
+\textbf{``النموذج أعطى النتيجة، إذن النتيجة صحيحة.''}
+\end{center}
+
+علّل إجابتك.
+
+\end{enumerate}
+
+\newpage
+
+\end{document}

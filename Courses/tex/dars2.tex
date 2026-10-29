@@ -1,0 +1,396 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc}
+\usepackage[skins]{tcolorbox}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% الألوان: لون رئيسي هادئ + لون تنبيه فقط
+%------------------------------------------------
+
+\definecolor{asasi}{HTML}{3D6A8E}   % اللون الرئيسي: للرسوم والمخططات
+\definecolor{tanbih}{HTML}{C0603A}  % لون التنبيه: للتحذيرات والحالات السلبية
+\definecolor{ramadi}{HTML}{5F6B73}  % رمادي للنصوص الثانوية والأسهم
+\definecolor{dakin}{HTML}{263238}   % لون العناوين
+
+% أسماء قديمة تُحوَّل إلى اللونين فقط
+\colorlet{azraq}{asasi}
+\colorlet{fayruzi}{asasi}
+\colorlet{banafsaji}{asasi}
+\colorlet{akhdar}{asasi}
+\colorlet{ahmar}{tanbih}
+\colorlet{burtuqali}{asasi}
+
+%------------------------------------------------
+% الصناديق
+%------------------------------------------------
+
+\tcbset{
+    asl/.style={
+        enhanced,
+        arc=2mm,
+        boxrule=0.6pt,
+        colback=white,
+        colframe=black!18,
+        colbacktitle=black!5,
+        coltitle=dakin,
+        titlerule=0pt,
+        left=8pt, right=8pt, top=5pt, bottom=5pt,
+        fonttitle=\khatt\bfseries,
+        before skip=8pt, after skip=8pt
+    }
+}
+
+% أهداف الدرس
+\newtcolorbox{ahdaf}{asl, title={أهداف الدرس}}
+
+% تعريف (خط رئيسي رفيع على الجانب)
+\newtcolorbox{taarif}[1][تعريف]{asl, title={#1},
+    borderline east={2pt}{0pt}{asasi}}
+
+% مثال
+\newtcolorbox{mithal}[1][مثال]{asl, title={#1}}
+
+% تنبيه (اللون الوحيد البارز في النص)
+\newtcolorbox{intabih}[1][انتبه!]{asl, colback=tanbih!5, colframe=tanbih,
+    colbacktitle=tanbih, coltitle=white, title={#1}}
+
+% ركن أستاذ اللغة العربية
+\newtcolorbox{arabiyya}[1][في قسم اللغة العربية]{asl, title={#1}}
+
+% نص أمر يكتب للأداة
+\newtcolorbox{amr}[1][ramadi]{enhanced, arc=1mm, boxrule=0pt,
+    colback=black!4, borderline east={2.5pt}{0pt}{#1},
+    left=8pt, right=10pt, top=4pt, bottom=4pt,
+    before skip=6pt, after skip=6pt}
+
+% الخلاصة
+\newtcolorbox{khulasa}{asl, title={خلاصة الدرس}}
+
+% عنوان القسم
+\newcounter{qism}
+\newcommand{\qism}[1]{%
+    \stepcounter{qism}%
+    \par\bigskip
+    {\large\khatt\bfseries{\color{asasi}\arabic{qism}.}\ {\color{dakin}#1}}\par
+    \vspace{-2pt}{\color{black!20}\rule{\linewidth}{0.6pt}}\par\nopagebreak[4]
+    \smallskip}
+
+% عنوان فرعي
+\newcommand{\far}[1]{\par\smallskip
+    {\color{dakin}\khatt\bfseries {\color{asasi}$\blacktriangleleft$}\ #1}\par\nopagebreak[4]}
+
+% كلمة مهمة (خط عريض فقط)
+\newcommand{\kalima}[2][]{\textbf{#2}}
+
+%------------------------------------------------
+% أنماط الرسوم
+%------------------------------------------------
+
+\newcommand{\nodecolor}{}
+
+\tikzset{
+    % كتابة النص العربي من اليمين إلى اليسار داخل العقد
+    % (لون النص يُعطى بالمفتاح lawn=... وليس text=...)
+    every node/.append style={
+        execute at begin node={\nodecolor\everypar{\beginR}\beginR},
+        execute at end node=\endR},
+    lawn/.code={\def\nodecolor{\color{#1}}},
+    khatwa/.style={draw=#1, fill=#1!12, very thick, rounded corners=6pt,
+        minimum height=1.2cm, text width=2.3cm, align=center,
+        font=\khatt\bfseries},
+    khatwa/.default=azraq,
+    sahm/.style={-{Stealth[length=3mm]}, very thick, color=ramadi},
+    raqm/.style={circle, fill=#1, lawn=white, inner sep=2pt,
+        font=\small\bfseries},
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{4pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\arabic*), itemsep=2pt, topsep=3pt}
+\setlist[itemize]{itemsep=2pt, topsep=3pt}
+
+% الجداول
+\arrayrulecolor{black!22}
+\renewcommand{\arraystretch}{1.35}
+
+% رأس جدول ملون
+\newcommand{\ras}[1]{\cellcolor{black!7}\color{dakin}\bfseries #1}
+
+% عنوان الدرس
+\newcommand{\unwan}[3]{%
+    \begin{center}
+        {\color{asasi}\rule{\linewidth}{1.2pt}}\par\medskip
+        {\khatt\color{ramadi} #1}\par\smallskip
+        {\Large\khatt\bfseries\color{dakin} #2}\par\smallskip
+        {\khatt\color{ramadi} #3}\par\medskip
+        {\color{asasi}\rule{\linewidth}{1.2pt}}
+    \end{center}}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\unwan{درس الفصل الثاني}
+{كيف يتعلم الذكاء الاصطناعي؟}
+{البيانات ــ التدريب ــ الاختبار}
+
+\begin{ahdaf}
+في نهاية هذا الدرس، تستطيع أن:
+\begin{itemize}
+    \item تشرح مراحل تعلم الآلة: من البيانات إلى النتيجة.
+    \item تفرّق بين بيانات التدريب وبيانات الاختبار.
+    \item تفهم لماذا يجب أن تكون البيانات متنوعة.
+    \item تتعرف على الانحياز الخوارزمي وطرق التقليل منه.
+\end{itemize}
+\end{ahdaf}
+
+%================================================
+\qism{التلميذ والآلة: تشبيه بسيط}
+%================================================
+
+كيف يتعلم التلميذ الإعراب؟
+يقرأ الأستاذ معه أمثلة كثيرة مُعرَبة، فيلاحظ التلميذ القاعدة.
+ثم يعطيه الأستاذ جملًا جديدة ليتأكد أنه فهم فعلًا.
+
+الآلة تتعلم بطريقة قريبة من هذه.
+تأخذ أمثلة كثيرة، وتكتشف فيها \kalima{الأنماط}، أي الأشياء التي تتكرر.
+
+\begin{center}
+\begin{tikzpicture}[
+    t/.style={draw=#1, fill=#1!10, thick, rounded corners=5pt,
+        text width=5.6cm, align=center, minimum height=1cm}]
+    \node[font=\khatt\bfseries, lawn=ramadi] at (3.4,1) {التلميذ};
+    \node[font=\khatt\bfseries, lawn=azraq]     at (-3.4,1) {الآلة};
+    \node[t=ramadi] (t1) at (3.4,0)    {يقرأ أمثلة مُعرَبة};
+    \node[t=ramadi] (t2) at (3.4,-1.4) {يلاحظ القاعدة};
+    \node[t=ramadi] (t3) at (3.4,-2.8) {يُعرب جملًا جديدة};
+    \node[t=azraq] (a1) at (-3.4,0)    {تأخذ بيانات التدريب};
+    \node[t=azraq] (a2) at (-3.4,-1.4) {تكتشف الأنماط};
+    \node[t=azraq] (a3) at (-3.4,-2.8) {تُختبر ببيانات جديدة};
+    \draw[sahm] (t1)--(t2); \draw[sahm] (t2)--(t3);
+    \draw[sahm] (a1)--(a2); \draw[sahm] (a2)--(a3);
+    \foreach \i in {1,2,3}
+        \draw[dashed, thick, ramadi!60] (t\i) -- (a\i);
+\end{tikzpicture}
+\end{center}
+
+%================================================
+\qism{مراحل التعلم}
+%================================================
+
+يمر تعلم الآلة بخمس مراحل متتابعة:
+
+\begin{center}
+\begin{tikzpicture}[node distance=5mm]
+    \node[khatwa=azraq, text width=2cm]      (a) {البيانات};
+    \node[khatwa=fayruzi, text width=2cm, left=of a]   (b) {التدريب};
+    \node[khatwa=banafsaji, text width=2cm, left=of b] (c) {النموذج};
+    \node[khatwa=burtuqali, text width=2cm, left=of c] (d) {الاختبار};
+    \node[khatwa=akhdar, text width=2cm, left=of d]    (e) {النتيجة};
+    \draw[sahm] (a)--(b); \draw[sahm] (b)--(c);
+    \draw[sahm] (c)--(d); \draw[sahm] (d)--(e);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\rowcolors{2}{black!3}{white}
+\begin{tabular}{>{\centering\arraybackslash}m{2.6cm}
+                >{\raggedleft\arraybackslash}m{11.5cm}}
+\hline
+\ras{المرحلة} & \ras{دورها} \\
+\hline
+\kalima{البيانات}      & أمثلة كثيرة: نصوص أو صور أو أصوات. \\
+\kalima[fayruzi]{التدريب}  & يتعلم النظام من البيانات، ويكتشف العلاقات بينها. \\
+\kalima[banafsaji]{النموذج} & هو ما ينتج عن التدريب: برنامج «تعلّم» القاعدة. \\
+\kalima[burtuqali]{الاختبار} & نجرب النموذج على أمثلة جديدة لم يرها من قبل. \\
+\kalima[akhdar]{النتيجة}   & توقع أو تصنيف أو إجابة يقدمها النموذج. \\
+\hline
+\end{tabular}
+\end{center}
+
+%================================================
+\qism{بيانات التدريب وبيانات الاختبار}
+%================================================
+
+\begin{taarif}
+\textbf{بيانات التدريب:} البيانات التي يتعلم منها النموذج ويكتشف فيها الأنماط.
+
+\textbf{بيانات الاختبار:} بيانات جديدة نستعملها لتقييم النموذج بعد تدريبه.
+\end{taarif}
+
+نقسم البيانات عادة إلى جزأين: جزء كبير للتدريب، وجزء صغير للاختبار.
+
+\begin{center}
+\begin{tikzpicture}
+    \fill[azraq!70, rounded corners=3pt] (0,0) rectangle (-11.2,1);
+    \fill[asasi!45, rounded corners=3pt] (-11.2,0) rectangle (-14,1);
+    \node[lawn=white, font=\khatt\bfseries] at (-5.6,0.5)
+        {بيانات التدريب (80\%)};
+    \node[lawn=white, font=\khatt\bfseries] at (-12.6,0.5)
+        {الاختبار (20\%)};
+\end{tikzpicture}
+\end{center}
+
+\begin{intabih}[لماذا لا نختبر بالأمثلة نفسها؟]
+لو اختبر الأستاذ التلميذ بالجمل نفسها التي شرحها في القسم،
+فقد يجيب التلميذ من الذاكرة لا من الفهم.
+كذلك النموذج: نختبره ببيانات جديدة لنعرف هل \textbf{فهم} حقًا.
+\end{intabih}
+
+%================================================
+\qism{تنوع البيانات}
+%================================================
+
+يتعلم النموذج ممّا يراه فقط.
+إذا كانت البيانات ناقصة أو غير متوازنة، كان التعلم ناقصًا.
+
+\begin{mithal}
+لدينا 500 صورة لهواتف، و500 صورة لحواسيب، و100 صورة فقط لألواح رقمية.
+\end{mithal}
+
+\begin{center}
+\begin{tikzpicture}[y=0.006cm]
+    \draw[thick, ramadi] (0.5,0) -- (-8.5,0);
+    \fill[azraq!70]     (0,0)  rectangle (-2,500);
+    \fill[fayruzi!70]   (-3,0) rectangle (-5,500);
+    \fill[ahmar!70]     (-6,0) rectangle (-8,100);
+    \node[above, font=\bfseries] at (-1,500) {500};
+    \node[above, font=\bfseries] at (-4,500) {500};
+    \node[above, font=\bfseries] at (-7,100) {100};
+    \node[below, font=\khatt] at (-1,0) {هواتف};
+    \node[below, font=\khatt] at (-4,0) {حواسيب};
+    \node[below, font=\khatt] at (-7,0) {ألواح رقمية};
+\end{tikzpicture}
+\end{center}
+
+صور الألواح الرقمية قليلة جدًا.
+لذلك سيخطئ النموذج كثيرًا عندما يرى لوحًا رقميًا جديدًا.
+نقول إن هذه البيانات \kalima[ahmar]{غير ممثِّلة}.
+
+\begin{taarif}[البيانات الجيدة]
+البيانات الجيدة \textbf{متنوعة} و\textbf{ممثِّلة}:
+تغطي مختلف الحالات التي سيواجهها النظام في الواقع.
+\end{taarif}
+
+%================================================
+\qism{الانحياز الخوارزمي}
+%================================================
+
+\begin{taarif}
+\textbf{الانحياز الخوارزمي} نتائج غير عادلة أو غير دقيقة،
+سببها مشكلة في البيانات أو في طريقة تصميم النظام.
+\end{taarif}
+
+\begin{center}
+\begin{tikzpicture}[node distance=9mm]
+    \node[khatwa=ahmar, text width=3.2cm] (a) {بيانات ناقصة\\أو من فئة واحدة};
+    \node[khatwa=burtuqali, text width=3.2cm, left=of a] (b) {نموذج تعلّم\\صورة ناقصة};
+    \node[khatwa=banafsaji, text width=3.2cm, left=of b] (c) {نتائج منحازة\\وغير عادلة};
+    \draw[sahm] (a)--(b); \draw[sahm] (b)--(c);
+\end{tikzpicture}
+\end{center}
+
+\begin{arabiyya}[مثال من قسم اللغة العربية]
+نموذج لتصحيح الأخطاء تدرّب على نصوص صحفية حديثة فقط.
+عندما نعطيه بيتًا من الشعر الجاهلي، قد يعدّ بعض الكلمات الفصيحة القديمة أخطاءً.
+السبب: لم يرَ هذا النوع من النصوص أثناء التدريب.
+\end{arabiyya}
+
+\far{كيف نقلل الانحياز؟}
+\begin{itemize}
+    \item نجمع بيانات \textbf{متنوعة} تمثل جميع الفئات والحالات.
+    \item نوازن بين عدد الأمثلة في كل فئة.
+    \item نختبر النموذج على حالات مختلفة، ونراجع أخطاءه.
+\end{itemize}
+
+\begin{intabih}
+لا يكفي أن نقول: «النموذج أعطى النتيجة، إذن هي صحيحة».
+النموذج يعكس البيانات التي تعلّم منها، بما فيها من نقص.
+\end{intabih}
+
+\begin{khulasa}
+\begin{itemize}
+    \item تتعلم الآلة من \textbf{البيانات}، كما يتعلم التلميذ من الأمثلة.
+    \item المراحل: البيانات $\leftarrow$ التدريب $\leftarrow$ النموذج
+          $\leftarrow$ الاختبار $\leftarrow$ النتيجة.
+    \item نختبر النموذج دائمًا ببيانات \textbf{جديدة} لم يرها.
+    \item البيانات الناقصة تؤدي إلى \textbf{الانحياز}، فنحتاج بيانات متنوعة وممثِّلة.
+\end{itemize}
+\end{khulasa}
+
+\end{document}

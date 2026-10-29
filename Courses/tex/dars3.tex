@@ -1,0 +1,395 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc}
+\usepackage[skins]{tcolorbox}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% الألوان: لون رئيسي هادئ + لون تنبيه فقط
+%------------------------------------------------
+
+\definecolor{asasi}{HTML}{3D6A8E}   % اللون الرئيسي: للرسوم والمخططات
+\definecolor{tanbih}{HTML}{C0603A}  % لون التنبيه: للتحذيرات والحالات السلبية
+\definecolor{ramadi}{HTML}{5F6B73}  % رمادي للنصوص الثانوية والأسهم
+\definecolor{dakin}{HTML}{263238}   % لون العناوين
+
+% أسماء قديمة تُحوَّل إلى اللونين فقط
+\colorlet{azraq}{asasi}
+\colorlet{fayruzi}{asasi}
+\colorlet{banafsaji}{asasi}
+\colorlet{akhdar}{asasi}
+\colorlet{ahmar}{tanbih}
+\colorlet{burtuqali}{asasi}
+
+%------------------------------------------------
+% الصناديق
+%------------------------------------------------
+
+\tcbset{
+    asl/.style={
+        enhanced,
+        arc=2mm,
+        boxrule=0.6pt,
+        colback=white,
+        colframe=black!18,
+        colbacktitle=black!5,
+        coltitle=dakin,
+        titlerule=0pt,
+        left=8pt, right=8pt, top=5pt, bottom=5pt,
+        fonttitle=\khatt\bfseries,
+        before skip=8pt, after skip=8pt
+    }
+}
+
+% أهداف الدرس
+\newtcolorbox{ahdaf}{asl, title={أهداف الدرس}}
+
+% تعريف (خط رئيسي رفيع على الجانب)
+\newtcolorbox{taarif}[1][تعريف]{asl, title={#1},
+    borderline east={2pt}{0pt}{asasi}}
+
+% مثال
+\newtcolorbox{mithal}[1][مثال]{asl, title={#1}}
+
+% تنبيه (اللون الوحيد البارز في النص)
+\newtcolorbox{intabih}[1][انتبه!]{asl, colback=tanbih!5, colframe=tanbih,
+    colbacktitle=tanbih, coltitle=white, title={#1}}
+
+% ركن أستاذ اللغة العربية
+\newtcolorbox{arabiyya}[1][في قسم اللغة العربية]{asl, title={#1}}
+
+% نص أمر يكتب للأداة
+\newtcolorbox{amr}[1][ramadi]{enhanced, arc=1mm, boxrule=0pt,
+    colback=black!4, borderline east={2.5pt}{0pt}{#1},
+    left=8pt, right=10pt, top=4pt, bottom=4pt,
+    before skip=6pt, after skip=6pt}
+
+% الخلاصة
+\newtcolorbox{khulasa}{asl, title={خلاصة الدرس}}
+
+% عنوان القسم
+\newcounter{qism}
+\newcommand{\qism}[1]{%
+    \stepcounter{qism}%
+    \par\bigskip
+    {\large\khatt\bfseries{\color{asasi}\arabic{qism}.}\ {\color{dakin}#1}}\par
+    \vspace{-2pt}{\color{black!20}\rule{\linewidth}{0.6pt}}\par\nopagebreak[4]
+    \smallskip}
+
+% عنوان فرعي
+\newcommand{\far}[1]{\par\smallskip
+    {\color{dakin}\khatt\bfseries {\color{asasi}$\blacktriangleleft$}\ #1}\par\nopagebreak[4]}
+
+% كلمة مهمة (خط عريض فقط)
+\newcommand{\kalima}[2][]{\textbf{#2}}
+
+%------------------------------------------------
+% أنماط الرسوم
+%------------------------------------------------
+
+\newcommand{\nodecolor}{}
+
+\tikzset{
+    % كتابة النص العربي من اليمين إلى اليسار داخل العقد
+    % (لون النص يُعطى بالمفتاح lawn=... وليس text=...)
+    every node/.append style={
+        execute at begin node={\nodecolor\everypar{\beginR}\beginR},
+        execute at end node=\endR},
+    lawn/.code={\def\nodecolor{\color{#1}}},
+    khatwa/.style={draw=#1, fill=#1!12, very thick, rounded corners=6pt,
+        minimum height=1.2cm, text width=2.3cm, align=center,
+        font=\khatt\bfseries},
+    khatwa/.default=azraq,
+    sahm/.style={-{Stealth[length=3mm]}, very thick, color=ramadi},
+    raqm/.style={circle, fill=#1, lawn=white, inner sep=2pt,
+        font=\small\bfseries},
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{4pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\arabic*), itemsep=2pt, topsep=3pt}
+\setlist[itemize]{itemsep=2pt, topsep=3pt}
+
+% الجداول
+\arrayrulecolor{black!22}
+\renewcommand{\arraystretch}{1.35}
+
+% رأس جدول ملون
+\newcommand{\ras}[1]{\cellcolor{black!7}\color{dakin}\bfseries #1}
+
+% عنوان الدرس
+\newcommand{\unwan}[3]{%
+    \begin{center}
+        {\color{asasi}\rule{\linewidth}{1.2pt}}\par\medskip
+        {\khatt\color{ramadi} #1}\par\smallskip
+        {\Large\khatt\bfseries\color{dakin} #2}\par\smallskip
+        {\khatt\color{ramadi} #3}\par\medskip
+        {\color{asasi}\rule{\linewidth}{1.2pt}}
+    \end{center}}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\unwan{درس الفصل الثالث}
+{التفاعل الفعّال مع الذكاء الاصطناعي}
+{مبادئ هندسة الأوامر \textenglish{(Prompt Engineering)}}
+
+\begin{ahdaf}
+في نهاية هذا الدرس، تستطيع أن:
+\begin{itemize}
+    \item تعرّف الأمر وهندسة الأوامر.
+    \item تذكر العناصر الخمسة للأمر الجيد.
+    \item تحوّل أمرًا عامًا إلى أمر دقيق خطوة بخطوة.
+    \item تستخرج عناصر أي أمر مكتوب.
+\end{itemize}
+\end{ahdaf}
+
+%================================================
+\qism{وضعية للتفكير}
+%================================================
+
+كتب طالبان طلبًا في الموضوع نفسه:
+
+\begin{amr}[ahmar]
+\textbf{الطالب الأول:} أعطني خطة للمراجعة.
+\end{amr}
+
+\begin{amr}[akhdar]
+\textbf{الطالب الثاني:} تصرّف كمساعد أكاديمي.
+أنشئ خطة مراجعة لمادة النحو مدتها 7 أيام، بمعدل ساعتين يوميًا.
+حدّد موضوع كل يوم، وأضف تمرينًا قصيرًا، ونظّم الخطة في جدول.
+\end{amr}
+
+الطالب الثاني سيحصل على إجابة أفضل بكثير.
+لماذا؟ لأنه \kalima{أعطى الأداة كل ما تحتاجه} لتفهم طلبه.
+
+%================================================
+\qism{ما هندسة الأوامر؟}
+%================================================
+
+\begin{taarif}
+\textbf{الأمر} \textenglish{(Prompt)}: النص الذي نكتبه للأداة لنطلب منها شيئًا.
+
+\textbf{هندسة الأوامر}: مهارة كتابة أوامر واضحة ومنظمة،
+للحصول على أفضل إجابة ممكنة.
+\end{taarif}
+
+الأداة لا تعرف ما في ذهنك.
+هي تعرف فقط ما تكتبه لها، لذلك يجب أن يكون الأمر واضحًا وكاملًا.
+
+%================================================
+\qism{العناصر الخمسة للأمر الجيد}
+%================================================
+
+\begin{center}
+\begin{tikzpicture}[
+    unsur/.style={draw=#1, fill=#1!12, very thick, circle,
+        minimum size=2.4cm, align=center, font=\khatt\bfseries}]
+    \node[draw=azraq, fill=azraq!20, ultra thick, rounded corners=8pt,
+        minimum width=3cm, minimum height=1.3cm,
+        font=\khatt\bfseries\large] (m) {الأمر الجيد};
+    \node[unsur=azraq]     (r) at (90:3.3)   {الدور};
+    \node[unsur=akhdar]    (t) at (18:3.6)   {المهمة};
+    \node[unsur=burtuqali] (s) at (-54:3.4)  {السياق};
+    \node[unsur=asasi]     (q) at (-126:3.4) {القيود};
+    \node[unsur=banafsaji] (f) at (162:3.6)  {التنسيق};
+    \foreach \x in {r,t,s,q,f} \draw[very thick, ramadi] (m) -- (\x);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tabular}{>{\centering\arraybackslash}m{2.2cm}
+                >{\raggedleft\arraybackslash}m{6.2cm}
+                >{\raggedleft\arraybackslash}m{5.6cm}}
+\hline
+\ras{العنصر} & \ras{السؤال الذي يجيب عنه} & \ras{مثال} \\
+\hline
+\kalima{الدور}            & من تكون الأداة؟ أي خبرة تعتمد؟ & تصرّف كأستاذ لغة عربية. \\
+\hline
+\kalima[akhdar]{المهمة}    & ماذا نريد أن تفعل الأداة؟ & اشرح درس الحال. \\
+\hline
+\kalima[burtuqali]{السياق} & ما المعلومات التي تساعدها على الفهم؟ & التلاميذ في السنة الثانية متوسط. \\
+\hline
+\kalima[ahmar]{القيود}     & ما الشروط التي يجب احترامها؟ & في 150 كلمة، بلغة بسيطة. \\
+\hline
+\kalima[banafsaji]{التنسيق} & كيف نريد شكل الإجابة؟ & تعريف، ثم أمثلة، ثم خلاصة. \\
+\hline
+\end{tabular}
+\end{center}
+
+%================================================
+\qism{بناء الأمر خطوة بخطوة}
+%================================================
+
+نبدأ بأمر بسيط، ثم نضيف عنصرًا في كل مرة.
+لاحظ كيف يصبح الأمر أدق في كل درجة:
+
+\begin{center}
+\begin{tikzpicture}[
+    daraja/.style={draw=#1, fill=#1!12, very thick, rounded corners=4pt,
+        minimum height=0.9cm, align=center, font=\khatt\bfseries}]
+    \node[daraja=ahmar,     minimum width=3cm, anchor=south east] at (0,0)      {أمر عام};
+    \node[daraja=burtuqali, minimum width=3cm, anchor=south east] at (-3.2,0.9) {+ السياق};
+    \node[daraja=fayruzi,   minimum width=3cm, anchor=south east] at (-6.4,1.8) {+ المهمة والقيود};
+    \node[daraja=akhdar,    minimum width=3cm, anchor=south east] at (-9.6,2.7) {+ التنسيق};
+    \draw[sahm, azraq] (-0.3,1.3) -- (-11.5,4.3)
+        node[pos=0.4, above, sloped, font=\khatt\bfseries, lawn=azraq] {جودة أفضل};
+\end{tikzpicture}
+\end{center}
+
+\far{الدرجة 1: أمر عام}
+\begin{amr}[ahmar]
+اشرح الحال.
+\end{amr}
+
+\far{الدرجة 2: نضيف السياق}
+\begin{amr}[ramadi]
+أنا أستاذ متربص. تلاميذي في السنة الثانية متوسط.
+اشرح لي درس الحال.
+\end{amr}
+
+\far{الدرجة 3: نضيف المهمة والقيود}
+\begin{amr}[asasi]
+أنا أستاذ متربص. تلاميذي في السنة الثانية متوسط.
+اشرح درس الحال في 150 كلمة، بلغة بسيطة، مع مثالين من الحياة اليومية.
+\end{amr}
+
+\far{الدرجة 4: نضيف التنسيق}
+\begin{amr}[akhdar]
+أنا أستاذ متربص. تلاميذي في السنة الثانية متوسط.
+اشرح درس الحال في 150 كلمة، بلغة بسيطة، مع مثالين من الحياة اليومية.
+نظّم الإجابة في ثلاثة أجزاء: تعريف، أمثلة، خلاصة.
+\end{amr}
+
+%================================================
+\qism{كيف نقرأ أمرًا ونستخرج عناصره؟}
+%================================================
+
+نقسم الأمر إلى أجزاء، ونحدد العنصر الذي يمثله كل جزء:
+
+\begin{amr}[asasi]
+تصرّف كأستاذ جامعي في البلاغة.
+اشرح مفهوم التشبيه لطالب في السنة الأولى، في أقل من 200 كلمة،
+مع جدول يبيّن أركان التشبيه.
+\end{amr}
+
+\begin{center}
+\begin{tabular}{>{\raggedleft\arraybackslash}m{8cm}
+                >{\centering\arraybackslash}m{3cm}}
+\hline
+\ras{الجزء من الأمر} & \ras{العنصر} \\
+\hline
+تصرّف كأستاذ جامعي في البلاغة.  & الدور \\ \hline
+اشرح مفهوم التشبيه              & المهمة \\ \hline
+لطالب في السنة الأولى           & السياق \\ \hline
+في أقل من 200 كلمة              & القيود \\ \hline
+مع جدول يبيّن أركان التشبيه     & التنسيق \\ \hline
+\end{tabular}
+\end{center}
+
+%================================================
+\qism{أخطاء شائعة}
+%================================================
+
+\begin{intabih}
+\begin{itemize}
+    \item \textbf{أمر قصير جدًا:} «اشرح البلاغة» لا يحدد المستوى ولا الهدف.
+    \item \textbf{أمر غامض:} «اكتب شيئًا جميلًا» لا يحدد ما المطلوب.
+    \item \textbf{عدة مهام مختلطة:} الأفضل أن نقسم المهام الكبيرة إلى أوامر متتابعة.
+    \item \textbf{قبول أول إجابة:} يمكن دائمًا أن نعدّل الأمر ونعيد المحاولة.
+\end{itemize}
+\end{intabih}
+
+\begin{arabiyya}[أوامر مفيدة لأستاذ اللغة العربية]
+\begin{itemize}
+    \item اقترح عشر جمل فيها مفعول لأجله، لتلاميذ السنة الثالثة متوسط.
+    \item حوّل هذه الأبيات إلى نثر بسيط، دون تغيير المعنى.
+    \item أنشئ خمسة أسئلة فهم حول النص الآتي، مع الإجابات.
+\end{itemize}
+\end{arabiyya}
+
+\begin{khulasa}
+\begin{itemize}
+    \item \textbf{الأمر الجيد} يعطي الأداة كل ما تحتاجه لتفهم الطلب.
+    \item عناصره الخمسة: \kalima{الدور}، \kalima[akhdar]{المهمة}،
+          \kalima[burtuqali]{السياق}، \kalima[ahmar]{القيود}، \kalima[banafsaji]{التنسيق}.
+    \item نبني الأمر \textbf{تدريجيًا}، ونحسّنه بعد قراءة الإجابة.
+\end{itemize}
+\end{khulasa}
+
+\end{document}

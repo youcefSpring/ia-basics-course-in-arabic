@@ -1,0 +1,152 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{الأخلاقيات في الذكاء الاصطناعي}
+
+\begin{document}
+
+\cover{درس الفصل الرابع}
+{الأخلاقيات في الذكاء الاصطناعي}
+{المسؤولية ــ الشفافية ــ الإفصاح ــ الأمانة العلمية}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تعرّف المسؤولية والشفافية والإفصاح.
+            \item تميّز بين الاستعمال المقبول والاستعمال المرفوض.
+            \item تعرّف الانتحال العلمي والانتحال بالذكاء الاصطناعي.
+            \item تكتب جملة إفصاح بسيطة في عملك.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{لماذا نتحدث عن الأخلاقيات؟}
+    الذكاء الاصطناعي أداة قوية وسريعة، لكن الأداة لا تقرر وحدها كيف نستعملها.
+
+    \vspace{3mm}
+    \begin{tbox}{\faUserCheck\quad الإنسان هو الذي يختار}
+        يستعمل الأداة بأمانة، أو يستعملها للغش.\\[3pt]
+        وأستاذ المستقبل \textbf{قدوة} لتلاميذه، فسلوكه مع هذه الأدوات درس في حد ذاته.
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{ثلاثة مبادئ أساسية}
+    \begin{center}
+    \begin{tikzpicture}[
+        amud/.style={draw=brandTeal, fill=brandTeal!12, very thick,
+            minimum width=3.4cm, minimum height=2.3cm,
+            text width=3.1cm, align=center}]
+        \fill[brandOrange] (-6,1.9) -- (6,1.9) -- (0,3.1) -- cycle;
+        \node[lawn=white, font=\khatt\bfseries] at (0,2.3) {الاستعمال الأخلاقي};
+        \node[amud] at (4,0.55)
+            {{\khatt\bfseries المسؤولية}\\[3pt]\small أنا مسؤول عمّا أقدّمه};
+        \node[amud] at (0,0.55)
+            {{\khatt\bfseries الشفافية}\\[3pt]\small أوضّح كيف استعملت الأداة};
+        \node[amud] at (-4,0.55)
+            {{\khatt\bfseries الإفصاح}\\[3pt]\small أصرّح باستعمالها};
+        \fill[brandMuted!70] (-6,-0.75) rectangle (6,-1.1);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{تعريف المبادئ}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{المسؤولية:} المستخدم مسؤول عن استعمال الأداة، وعن كل معلومة يعتمد عليها.\\[2pt]
+        \textbf{الشفافية:} توضيح طريقة استعمال الذكاء الاصطناعي عند الحاجة.\\[2pt]
+        \textbf{الإفصاح:} التصريح باستعمال الأداة عندما يكون ذلك مطلوبًا أو مناسبًا.
+    \end{tbox}
+    \begin{obox}{\faExclamationTriangle\quad انتبه!}
+        الاستعانة بالذكاء الاصطناعي \textbf{لا تنقل المسؤولية} إلى الأداة.
+        إذا قدّمت معلومة خاطئة، فأنت المسؤول عنها، لا الأداة.
+    \end{obox}
+\end{frame}
+
+\begin{frame}{الانتحال العلمي}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{الانتحال العلمي:} أن ينسب الشخص إلى نفسه عملًا أو أفكارًا ليست له،
+        دون ذكر مصدرها.\\[3pt]
+        \textbf{الانتحال بالذكاء الاصطناعي} \textenglish{(AI-Plagiarism)}:
+        أن ينسخ الطالب نصًا أنتجته الأداة، ويقدمه على أنه عمله الشخصي.
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{حالة للتحليل}
+    \begin{obox}{\faExclamationTriangle\quad حالة}
+        نسخ طالب بحثًا كاملًا من أداة ذكاء اصطناعي، ثم كتب اسمه عليه وقدّمه للأستاذ.
+    \end{obox}
+    هذا \textbf{انتحال}، لأن:
+    \begin{itemize}
+        \item العمل ليس عمله.
+        \item لم يتحقق من صحته.
+        \item لم يصرّح بمصدره.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{مقياس الاستعمال: من المقبول إلى المرفوض}
+    \vspace*{-2mm}
+    \begin{center}
+    \begin{tikzpicture}
+        \shade[left color=brandOrange, right color=brandTeal, rounded corners=3pt]
+            (-6,0) rectangle (6,0.4);
+        \node[font=\khatt\bfseries, lawn=tealDeep] at (5,0.75)  {مقبول};
+        \node[font=\khatt\bfseries, lawn=brandMuted] at (0,0.75) {مقبول بشروط};
+        \node[font=\khatt\bfseries, lawn=brandOrange] at (-5,0.75) {مرفوض};
+    \end{tikzpicture}
+    \end{center}
+    \small\renewcommand{\arraystretch}{1.15}
+    \begin{tabularx}{\textwidth}{|R|>{\centering\arraybackslash}p{3.2cm}|}
+        \hline
+        \ras{الاستعمال} & \ras{الموقف الأخلاقي} \\ \hline
+        استعمال الأداة لفهم قاعدة نحوية صعبة.
+            & \cell{tealDeep}{\textbf{مقبول}} \\ \hline
+        طلب أفكار من الأداة، ثم كتابة الإجابة بنفسي.
+            & \cell{tealDeep}{\textbf{مقبول}} \\ \hline
+        إنشاء مسودة بالأداة، ثم مراجعتها والتحقق منها والإفصاح.
+            & \cell{brandMuted}{\textbf{مقبول بشروط}} \\ \hline
+        الاعتماد على معلومات الأداة دون التحقق منها.
+            & \cell{brandOrange}{\textbf{غير مسؤول}} \\ \hline
+        نسخ إجابة كاملة وتقديمها باسمي.
+            & \cell{brandOrange}{\textbf{انتحال مرفوض}} \\ \hline
+    \end{tabularx}
+\end{frame}
+
+\begin{frame}{كيف أكتب جملة إفصاح؟}
+    جملة الإفصاح قصيرة وصادقة. نضعها في آخر البحث أو في مقدمته.
+    \begin{amr}[brandTeal]
+        \textbf{نموذج:} استعملتُ أداة \textenglish{ChatGPT} لتنظيم أفكار الفصل الثاني
+        واقتراح خطة أولية. راجعتُ كل المعلومات وتحققت منها في المصادر المذكورة،
+        والصياغة النهائية من عملي.
+    \end{amr}
+    \begin{tbox}{\faChalkboardTeacher\quad لتلاميذك}
+        علّمهم هذه القاعدة البسيطة:
+        «الأداة تساعدني على التفكير، ولا تفكر بدلًا مني».
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{قواعد ذهبية للاستعمال الأخلاقي}
+    \begin{center}
+    \begin{tikzpicture}[
+        qaida/.style={draw=brandTeal, fill=brandTeal!10, thick, rounded corners=4pt,
+            text width=10cm, align=right, minimum height=0.85cm, inner sep=5pt}]
+        \node[qaida] (q1) at (0,0)     {أتحقق من كل معلومة مهمة قبل استعمالها.};
+        \node[qaida] (q2) at (0,-1.05) {أكتب العمل النهائي بأسلوبي وأفكاري.};
+        \node[qaida] (q3) at (0,-2.1)  {أصرّح باستعمال الأداة عندما يكون ذلك مطلوبًا.};
+        \node[qaida] (q4) at (0,-3.15) {أحترم قوانين المؤسسة وتعليمات الأستاذ.};
+        \foreach \i in {1,...,4}
+            \node[raqm=brandOrange, minimum size=0.6cm] at ($(q\i.east)+(0.5,0)$) {\i};
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item المبادئ الثلاثة: \textbf{المسؤولية}، \textbf{الشفافية}، \textbf{الإفصاح}.
+            \item الأداة لا تتحمل المسؤولية؛ \textbf{المستخدم} هو المسؤول.
+            \item نسخ عمل الأداة وتقديمه باسمي \textbf{انتحال}.
+            \item الاستعمال الجيد: أفهم، أتحقق، أكتب بنفسي، وأصرّح.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,358 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc}
+\usepackage[skins]{tcolorbox}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% الألوان: لون رئيسي هادئ + لون تنبيه فقط
+%------------------------------------------------
+
+\definecolor{asasi}{HTML}{3D6A8E}   % اللون الرئيسي: للرسوم والمخططات
+\definecolor{tanbih}{HTML}{C0603A}  % لون التنبيه: للتحذيرات والحالات السلبية
+\definecolor{ramadi}{HTML}{5F6B73}  % رمادي للنصوص الثانوية والأسهم
+\definecolor{dakin}{HTML}{263238}   % لون العناوين
+
+% أسماء قديمة تُحوَّل إلى اللونين فقط
+\colorlet{azraq}{asasi}
+\colorlet{fayruzi}{asasi}
+\colorlet{banafsaji}{asasi}
+\colorlet{akhdar}{asasi}
+\colorlet{ahmar}{tanbih}
+\colorlet{burtuqali}{asasi}
+
+%------------------------------------------------
+% الصناديق
+%------------------------------------------------
+
+\tcbset{
+    asl/.style={
+        enhanced,
+        arc=2mm,
+        boxrule=0.6pt,
+        colback=white,
+        colframe=black!18,
+        colbacktitle=black!5,
+        coltitle=dakin,
+        titlerule=0pt,
+        left=8pt, right=8pt, top=5pt, bottom=5pt,
+        fonttitle=\khatt\bfseries,
+        before skip=8pt, after skip=8pt
+    }
+}
+
+% أهداف الدرس
+\newtcolorbox{ahdaf}{asl, title={أهداف الدرس}}
+
+% تعريف (خط رئيسي رفيع على الجانب)
+\newtcolorbox{taarif}[1][تعريف]{asl, title={#1},
+    borderline east={2pt}{0pt}{asasi}}
+
+% مثال
+\newtcolorbox{mithal}[1][مثال]{asl, title={#1}}
+
+% تنبيه (اللون الوحيد البارز في النص)
+\newtcolorbox{intabih}[1][انتبه!]{asl, colback=tanbih!5, colframe=tanbih,
+    colbacktitle=tanbih, coltitle=white, title={#1}}
+
+% ركن أستاذ اللغة العربية
+\newtcolorbox{arabiyya}[1][في قسم اللغة العربية]{asl, title={#1}}
+
+% نص أمر يكتب للأداة
+\newtcolorbox{amr}[1][ramadi]{enhanced, arc=1mm, boxrule=0pt,
+    colback=black!4, borderline east={2.5pt}{0pt}{#1},
+    left=8pt, right=10pt, top=4pt, bottom=4pt,
+    before skip=6pt, after skip=6pt}
+
+% الخلاصة
+\newtcolorbox{khulasa}{asl, title={خلاصة الدرس}}
+
+% عنوان القسم
+\newcounter{qism}
+\newcommand{\qism}[1]{%
+    \stepcounter{qism}%
+    \par\bigskip
+    {\large\khatt\bfseries{\color{asasi}\arabic{qism}.}\ {\color{dakin}#1}}\par
+    \vspace{-2pt}{\color{black!20}\rule{\linewidth}{0.6pt}}\par\nopagebreak[4]
+    \smallskip}
+
+% عنوان فرعي
+\newcommand{\far}[1]{\par\smallskip
+    {\color{dakin}\khatt\bfseries {\color{asasi}$\blacktriangleleft$}\ #1}\par\nopagebreak[4]}
+
+% كلمة مهمة (خط عريض فقط)
+\newcommand{\kalima}[2][]{\textbf{#2}}
+
+%------------------------------------------------
+% أنماط الرسوم
+%------------------------------------------------
+
+\newcommand{\nodecolor}{}
+
+\tikzset{
+    % كتابة النص العربي من اليمين إلى اليسار داخل العقد
+    % (لون النص يُعطى بالمفتاح lawn=... وليس text=...)
+    every node/.append style={
+        execute at begin node={\nodecolor\everypar{\beginR}\beginR},
+        execute at end node=\endR},
+    lawn/.code={\def\nodecolor{\color{#1}}},
+    khatwa/.style={draw=#1, fill=#1!12, very thick, rounded corners=6pt,
+        minimum height=1.2cm, text width=2.3cm, align=center,
+        font=\khatt\bfseries},
+    khatwa/.default=azraq,
+    sahm/.style={-{Stealth[length=3mm]}, very thick, color=ramadi},
+    raqm/.style={circle, fill=#1, lawn=white, inner sep=2pt,
+        font=\small\bfseries},
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{4pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\arabic*), itemsep=2pt, topsep=3pt}
+\setlist[itemize]{itemsep=2pt, topsep=3pt}
+
+% الجداول
+\arrayrulecolor{black!22}
+\renewcommand{\arraystretch}{1.35}
+
+% رأس جدول ملون
+\newcommand{\ras}[1]{\cellcolor{black!7}\color{dakin}\bfseries #1}
+
+% عنوان الدرس
+\newcommand{\unwan}[3]{%
+    \begin{center}
+        {\color{asasi}\rule{\linewidth}{1.2pt}}\par\medskip
+        {\khatt\color{ramadi} #1}\par\smallskip
+        {\Large\khatt\bfseries\color{dakin} #2}\par\smallskip
+        {\khatt\color{ramadi} #3}\par\medskip
+        {\color{asasi}\rule{\linewidth}{1.2pt}}
+    \end{center}}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\unwan{درس الفصل السادس}
+{الذكاء الاصطناعي متعدد الأنماط}
+{نص ــ صورة ــ صوت ــ فيديو}
+
+\begin{ahdaf}
+في نهاية هذا الدرس، تستطيع أن:
+\begin{itemize}
+    \item تشرح معنى «النمط» و«متعدد الأنماط».
+    \item تستعمل أداة لفهم صورة أو مخطط، ثم تتحقق من إجابتها.
+    \item تحوّل نصًا إلى مخطط مفاهيمي بمساعدة الأداة.
+    \item تراجع المخطط وتصحح أخطاءه.
+\end{itemize}
+\end{ahdaf}
+
+%================================================
+\qism{ما معنى «متعدد الأنماط»؟}
+%================================================
+
+نتواصل نحن البشر بطرق كثيرة: نكتب، ونتكلم، ونرسم، ونشير.
+كل طريقة من هذه الطرق نسميها \kalima{نمطًا}.
+
+\begin{taarif}
+\textbf{النمط:} شكل المعلومة: نص، أو صورة، أو صوت، أو فيديو.
+
+\textbf{الذكاء الاصطناعي متعدد الأنماط:} أداة تفهم أكثر من نمط،
+وتستطيع أن تنتج أكثر من نمط.
+\end{taarif}
+
+\begin{center}
+\begin{tikzpicture}[
+    namat/.style={draw=#1, fill=#1!12, thick, rounded corners=5pt,
+        minimum width=2.2cm, minimum height=0.85cm, font=\khatt\bfseries}]
+    % المدخلات (يمين)
+    \node[font=\khatt\bfseries, lawn=ramadi] at (5,2.2) {المدخلات};
+    \node[namat=akhdar]    (i1) at (5,1.2)  {نص};
+    \node[namat=burtuqali] (i2) at (5,0.2)  {صورة};
+    \node[namat=asasi]     (i3) at (5,-0.8) {صوت};
+    \node[namat=banafsaji] (i4) at (5,-1.8) {فيديو};
+    % الأداة
+    \node[draw=azraq, fill=azraq!15, ultra thick, rounded corners=8pt,
+        minimum width=3.2cm, minimum height=3.6cm, align=center,
+        font=\khatt\bfseries] (m) at (0,-0.3) {أداة\\متعددة\\الأنماط};
+    % المخرجات (يسار)
+    \node[font=\khatt\bfseries, lawn=ramadi] at (-5,2.2) {المخرجات};
+    \node[namat=akhdar]    (o1) at (-5,1.2)  {شرح مكتوب};
+    \node[namat=fayruzi]   (o2) at (-5,0.2)  {مخطط};
+    \node[namat=burtuqali] (o3) at (-5,-0.8) {صورة جديدة};
+    \node[namat=asasi]     (o4) at (-5,-1.8) {قراءة صوتية};
+    \foreach \i in {1,...,4} {
+        \draw[sahm] (i\i.west) -- (m.east);
+        \draw[sahm] (m.west) -- (o\i.east);
+    }
+\end{tikzpicture}
+\end{center}
+
+\begin{arabiyya}[أمثلة لأستاذ اللغة العربية]
+\begin{itemize}
+    \item \textbf{صورة $\leftarrow$ نص:} يصوّر صفحة مخطوطة، ويطلب كتابتها نصًا رقميًا.
+    \item \textbf{نص $\leftarrow$ مخطط:} يحوّل درس «الجملة الاسمية» إلى خريطة ذهنية.
+    \item \textbf{نص $\leftarrow$ صوت:} يستمع إلى قراءة لقصيدة قبل تقديمها للتلاميذ.
+\end{itemize}
+\end{arabiyya}
+
+%================================================
+\qism{فهم صورة باستعمال الذكاء الاصطناعي}
+%================================================
+
+يمكن أن نرفع إلى الأداة صورة فيها معلومات:
+مخطط بياني، أو جدول، أو رسم توضيحي.
+ثم نطلب منها شرح ما تراه.
+
+\far{مثال على أمر}
+\begin{amr}[asasi]
+حلّل هذه الصورة، واشرح لي المعلومات الموجودة فيها بطريقة بسيطة.
+\end{amr}
+
+\far{خطوات العمل}
+\begin{center}
+\begin{tikzpicture}[node distance=7mm]
+    \node[khatwa=azraq, text width=2.4cm] (a) {اختر صورة\\واضحة};
+    \node[khatwa=fayruzi, text width=2.4cm, left=of a] (b) {ارفعها\\مع أمر دقيق};
+    \node[khatwa=burtuqali, text width=2.4cm, left=of b] (c) {اقرأ\\الشرح};
+    \node[khatwa=akhdar, text width=2.4cm, left=of c] (d) {قارن\\بالصورة};
+    \draw[sahm] (a)--(b); \draw[sahm] (b)--(c); \draw[sahm] (c)--(d);
+\end{tikzpicture}
+\end{center}
+
+\begin{intabih}[أين تخطئ الأداة غالبًا؟]
+\begin{itemize}
+    \item \textbf{الأرقام:} قد تقرأ رقمًا خطأ، أو تخلط بين عمودين.
+    \item \textbf{العلاقات:} قد تفهم العلاقة بين عنصرين بشكل خاطئ.
+    \item \textbf{الخط العربي:} قد تخطئ في قراءة خط اليد أو الحروف غير الواضحة.
+\end{itemize}
+لذلك نقارن دائمًا إجابة الأداة بالصورة الأصلية.
+\end{intabih}
+
+%================================================
+\qism{تحويل النص إلى مخطط مفاهيمي}
+%================================================
+
+\begin{taarif}
+\textbf{المخطط المفاهيمي:} رسم يعرض المفاهيم الأساسية لدرس ما،
+ويربط بينها بأسهم توضح العلاقات.
+\end{taarif}
+
+\far{الأمر}
+\begin{amr}[asasi]
+حوّل النص الآتي إلى مخطط مفاهيمي بسيط،
+يوضح العلاقة بين المفاهيم الرئيسية.
+\end{amr}
+
+\begin{mithal}[مثال: مخطط لدرس «الجملة الاسمية»]
+\centering
+\begin{tikzpicture}[
+    mafhum/.style={draw=#1, fill=#1!12, thick, rounded corners=5pt,
+        minimum height=0.85cm, text width=2.4cm, align=center,
+        font=\khatt\bfseries},
+    alaqa/.style={-{Stealth[length=2.5mm]}, thick, ramadi}]
+    \node[mafhum=azraq, text width=3.2cm] (j) at (0,0) {الجملة الاسمية};
+    \node[mafhum=akhdar]    (m) at (3,-1.6)  {المبتدأ};
+    \node[mafhum=burtuqali] (k) at (-3,-1.6) {الخبر};
+    \node[mafhum=akhdar!70!white, font=\small] (m1) at (3,-3.1) {اسم مرفوع};
+    \node[mafhum=burtuqali!70!white, font=\small] (k1) at (-1.5,-3.1) {مفرد};
+    \node[mafhum=burtuqali!70!white, font=\small] (k2) at (-4.5,-3.1) {جملة\\أو شبه جملة};
+    \draw[alaqa] (j) -- node[above, sloped, font=\small, lawn=black] {تتكون من} (m);
+    \draw[alaqa] (j) -- node[above, sloped, font=\small, lawn=black] {تتكون من} (k);
+    \draw[alaqa] (m) -- node[right, font=\small, lawn=black] {هو} (m1);
+    \draw[alaqa] (k) -- node[right, font=\small, lawn=black] {يكون} (k1);
+    \draw[alaqa] (k) -- (k2);
+\end{tikzpicture}
+\end{mithal}
+
+\far{مراجعة المخطط}
+بعد أن تقترح الأداة المخطط، نسأل أنفسنا:
+\begin{enumerate}
+    \item هل يحتوي المخطط على \textbf{كل} الأفكار الأساسية في النص؟
+    \item هل توجد علاقة \textbf{خاطئة} بين بعض المفاهيم؟
+    \item هل أضافت الأداة مفهومًا \textbf{غير موجود} في النص؟
+    \item ماذا أضيف أو أحذف ليصبح المخطط أوضح لتلاميذي؟
+\end{enumerate}
+
+\begin{khulasa}
+\begin{itemize}
+    \item \textbf{النمط} هو شكل المعلومة: نص، صورة، صوت، فيديو.
+    \item الأداة متعددة الأنماط تفهم أكثر من نمط وتنتج أكثر من نمط.
+    \item الأداة قد تخطئ في \textbf{الأرقام والعلاقات}، فنقارن بالأصل دائمًا.
+    \item المخطط المفاهيمي يحتاج إلى \textbf{مراجعة} الأستاذ قبل استعماله في القسم.
+\end{itemize}
+\end{khulasa}
+
+\end{document}

@@ -1,0 +1,355 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{3pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{
+    label=\arabic*),
+    itemsep=4pt,
+    topsep=3pt
+}
+
+\setlist[itemize]{
+    itemsep=2pt,
+    topsep=2pt
+}
+
+\arraycolsep=3pt
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\begin{center}
+
+{\Large\khatt\textbf{سلسلة تمارين رقم 3}}
+
+\vspace{0.15cm}
+
+{\Large\khatt\textbf{التفاعل الفعال مع الذكاء الاصطناعي}}
+
+\vspace{0.1cm}
+
+{\khatt\textbf{مبادئ هندسة الأوامر ــ Prompt Engineering}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\begin{center}
+
+{\khatt\textbf{
+الفصل 3: التفاعل الفعال مع الذكاء الاصطناعي
+}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+%================================================
+% وضعية الانطلاق
+%================================================
+
+\section*{\khatt\underline{وضعية محفزة }}
+
+كتب الطالب الأول:
+
+
+
+\textbf{
+``أعطني خطة للمراجعة.''
+}
+
+
+بينما كتب الطالب الثاني:
+
+\begin{center}
+
+\textbf{
+``تصرف كمساعد أكاديمي لطالب جامعي مبتدئ.
+أنشئ خطة مراجعة لمادة الذكاء الاصطناعي لمدة 7 أيام،
+بمعدل ساعتين يوميًا، مع تحديد موضوع كل يوم،
+وثلاثة أهداف تعليمية، وتمرين قصير في نهاية كل يوم.
+نظم الإجابة في جدول واضح.''
+}
+
+\end{center}
+
+\textbf{السؤال:}
+لماذا يمكن أن تختلف جودة الإجابتين رغم أن الموضوع نفسه؟
+
+\vspace{0.2cm}
+
+%================================================
+% النشاط الأول
+%================================================
+
+\section*{\khatt\underline{النشاط الأول: من الأمر العشوائي إلى الأمر الهندسي}}
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item جرّب الطلب التالي باستعمال أداة للذكاء الاصطناعي:
+
+\begin{center}
+
+\textbf{
+``اشرح الذكاء الاصطناعي.''
+}
+
+\end{center}
+
+سجّل الإجابة التي حصلت عليها.
+
+%------------------------------------------------
+
+\item أعد صياغة الطلب بإضافة \textbf{السياق}:
+
+\begin{center}
+
+\textbf{
+``أنا طالب جامعي مبتدئ في الذكاء الاصطناعي.
+اشرح لي مفهوم الذكاء الاصطناعي بطريقة بسيطة.''
+}
+
+\end{center}
+
+قارن بين الإجابتين.
+
+%------------------------------------------------
+
+\item طوّر الطلب السابق بإضافة \textbf{المهمة} و
+\textbf{القيود}:
+
+\begin{center}
+
+\textbf{
+``أنا طالب جامعي مبتدئ في الذكاء الاصطناعي.
+اشرح لي مفهوم الذكاء الاصطناعي في 150 كلمة،
+بلغة عربية بسيطة، مع مثالين من الحياة اليومية.''
+}
+
+\end{center}
+
+ما التغييرات التي لاحظتها؟
+
+%------------------------------------------------
+
+\item أضف إلى الطلب السابق \textbf{تنسيق الإجابة}:
+
+\begin{center}
+
+\textbf{
+``نظم الإجابة في ثلاثة أجزاء:
+تعريف، أمثلة، وخلاصة قصيرة.''
+}
+
+\end{center}
+
+هل أصبحت الإجابة أكثر تنظيمًا؟ علّل.
+
+%------------------------------------------------
+
+\item أكمل الجدول التالي:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\raggedleft\arraybackslash}m{4cm}|
+>{\raggedleft\arraybackslash}m{10cm}|}
+
+\hline
+
+\textbf{العنصر} & \textbf{دوره في الأمر} \\
+
+\hline
+
+المهمة
+&
+ما الذي نريد من الذكاء الاصطناعي أن يقوم به؟
+\\
+\hline
+
+السياق
+&
+ما المعلومات التي تساعد الأداة على فهم الوضعية؟
+\\
+\hline
+
+الدور
+&
+ما الشخصية أو الخبرة التي نطلب من الأداة اعتمادها؟
+\\
+\hline
+
+القيود
+&
+ما الشروط التي يجب احترامها أثناء الإجابة؟
+\\
+\hline
+
+التنسيق
+&
+كيف نريد أن تكون الإجابة منظمة أو معروضة؟
+\\
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item استخرج من الطلب التالي عناصره الأساسية:
+
+\begin{center}
+
+\textbf{
+``تصرف كأستاذ جامعي في البرمجة.
+اشرح لطالب مبتدئ مفهوم الحلقة التكرارية
+باستعمال لغة C، في أقل من 200 كلمة،
+مع مثال بسيط وجدول يوضح خطوات التنفيذ.''
+}
+
+\end{center}
+
+حدّد:
+
+\begin{itemize}
+
+    \item الدور:
+    \item المهمة:
+    \item السياق:
+    \item القيود:
+    \item التنسيق المطلوب:
+
+\end{itemize}
+
+\end{enumerate}
+
+%================================================
+% النشاط الثاني
+%================================================
+
+\section*{\khatt\underline{النشاط الثاني (واجب منزلي): تحديد الدور والتنسيق}}
+
+\textbf{يُنجز هذا النشاط في المنزل ويُسلَّم في الحصة القادمة.}
+
+\begin{enumerate}
+
+\item اختر موضوعًا أكاديميًا تعرفه،
+
+اكتب أمرًا يطلب من الذكاء الاصطناعي أن يتصرف كخبير
+أو أستاذ في هذا المجال.
+
+%------------------------------------------------
+
+\item أنشئ أمرًا آخر يحدد الجمهور المستهدف:
+
+\begin{center}
+
+\textbf{
+``اشرح الموضوع لطالب جامعي مبتدئ...''
+}
+
+\end{center}
+
+%------------------------------------------------
+
+\item اطلب من الأداة إنتاج الإجابة في أحد التنسيقات التالية:
+
+\begin{itemize}
+
+    \item جدول.
+    \item نقاط مختصرة.
+    \item خطوات مرقمة.
+    \item مثال تطبيقي.
+
+\end{itemize}
+
+%------------------------------------------------
+
+\item قارن النتائج.
+
+ما أثر تحديد \textbf{الدور} و\textbf{الجمهور} و
+\textbf{التنسيق} في جودة المخرجات؟
+
+\end{enumerate}
+
+
+\end{document}

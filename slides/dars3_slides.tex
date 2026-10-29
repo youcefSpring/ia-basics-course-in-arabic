@@ -1,0 +1,156 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{التفاعل الفعّال مع الذكاء الاصطناعي}
+
+\begin{document}
+
+\cover{درس الفصل الثالث}
+{التفاعل الفعّال مع الذكاء الاصطناعي}
+{مبادئ هندسة الأوامر \textenglish{(Prompt Engineering)}}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تعرّف الأمر وهندسة الأوامر.
+            \item تذكر العناصر الخمسة للأمر الجيد.
+            \item تحوّل أمرًا عامًا إلى أمر دقيق خطوة بخطوة.
+            \item تستخرج عناصر أي أمر مكتوب.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{وضعية للتفكير}
+    \small
+    كتب طالبان طلبًا في الموضوع نفسه:
+    \begin{obox}{\faTimesCircle\quad الطالب الأول}
+        أعطني خطة للمراجعة.
+    \end{obox}
+    \begin{tbox}{\faCheckCircle\quad الطالب الثاني}
+        تصرّف كمساعد أكاديمي. أنشئ خطة مراجعة لمادة النحو مدتها 7 أيام،
+        بمعدل ساعتين يوميًا. حدّد موضوع كل يوم، وأضف تمرينًا قصيرًا، ونظّم الخطة في جدول.
+    \end{tbox}
+    الطالب الثاني سيحصل على إجابة أفضل بكثير، لأنه \textbf{أعطى الأداة كل ما تحتاجه} لتفهم طلبه.
+\end{frame}
+
+\begin{frame}{ما هندسة الأوامر؟}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{الأمر} \textenglish{(Prompt)}: النص الذي نكتبه للأداة لنطلب منها شيئًا.\\[3pt]
+        \textbf{هندسة الأوامر}: مهارة كتابة أوامر واضحة ومنظمة،
+        للحصول على أفضل إجابة ممكنة.
+    \end{tbox}
+    الأداة لا تعرف ما في ذهنك. هي تعرف فقط ما تكتبه لها،
+    لذلك يجب أن يكون الأمر \textbf{واضحًا وكاملًا}.
+\end{frame}
+
+\begin{frame}{العناصر الخمسة للأمر الجيد}
+    \begin{center}
+    \begin{tikzpicture}[
+        unsur/.style={draw=brandTeal, fill=brandTeal!12, thick, circle,
+            minimum size=1.6cm, align=center, font=\khatt\bfseries}]
+        \node[draw=brandOrange, fill=brandOrange!15, very thick, rounded corners=6pt,
+            minimum width=2.4cm, minimum height=0.9cm,
+            font=\khatt\bfseries\large] (m) {الأمر الجيد};
+        \node[unsur] (r) at (90:2.4)   {الدور};
+        \node[unsur] (t) at (18:2.7)   {المهمة};
+        \node[unsur] (s) at (-54:2.5)  {السياق};
+        \node[unsur] (q) at (-126:2.5) {القيود};
+        \node[unsur] (f) at (162:2.7)  {التنسيق};
+        \foreach \x in {r,t,s,q,f} \draw[thick, brandMuted] (m) -- (\x);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{العناصر الخمسة بالتفصيل}
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2cm}|R|R|}
+        \hline
+        \ras{العنصر} & \ras{السؤال الذي يجيب عنه} & \ras{مثال} \\ \hline
+        \textbf{الدور}    & من تكون الأداة؟ أي خبرة تعتمد؟ & تصرّف كأستاذ لغة عربية. \\ \hline
+        \textbf{المهمة}   & ماذا نريد أن تفعل الأداة؟ & اشرح درس الحال. \\ \hline
+        \textbf{السياق}   & ما المعلومات التي تساعدها على الفهم؟ & التلاميذ في السنة الثانية متوسط. \\ \hline
+        \textbf{القيود}   & ما الشروط التي يجب احترامها؟ & في 150 كلمة، بلغة بسيطة. \\ \hline
+        \textbf{التنسيق}  & كيف نريد شكل الإجابة؟ & تعريف، ثم أمثلة، ثم خلاصة. \\ \hline
+    \end{tabularx}
+\end{frame}
+
+\begin{frame}{بناء الأمر خطوة بخطوة}
+    نبدأ بأمر بسيط، ثم نضيف عنصرًا في كل مرة. كل درجة تجعل الأمر أدق:
+    \begin{center}
+        \flow[2.3cm]{{أمر عام}, {+ السياق}, {+ المهمة\\والقيود}, {+ التنسيق}}
+    \end{center}
+    \begin{center}
+        {\color{tealDeep}\faArrowLeft}\quad \textbf{جودة أفضل للإجابة في كل درجة}
+    \end{center}
+\end{frame}
+
+\begin{frame}{الدرجات الأربع}
+    \small
+    \textbf{\color{brandOrange}الدرجة 1: أمر عام}
+    \begin{amr}[brandOrange]
+        اشرح الحال.
+    \end{amr}
+    \textbf{\color{tealDeep}الدرجة 2: نضيف السياق}
+    \begin{amr}[brandTeal!45]
+        أنا أستاذ متربص. تلاميذي في السنة الثانية متوسط. اشرح لي درس الحال.
+    \end{amr}
+    \textbf{\color{tealDeep}الدرجة 3: نضيف المهمة والقيود}
+    \begin{amr}[brandTeal!70]
+        \dots اشرح درس الحال في 150 كلمة، بلغة بسيطة، مع مثالين من الحياة اليومية.
+    \end{amr}
+    \textbf{\color{tealDeep}الدرجة 4: نضيف التنسيق}
+    \begin{amr}[brandTeal]
+        \dots نظّم الإجابة في ثلاثة أجزاء: تعريف، أمثلة، خلاصة.
+    \end{amr}
+\end{frame}
+
+\begin{frame}{كيف نقرأ أمرًا ونستخرج عناصره؟}
+    \begin{amr}[brandTeal]
+        تصرّف كأستاذ جامعي في البلاغة. اشرح مفهوم التشبيه لطالب في السنة الأولى،
+        في أقل من 200 كلمة، مع جدول يبيّن أركان التشبيه.
+    \end{amr}
+    \begin{center}
+    \begin{tabularx}{0.75\textwidth}{|R|>{\centering\arraybackslash}p{2.5cm}|}
+        \hline
+        \ras{الجزء من الأمر} & \ras{العنصر} \\ \hline
+        تصرّف كأستاذ جامعي في البلاغة & الدور \\ \hline
+        اشرح مفهوم التشبيه            & المهمة \\ \hline
+        لطالب في السنة الأولى         & السياق \\ \hline
+        في أقل من 200 كلمة            & القيود \\ \hline
+        مع جدول يبيّن أركان التشبيه   & التنسيق \\ \hline
+    \end{tabularx}
+    \end{center}
+\end{frame}
+
+\begin{frame}{أخطاء شائعة}
+    \begin{obox}{\faExclamationTriangle\quad تجنّب هذه الأخطاء}
+        \begin{itemize}
+            \item \textbf{أمر قصير جدًا:} «اشرح البلاغة» لا يحدد المستوى ولا الهدف.
+            \item \textbf{أمر غامض:} «اكتب شيئًا جميلًا» لا يحدد ما المطلوب.
+            \item \textbf{عدة مهام مختلطة:} الأفضل أن نقسم المهام الكبيرة إلى أوامر متتابعة.
+            \item \textbf{قبول أول إجابة:} يمكن دائمًا أن نعدّل الأمر ونعيد المحاولة.
+        \end{itemize}
+    \end{obox}
+\end{frame}
+
+\begin{frame}{أوامر مفيدة لأستاذ اللغة العربية}
+    \begin{tbox}{\faChalkboardTeacher\quad أمثلة جاهزة}
+        \begin{itemize}
+            \item اقترح عشر جمل فيها مفعول لأجله، لتلاميذ السنة الثالثة متوسط.
+            \item حوّل هذه الأبيات إلى نثر بسيط، دون تغيير المعنى.
+            \item أنشئ خمسة أسئلة فهم حول النص الآتي، مع الإجابات.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item \textbf{الأمر الجيد} يعطي الأداة كل ما تحتاجه لتفهم الطلب.
+            \item عناصره الخمسة: \textbf{الدور}، \textbf{المهمة}، \textbf{السياق}،
+                  \textbf{القيود}، \textbf{التنسيق}.
+            \item نبني الأمر \textbf{تدريجيًا}، ونحسّنه بعد قراءة الإجابة.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

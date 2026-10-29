@@ -1,0 +1,155 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{كيف يتعلم الذكاء الاصطناعي؟}
+
+\begin{document}
+
+\cover{درس الفصل الثاني}
+{كيف يتعلم الذكاء الاصطناعي؟}
+{البيانات ــ التدريب ــ الاختبار}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تشرح مراحل تعلم الآلة: من البيانات إلى النتيجة.
+            \item تفرّق بين بيانات التدريب وبيانات الاختبار.
+            \item تفهم لماذا يجب أن تكون البيانات متنوعة.
+            \item تتعرف على الانحياز الخوارزمي وطرق التقليل منه.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{التلميذ والآلة: تشبيه بسيط}
+    يتعلم التلميذ الإعراب من أمثلة كثيرة مُعرَبة، ثم يُختبر بجمل جديدة.
+    والآلة تتعلم بطريقة قريبة: تكتشف في الأمثلة \textbf{الأنماط}، أي الأشياء التي تتكرر.
+    \begin{center}
+    \begin{tikzpicture}[
+        t/.style={thick, rounded corners=4pt,
+            text width=4.2cm, align=center, minimum height=0.75cm}]
+        \node[font=\khatt\bfseries, lawn=brandMuted] at (3,0.75) {التلميذ};
+        \node[font=\khatt\bfseries, lawn=tealDeep] at (-3,0.75) {الآلة};
+        \node[t, rang=brandMuted] (t1) at (3,0)    {يقرأ أمثلة مُعرَبة};
+        \node[t, rang=brandMuted] (t2) at (3,-1.15) {يلاحظ القاعدة};
+        \node[t, rang=brandMuted] (t3) at (3,-2.3) {يُعرب جملًا جديدة};
+        \node[t, rang=brandTeal] (a1) at (-3,0)    {تأخذ بيانات التدريب};
+        \node[t, rang=brandTeal] (a2) at (-3,-1.15) {تكتشف الأنماط};
+        \node[t, rang=brandTeal] (a3) at (-3,-2.3) {تُختبر ببيانات جديدة};
+        \draw[sahm] (t1)--(t2); \draw[sahm] (t2)--(t3);
+        \draw[sahm] (a1)--(a2); \draw[sahm] (a2)--(a3);
+        \foreach \i in {1,2,3}
+            \draw[dashed, thick, brandMuted!60] (t\i) -- (a\i);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{مراحل التعلم}
+    يمر تعلم الآلة بخمس مراحل متتابعة:
+    \begin{center}
+        \flow[1.8cm]{{البيانات}, {التدريب}, {النموذج}, {الاختبار}, {النتيجة}}
+    \end{center}
+    \small
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2.4cm}|R|}
+        \hline
+        \ras{المرحلة} & \ras{دورها} \\ \hline
+        \textbf{البيانات} & أمثلة كثيرة: نصوص أو صور أو أصوات. \\ \hline
+        \textbf{التدريب}  & يتعلم النظام من البيانات، ويكتشف العلاقات بينها. \\ \hline
+        \textbf{النموذج}  & ما ينتج عن التدريب: برنامج «تعلّم» القاعدة. \\ \hline
+        \textbf{الاختبار} & نجرب النموذج على أمثلة جديدة لم يرها من قبل. \\ \hline
+        \textbf{النتيجة}  & توقع أو تصنيف أو إجابة يقدمها النموذج. \\ \hline
+    \end{tabularx}
+\end{frame}
+
+\begin{frame}{بيانات التدريب وبيانات الاختبار}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{بيانات التدريب:} البيانات التي يتعلم منها النموذج ويكتشف فيها الأنماط.\\
+        \textbf{بيانات الاختبار:} بيانات جديدة نستعملها لتقييم النموذج بعد تدريبه.
+    \end{tbox}
+    نقسم البيانات عادة إلى جزأين: جزء كبير للتدريب، وجزء صغير للاختبار.
+    \begin{center}
+    \begin{tikzpicture}
+        \fill[brandTeal, rounded corners=3pt] (0,0) rectangle (-9.6,0.75);
+        \fill[brandOrange, rounded corners=3pt] (-9.6,0) rectangle (-12,0.75);
+        \node[lawn=white, font=\khatt\bfseries] at (-4.8,0.375) {بيانات التدريب (80\%)};
+        \node[lawn=white, font=\khatt\bfseries] at (-10.8,0.375) {الاختبار (20\%)};
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{لماذا لا نختبر بالأمثلة نفسها؟}
+    \begin{obox}{\faExclamationTriangle\quad انتبه!}
+        لو اختبر الأستاذ التلميذ بالجمل نفسها التي شرحها في القسم،
+        فقد يجيب التلميذ من الذاكرة لا من الفهم.\\[3pt]
+        كذلك النموذج: نختبره ببيانات جديدة لنعرف هل \textbf{فهم} حقًا.
+    \end{obox}
+\end{frame}
+
+\begin{frame}{تنوع البيانات}
+    يتعلم النموذج ممّا يراه فقط. إذا كانت البيانات ناقصة أو غير متوازنة، كان التعلم ناقصًا.\\
+    \textbf{مثال:} 500 صورة لهواتف، و500 صورة لحواسيب، و100 صورة فقط لألواح رقمية.
+    \begin{center}
+    \begin{tikzpicture}[y=0.0055cm]
+        \draw[thick, brandMuted] (0.5,0) -- (-8.5,0);
+        \fill[brandTeal]   (0,0)  rectangle (-2,500);
+        \fill[brandTeal]   (-3,0) rectangle (-5,500);
+        \fill[brandOrange] (-6,0) rectangle (-8,100);
+        \node[above, font=\bfseries] at (-1,500) {500};
+        \node[above, font=\bfseries] at (-4,500) {500};
+        \node[above, font=\bfseries] at (-7,100) {100};
+        \node[below, font=\khatt] at (-1,0) {هواتف};
+        \node[below, font=\khatt] at (-4,0) {حواسيب};
+        \node[below, font=\khatt] at (-7,0) {ألواح رقمية};
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{البيانات الجيدة}
+    \begin{obox}{\faExclamationTriangle\quad بيانات غير ممثِّلة}
+        صور الألواح الرقمية قليلة جدًا،
+        لذلك سيخطئ النموذج كثيرًا عندما يرى لوحًا رقميًا جديدًا.
+    \end{obox}
+    \begin{tbox}{\faCheckCircle\quad البيانات الجيدة}
+        البيانات الجيدة \textbf{متنوعة} و\textbf{ممثِّلة}:
+        تغطي مختلف الحالات التي سيواجهها النظام في الواقع.
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{الانحياز الخوارزمي}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{الانحياز الخوارزمي} نتائج غير عادلة أو غير دقيقة،
+        سببها مشكلة في البيانات أو في طريقة تصميم النظام.
+    \end{tbox}
+    \begin{center}
+        \flow[3cm]{{بيانات ناقصة\\أو من فئة واحدة}, {نموذج تعلّم\\صورة ناقصة}, {نتائج منحازة\\وغير عادلة}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{مثال من قسم اللغة العربية}
+    \small
+    \begin{tbox}{\faChalkboardTeacher\quad نموذج لتصحيح الأخطاء}
+        نموذج لتصحيح الأخطاء تدرّب على نصوص صحفية حديثة فقط.
+        عندما نعطيه بيتًا من الشعر الجاهلي، قد يعدّ بعض الكلمات الفصيحة القديمة أخطاءً.\\[3pt]
+        \textbf{السبب:} لم يرَ هذا النوع من النصوص أثناء التدريب.
+    \end{tbox}
+    \textbf{\color{tealDeep}كيف نقلل الانحياز؟}
+    \begin{itemize}
+        \item نجمع بيانات \textbf{متنوعة} تمثل جميع الفئات والحالات.
+        \item نوازن بين عدد الأمثلة في كل فئة.
+        \item نختبر النموذج على حالات مختلفة، ونراجع أخطاءه.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item تتعلم الآلة من \textbf{البيانات}، كما يتعلم التلميذ من الأمثلة.
+            \item المراحل: البيانات $\leftarrow$ التدريب $\leftarrow$ النموذج
+                  $\leftarrow$ الاختبار $\leftarrow$ النتيجة.
+            \item نختبر النموذج دائمًا ببيانات \textbf{جديدة} لم يرها.
+            \item البيانات الناقصة تؤدي إلى \textbf{الانحياز}، فنحتاج بيانات متنوعة وممثِّلة.
+            \item النموذج يعكس البيانات التي تعلّم منها، بما فيها من \textbf{نقص}.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

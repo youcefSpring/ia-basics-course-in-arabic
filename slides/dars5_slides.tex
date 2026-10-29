@@ -1,0 +1,164 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{البحث عن المعلومات، تحليلها وتلخيصها}
+
+\begin{document}
+
+\cover{درس الفصل الخامس}
+{البحث عن المعلومات، تحليلها وتلخيصها}
+{من السؤال إلى المصدر الموثوق}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تفرّق بين موضوع البحث وسؤال البحث.
+            \item تختار كلمات مفتاحية مناسبة.
+            \item تميّز بين أنواع المصادر وتقيّم جودتها.
+            \item تلخّص المعلومات بطريقة منظمة وأمينة.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{مراحل البحث عن المعلومة}
+    البحث الجيد لا يبدأ بمحرك البحث، بل يبدأ \textbf{بسؤال واضح}.
+    نمرّ بأربع مراحل:
+    \begin{center}
+        \flow[2.4cm]{{حدد\\الحاجة}, {ابحث}, {قيّم\\المصادر}, {لخّص}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{من الموضوع إلى سؤال البحث}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{موضوع البحث:} مجال عام وواسع، مثل: «الذكاء الاصطناعي والتعليم».\\[2pt]
+        \textbf{سؤال البحث:} سؤال محدد نريد الإجابة عنه، مثل:
+        «كيف يساعد الذكاء الاصطناعي التلميذ على تحسين التعبير الكتابي؟».
+    \end{tbox}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.7]
+        \fill[brandTeal!15] (-6,0) -- (6,0) -- (4.5,-1.1) -- (-4.5,-1.1) -- cycle;
+        \fill[brandTeal!40] (-4.5,-1.1) -- (4.5,-1.1) -- (3,-2.2) -- (-3,-2.2) -- cycle;
+        \fill[brandTeal]    (-3,-2.2) -- (3,-2.2) -- (1.5,-3.3) -- (-1.5,-3.3) -- cycle;
+        \node[font=\khatt\bfseries\small] at (0,-0.55) {الذكاء الاصطناعي (عام جدًا)};
+        \node[font=\khatt\bfseries\small] at (0,-1.65) {في التعليم الجامعي (أدق)};
+        \node[font=\khatt\bfseries\small, lawn=white] at (0,-2.75) {فوائده ومخاطره};
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{مثال من اختصاصك}
+    الموضوع العام يعطي نتائج كثيرة ومتفرقة، أما السؤال المحدد فيوجّه البحث.
+    \begin{tbox}{\faChalkboardTeacher\quad موضوع: تعليم النحو}
+        \begin{enumerate}
+            \item ما الصعوبات التي يواجهها تلاميذ المتوسط في الإعراب؟
+            \item هل تساعد الأمثلة من الحياة اليومية على فهم القاعدة؟
+            \item كيف يمكن استعمال الذكاء الاصطناعي في تمارين الإعراب؟
+        \end{enumerate}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{الكلمات المفتاحية}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{الكلمات المفتاحية:} الكلمات الأساسية في سؤال البحث،
+        نكتبها في محرك البحث للوصول إلى المعلومة.
+    \end{tbox}
+    \textbf{\color{tealDeep}كيف نختارها؟}
+    \begin{enumerate}
+        \item نقرأ سؤال البحث، ونحذف الكلمات العامة مثل: «كيف»، «ما»، «هل».
+        \item نحتفظ بالكلمات التي تحمل المعنى.
+        \item نضيف المرادفات، والكلمات الإنجليزية المقابلة.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{مثال على الكلمات المفتاحية}
+    \textbf{\color{tealDeep}السؤال:}
+    \begin{amr}[brandTeal]
+        كيف يساعد الذكاء الاصطناعي على تحسين التعبير الكتابي؟
+    \end{amr}
+    \textbf{\color{tealDeep}الكلمات المفتاحية:}
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            الذكاء الاصطناعي & التعبير الكتابي & الإنشاء &
+            \textenglish{AI} & \textenglish{Writing skills} \\ \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}{أنواع المصادر ودرجة الثقة}
+    ليست كل المصادر في درجة الثقة نفسها. نرتبها من الأكثر موثوقية إلى الأقل:
+    \begin{center}
+    \begin{tikzpicture}[
+        masdar/.style={thick, rounded corners=3pt,
+            minimum height=0.68cm, text width=7cm, align=center}]
+        \node[masdar, rang=brandTeal]                at (0,0)     {مصدر أكاديمي: كتاب محقق، مقال علمي محكّم};
+        \node[masdar, rang=brandTeal!70!brandOrange] at (0,-0.85) {موقع مؤسسة رسمية: وزارة، جامعة};
+        \node[masdar, rang=brandMuted]               at (0,-1.7)  {مقال صحفي};
+        \node[masdar, rang=brandOrange!70!brandTeal] at (0,-2.55) {مدونة أو موقع شخصي};
+        \node[masdar, rang=brandOrange]              at (0,-3.4)  {محتوى أنتجه الذكاء الاصطناعي};
+        \draw[{Stealth[length=3mm]}-, line width=2.5pt, brandMuted]
+            (-4.2,0.2) -- (-4.2,-3.6);
+        \node[font=\khatt\bfseries, lawn=tealDeep, anchor=east] at (-4.4,0) {ثقة أكبر};
+        \node[font=\khatt\bfseries, lawn=brandOrange, anchor=east] at (-4.4,-3.4) {ثقة أقل};
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{تنبيهات حول المصادر}
+    \begin{obox}{\faExclamationTriangle\quad محتوى الذكاء الاصطناعي ليس مصدرًا علميًا}
+        نستعمله للفهم أو لاقتراح أفكار، ثم نبحث عن المعلومة في مصدر حقيقي.
+    \end{obox}
+    \begin{obox}{\faExclamationTriangle\quad لا تكتفِ بالنتيجة الأولى}
+        النتيجة الأولى في محرك البحث ليست بالضرورة الأفضل:
+        قد تكون إعلانًا، أو موقعًا مشهورًا لكنه غير دقيق.
+    \end{obox}
+\end{frame}
+
+\begin{frame}{معايير تقييم المصدر}
+    قبل أن نعتمد على مصدر، نطرح خمسة أسئلة:
+    \begin{center}
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2.6cm}|R|}
+        \hline
+        \ras{المعيار} & \ras{السؤال} \\ \hline
+        \textbf{الكاتب}  & من كتب هذا المحتوى؟ هل هو مختص في المجال؟ \\ \hline
+        \textbf{الجهة}   & من نشره؟ جامعة، مجلة علمية، أم موقع مجهول؟ \\ \hline
+        \textbf{التاريخ} & متى نُشر؟ هل المعلومة ما زالت صالحة؟ \\ \hline
+        \textbf{الدقة}   & هل يذكر مراجعه؟ هل نجد المعلومة نفسها في مصدر آخر؟ \\ \hline
+        \textbf{الهدف}   & هل هدفه الإعلام، أم الإقناع، أم البيع؟ \\ \hline
+    \end{tabularx}
+    \end{center}
+\end{frame}
+
+\begin{frame}{تلخيص المعلومات}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{التلخيص:} إعادة كتابة الأفكار الأساسية لنص ما،
+        بكلمات أقل وبأسلوبنا الخاص، دون تغيير المعنى.
+    \end{tbox}
+    \begin{center}
+        \flow[1.95cm]{{اقرأ النص\\كاملًا}, {حدد الأفكار\\الأساسية}, {احذف التكرار\\والأمثلة}, {اكتب\\بأسلوبك}, {اذكر\\المصدر}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{الذكاء الاصطناعي والتلخيص}
+    يمكن أن نطلب من الأداة تلخيص نص طويل،
+    لكن يجب أن نقارن الملخص بالنص الأصلي:
+    \begin{obox}{\faExclamationTriangle\quad أسئلة للمراجعة}
+        \begin{itemize}
+            \item هل حذفت الأداة فكرة مهمة؟
+            \item هل أضافت معلومة غير موجودة في النص؟
+        \end{itemize}
+    \end{obox}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item نبدأ البحث بــ\textbf{سؤال محدد}، لا بموضوع عام.
+            \item نختار \textbf{كلمات مفتاحية} دقيقة ونضيف مرادفاتها.
+            \item نقيّم المصدر: الكاتب، الجهة، التاريخ، الدقة، الهدف.
+            \item نلخّص بأسلوبنا، ونذكر \textbf{المصدر} دائمًا.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

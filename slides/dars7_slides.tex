@@ -1,0 +1,183 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{تصميم مساعد ذكاء اصطناعي وسير عمل}
+
+\begin{document}
+
+\cover{درس الفصل السابع}
+{تصميم مساعد ذكاء اصطناعي وسير عمل}
+{تعليمات ــ معرفة ــ اختبار ــ تحسين ــ سير عمل}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تشرح ما المساعد المخصص، وما مكوناته.
+            \item تكتب تعليمات واضحة لمساعد تعليمي.
+            \item تختبر المساعد وتحسّن تعليماته.
+            \item تقسّم مهمة كبيرة إلى سير عمل من عدة مراحل.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{لماذا نبني مساعدًا مخصصًا؟}
+    يستعمل الأستاذ الذكاء الاصطناعي كل أسبوع، لكنه يكتب التعليمات نفسها في كل محادثة،
+    ويرفع الملفات نفسها في كل مرة.
+    الحل: نبني \textbf{مساعدًا مخصصًا} مرة واحدة، ثم نستعمله كلما احتجنا إليه.
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{المساعد المخصص:} نسخة من أداة الذكاء الاصطناعي،
+        نعطيها اسمًا وتعليمات ثابتة وملفات مرجعية، لتقوم بمهمة محددة.
+    \end{tbox}
+    نبنيه في \textenglish{ChatGPT} باستعمال \textenglish{GPTs}،
+    أو في \textenglish{Claude} باستعمال \textenglish{Projects}.
+\end{frame}
+
+\begin{frame}{مكونات المساعد}
+    \begin{center}
+    \begin{tikzpicture}[
+        juz/.style={draw=brandTeal, fill=brandTeal!10, thick, rounded corners=5pt,
+            text width=4.3cm, align=center, minimum height=1.35cm}]
+        \node[circle, draw=brandOrange, fill=brandOrange!15, very thick,
+            text width=1.7cm, align=center, font=\khatt\bfseries] (m) {المساعد};
+        \node[juz] (a) at (4.1,1.1)
+            {{\khatt\bfseries الاسم}\\\small يعرّف المساعد ومهمته من أول نظرة};
+        \node[juz] (b) at (4.1,-1.1)
+            {{\khatt\bfseries التعليمات}\\\small تحدد دوره وطريقة عمله وحدوده};
+        \node[juz] (c) at (-4.1,1.1)
+            {{\khatt\bfseries المعرفة}\\\small ملفات مرجعية: دروس، ملخصات، محاضرات};
+        \node[juz] (d) at (-4.1,-1.1)
+            {{\khatt\bfseries الأدوات}\\\small قدرات إضافية، نفعّلها عند الحاجة فقط};
+        \foreach \x in {a,b,c,d} \draw[thick, brandMuted] (m) -- (\x);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{كتابة التعليمات}
+    \small
+    التعليمات هي «عقل» المساعد. نكتبها بعناصر الأمر الجيد (الفصل الثالث):
+    \begin{amr}[brandTeal]
+        \textbf{\color{tealDeep}الدور:} أنت مساعد تعليمي متخصص في مادة النحو العربي.\\
+        \textbf{\color{tealDeep}المهمة:} ساعد الطلبة على فهم الدروس بطريقة بسيطة ومنظمة.\\
+        \textbf{\color{tealDeep}طريقة العمل:} اشرح خطوة بخطوة، واستعمل أمثلة بسيطة.\\
+        \textbf{\color{tealDeep}المراجع:} اعتمد على الملفات المرفقة عندما يتعلق السؤال بالمادة.\\
+        \textbf{\color{brandOrange}القيود:} لا تخترع معلومات. إذا لم تجد المعلومة، صرّح بذلك.\\
+        \textbf{\color{tealDeep}شكل الإجابة:} عناوين واضحة، ونقاط قصيرة، وأمثلة.\\
+        \textbf{\color{tealDeep}السؤال الغامض:} اطلب توضيحًا قبل أن تجيب.
+    \end{amr}
+\end{frame}
+
+\begin{frame}{دورة بناء المساعد}
+    بناء المساعد لا ينتهي بإنشائه: نختبره، ونكتشف أخطاءه، ونحسّنه، ثم نختبره من جديد.
+    \begin{center}
+    \begin{tikzpicture}[
+        marhala/.style={thick, rounded corners=4pt,
+            text width=2.1cm, align=center, minimum height=0.8cm,
+            font=\khatt\bfseries\small}]
+        \node[marhala, rang=brandTeal]   (a) at (90:2.3)   {حدّد المهمة};
+        \node[marhala, rang=brandTeal]   (b) at (30:2.8)   {اكتب التعليمات};
+        \node[marhala, rang=brandTeal]   (c) at (-30:2.8)  {أنشئ وأضف الملفات};
+        \node[marhala, rang=brandTeal]   (d) at (-90:2.3)  {اختبر};
+        \node[marhala, rang=brandOrange] (e) at (-150:2.8) {اكتشف الأخطاء};
+        \node[marhala, rang=brandTeal]   (f) at (150:2.8)  {حسّن التعليمات};
+        \draw[sahm] (a) to[bend left=20] (b);
+        \draw[sahm] (b) to[bend left=20] (c);
+        \draw[sahm] (c) to[bend left=20] (d);
+        \draw[sahm] (d) to[bend left=20] (e);
+        \draw[sahm] (e) to[bend left=20] (f);
+        \draw[sahm, dashed] (f) to[bend left=10]
+            node[above, sloped, font=\scriptsize, lawn=brandMuted] {أعد الاختبار} (d);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{اختبار المساعد}
+    لا نفترض أن المساعد يعمل جيدًا. نختبره بأربعة أنواع من الأسئلة:
+    \begin{center}
+    \small
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3cm}|R|R|}
+        \hline
+        \ras{الاختبار} & \ras{مثال} & \ras{ماذا نلاحظ؟} \\ \hline
+        سؤال بسيط             & ما المبتدأ؟ اشرحه لطالب مبتدئ. & هل اللغة بسيطة؟ \\ \hline
+        سؤال يعتمد على الملف   & اعتمد على الملف، واذكر أهم ثلاثة مفاهيم. & هل الإجابة مطابقة للملف؟ \\ \hline
+        سؤال ناقص             & اشرح لي هذا الموضوع بالتفصيل. & هل يطلب توضيحًا؟ \\ \hline
+        سؤال خارج المهمة       & كيف أحضّر البيتزا؟ & هل يحافظ على دوره؟ \\ \hline
+    \end{tabularx}
+    \end{center}
+\end{frame}
+
+\begin{frame}{تحسين المساعد بعد الاختبار}
+    لاحظنا أن المساعد يعطي إجابات طويلة جدًا. نضيف إلى التعليمات:
+    \begin{amr}[brandTeal]
+        استعمل جملًا قصيرة ونقاطًا واضحة.
+        لا تقدم شرحًا طويلًا إلا إذا طلب المستخدم ذلك.
+    \end{amr}
+    ثم نعيد الاختبار نفسه، ونقارن الإجابة \textbf{قبل التعديل وبعده}.
+\end{frame}
+
+\begin{frame}{سير العمل \textenglish{(Workflow)}}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{سير العمل:} تقسيم مهمة كبيرة إلى مراحل صغيرة متتابعة.
+        مخرج كل مرحلة يصبح مدخلًا للمرحلة التالية.
+    \end{tbox}
+    \textbf{\color{tealDeep}مثال: من درس طويل إلى أسئلة تدريبية}
+    \begin{center}
+        \flow[1.9cm]{{النص\\الأصلي}, {استخراج\\الأفكار}, {إنشاء\\الملخص}, {إنشاء\\الأسئلة}, {التحقق\\النهائي}}
+    \end{center}
+    \begin{center}
+        \cell{brandOrange}{\faUserCheck}\quad \textbf{مراجعة بشرية بعد كل مرحلة}
+    \end{center}
+\end{frame}
+
+\begin{frame}{مراحل سير العمل}
+    \small
+    \begin{center}
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{1.6cm}|C|C|C|}
+        \hline
+        \ras{المرحلة} & \ras{المدخل} & \ras{المعالجة} & \ras{المخرج} \\ \hline
+        1 & نص المحاضرة & استخراج الأفكار الأساسية & قائمة أفكار \\ \hline
+        2 & قائمة الأفكار & كتابة ملخص منظم & ملخص الدرس \\ \hline
+        3 & الملخص & إنشاء خمسة أسئلة مع الإجابات & أسئلة تدريبية \\ \hline
+    \end{tabularx}
+    \end{center}
+    \begin{obox}{\faExclamationTriangle\quad انتبه!}
+        لا ننتقل إلى المرحلة التالية قبل مراجعة نتيجة المرحلة الحالية.
+        الخطأ الصغير في البداية يكبر في المراحل التالية.
+    \end{obox}
+\end{frame}
+
+\begin{frame}{أمر واحد أم سير عمل؟}
+    \begin{center}
+    \begin{tabularx}{0.85\textwidth}{|R|C|C|}
+        \hline
+        \ras{المعيار} & \ras{أمر واحد} & \ras{سير عمل} \\ \hline
+        سهولة المراجعة         & \cell{brandOrange}{صعبة}   & \cell{tealDeep}{\textbf{سهلة}} \\ \hline
+        اكتشاف الأخطاء         & \cell{brandOrange}{صعب}    & \cell{tealDeep}{\textbf{سهل}} \\ \hline
+        التحكم في كل مرحلة     & \cell{brandOrange}{ضعيف}   & \cell{tealDeep}{\textbf{قوي}} \\ \hline
+        إعادة الاستعمال        & \cell{brandMuted}{محدودة}  & \cell{tealDeep}{\textbf{ممكنة}} \\ \hline
+        السرعة                 & \cell{tealDeep}{\textbf{أسرع}} & \cell{brandMuted}{أبطأ قليلًا} \\ \hline
+    \end{tabularx}
+    \end{center}
+\end{frame}
+
+\begin{frame}{أفكار لمساعدين في قسم اللغة العربية}
+    \begin{tbox}{\faChalkboardTeacher\quad أفكار للتطبيق}
+        \begin{itemize}
+            \item \textbf{مساعد الإعراب:} يشرح إعراب الجمل خطوة بخطوة، اعتمادًا على كتاب النحو المقرر.
+            \item \textbf{مساعد البلاغة:} يستخرج الصور البيانية من نص، ويشرحها.
+            \item \textbf{مساعد التعبير:} يقترح ملاحظات على إنشاء التلميذ دون أن يكتبه بدلًا منه.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item المساعد المخصص = \textbf{اسم} + \textbf{تعليمات} + \textbf{معرفة} + \textbf{أدوات}.
+            \item نبني، ثم \textbf{نختبر}، ثم \textbf{نحسّن}، ثم نختبر من جديد.
+            \item \textbf{سير العمل} يقسم المهمة الكبيرة إلى مراحل، مع مراجعة بعد كل مرحلة.
+            \item المساعد الجيد يحتاج إلى أستاذ يراجع نتائجه باستمرار.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

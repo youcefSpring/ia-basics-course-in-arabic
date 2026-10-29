@@ -1,0 +1,318 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{3pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{
+    label=\arabic*),
+    itemsep=4pt,
+    topsep=3pt
+}
+
+\setlist[itemize]{
+    itemsep=2pt,
+    topsep=2pt
+}
+
+\arraycolsep=3pt
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+
+
+\rule{\textwidth}{1pt}
+
+\begin{center}
+
+{\khatt\textbf{
+الفصل 4: الأخلاقيات في الذكاء الاصطناعي
+}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+%================================================
+% الوضعية المحفزة
+%================================================
+
+
+
+%================================================
+% النشاط الأول
+%================================================
+
+\section*{\khatt\underline{النشاط الأول: المسؤولية والشفافية}}
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item أكمل التعريفات التالية:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\raggedleft\arraybackslash}m{4.5cm}|
+>{\raggedleft\arraybackslash}m{9.5cm}|}
+
+\hline
+
+\textbf{المفهوم} & \textbf{التعريف} \\
+
+\hline
+
+المسؤولية
+&
+تحمل المستخدم مسؤولية استعمال الأداة والنتائج التي يعتمد
+عليها.
+\\
+\hline
+
+الشفافية
+&
+توضيح كيفية استعمال الذكاء الاصطناعي والمعلومات المتعلقة
+بالمخرجات عند الحاجة.
+\\
+\hline
+
+الإفصاح
+&
+التصريح باستعمال أداة الذكاء الاصطناعي عندما يكون ذلك
+مطلوبًا أو مناسبًا.
+\\
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item طالب استعمل الذكاء الاصطناعي لإنشاء ملخص لمقال علمي،
+ثم قدمه للأستاذ دون الإشارة إلى أنه استعان بالأداة.
+
+\begin{enumerate}
+
+    \item ما المشكلة الأخلاقية في هذه الحالة؟
+    
+    \item هل يتحمل الطالب مسؤولية المحتوى الذي قدمه؟
+    
+    \item ما الإجراء الأكثر شفافية الذي يمكن للطالب القيام به؟
+
+\end{enumerate}
+
+%------------------------------------------------
+
+\item أمام الحالات التالية، حدّد هل تم احترام
+\textbf{الشفافية والإفصاح} أم لا:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\raggedleft\arraybackslash}m{9.5cm}|
+>{\centering\arraybackslash}m{4cm}|}
+
+\hline
+
+\textbf{الحالة} & \textbf{التقييم} \\
+
+\hline
+
+الطالب يصرح بأنه استعمل أداة ذكاء اصطناعي
+للمساعدة في تنظيم أفكاره.
+&
+\\[0.4cm]
+\hline
+
+الطالب ينسخ إجابة الذكاء الاصطناعي ويقدمها على أنها
+عمله الشخصي بالكامل.
+&
+\\[0.4cm]
+\hline
+
+الطالب يستعمل الذكاء الاصطناعي ثم يتحقق من المعلومات
+ويذكر طريقة استعماله للأداة.
+&
+\\[0.4cm]
+\hline
+
+الطالب يعتمد على معلومات الأداة دون التحقق منها.
+&
+\\[0.4cm]
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item لماذا لا تعني الاستعانة بالذكاء الاصطناعي
+التخلي عن المسؤولية الشخصية؟
+
+\end{enumerate}
+
+%================================================
+% النشاط الثاني
+%================================================
+\vspace{3cm}
+\section*{\khatt\underline{النشاط الثاني (واجب منزلي): الانتحال القائم على الذكاء الاصطناعي}}
+
+\textbf{يُنجز هذا النشاط في المنزل ويُسلَّم في الحصة القادمة.}
+
+\begin{enumerate}
+
+\item عرّف باختصار:
+
+\begin{itemize}
+
+    \item \textbf{الانتحال العلمي}
+
+
+    \item \textbf{\textenglish{AI-Plagiarism}}
+   
+\end{itemize}
+
+%------------------------------------------------
+
+\item طالب نسخ نصًا كاملاً من أداة ذكاء اصطناعي،
+ثم وضع اسمه عليه وقدمه كبحث شخصي.
+
+\begin{enumerate}
+
+    \item هل يعتبر هذا استعمالًا مسؤولًا؟
+    
+    \item ما المشكلة المتعلقة بملكية العمل؟
+    
+    \item ماذا كان يمكن للطالب أن يفعل بدل النسخ المباشر؟
+
+\end{enumerate}
+
+%------------------------------------------------
+
+\item قارن بين الحالات التالية:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\raggedleft\arraybackslash}m{7cm}|
+>{\raggedleft\arraybackslash}m{7cm}|}
+
+\hline
+
+\textbf{الاستعمال} & \textbf{الموقف الأخلاقي} \\
+
+\hline
+
+استعمال الذكاء الاصطناعي لفهم مفهوم صعب.
+&
+\\[0.45cm]
+\hline
+
+نسخ إجابة كاملة وتقديمها باسم الطالب.
+&
+\\[0.45cm]
+\hline
+
+استعمال الأداة لاقتراح أفكار ثم كتابة الطالب
+للإجابة بنفسه.
+&
+\\[0.45cm]
+\hline
+
+استعمال الذكاء الاصطناعي لإنشاء مسودة ثم مراجعتها
+والتحقق منها.
+&
+\\[0.45cm]
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item اقترح ثلاث قواعد للاستعمال الأخلاقي للذكاء الاصطناعي
+في إنجاز البحوث الجامعية.
+
+\end{enumerate}
+
+
+\end{document}

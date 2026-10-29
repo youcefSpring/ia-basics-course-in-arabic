@@ -1,0 +1,172 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{اكتشاف الذكاء الاصطناعي التوليدي}
+
+\begin{document}
+
+\cover{درس الفصل الأول}
+{اكتشاف الذكاء الاصطناعي التوليدي}
+{مدخل بسيط لطلبة قسم اللغة العربية}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تعرّف الذكاء الاصطناعي التوليدي بكلمات بسيطة.
+            \item تذكر أنواع المحتوى الذي ينتجه.
+            \item تفهم لماذا تتغير الإجابة عندما نغيّر صياغة الطلب.
+            \item تتحقق من المعلومة قبل استعمالها في درسك.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{ما الذكاء الاصطناعي؟}
+    نستعمل كل يوم أجهزة تبدو «ذكية»: الهاتف يقترح الكلمة التالية،
+    والخريطة تقترح أقصر طريق.
+    وراء هذه الخدمات برامج نسميها \textbf{الذكاء الاصطناعي}.
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{الذكاء الاصطناعي} فرع من علوم الحاسوب،
+        يجعل الحاسوب يقوم بمهام تحتاج عادة إلى ذكاء الإنسان،
+        مثل الفهم والتعلم والإجابة عن الأسئلة.
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{ما الذكاء الاصطناعي التوليدي؟}
+    كلمة «التوليدي» مأخوذة من الفعل «ولَّد»، أي أنشأ شيئًا جديدًا.
+    فالأداة لا تبحث عن إجابة جاهزة فقط، بل \textbf{تنتج محتوى جديدًا}.
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{الذكاء الاصطناعي التوليدي} نوع من الذكاء الاصطناعي
+        ينتج نصوصًا أو صورًا أو أصواتًا جديدة، انطلاقًا من طلب يكتبه المستخدم.
+    \end{tbox}
+    \begin{center}
+        \flow[2.3cm]{{المستخدم\\يكتب طلبًا}, {الأداة\\تحلل الطلب}, {محتوى\\جديد}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{تشبيه يقرّب الفكرة}
+    \begin{tbox}{\faChalkboardTeacher\quad التلميذ القارئ}
+        تخيّل تلميذًا قرأ آلاف النصوص العربية.
+        بعد ذلك، صار قادرًا على كتابة نص جديد بأسلوبه.\\[3pt]
+        الأداة التوليدية تشبه هذا التلميذ، لكنها قرأت كمية ضخمة جدًا من النصوص.
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{ماذا ينتج الذكاء الاصطناعي التوليدي؟}
+    \begin{center}
+    \begin{tikzpicture}[
+        far/.style={draw=brandTeal, fill=brandTeal!12, thick,
+            rounded corners=4pt, text width=2cm, align=center,
+            minimum height=0.85cm, font=\khatt\bfseries}]
+        \node[circle, draw=brandOrange, fill=brandOrange!12, very thick,
+            text width=2.3cm, align=center, font=\khatt\bfseries]
+            (m) {الذكاء الاصطناعي التوليدي};
+        \node[far] (n1) at (0,2.3)     {نصوص};
+        \node[far] (n2) at (-4,1.1)    {صور};
+        \node[far] (n3) at (-4,-1.1)   {أصوات};
+        \node[far] (n4) at (0,-2.3)    {فيديو};
+        \node[far] (n5) at (4,-1.1)    {جداول\\ومخططات};
+        \node[far] (n6) at (4,1.1)     {برامج\\حاسوبية};
+        \foreach \i in {1,...,6} \draw[thick, brandMuted] (m) -- (n\i);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{أمثلة في قسم اللغة العربية}
+    \begin{tbox}{\faChalkboardTeacher\quad في قسم اللغة العربية}
+        \begin{itemize}
+            \item \textbf{نص:} قصة قصيرة لتلاميذ السنة الأولى متوسط.
+            \item \textbf{صورة:} رسم يوضح مشهدًا من نص القراءة.
+            \item \textbf{صوت:} قراءة مسجلة لقصيدة مع ضبط الحركات.
+            \item \textbf{جدول:} جدول يلخص أنواع الخبر مع أمثلة.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{أشهر الأدوات}
+    توجد أدوات كثيرة، وكلها تقبل الكتابة باللغة العربية:
+    \begin{center}
+        \begin{tabularx}{0.6\textwidth}{|C|C|}
+            \hline
+            \ras{الأداة} & \ras{الشركة المطوِّرة} \\
+            \hline
+            \textenglish{ChatGPT}    & \textenglish{OpenAI} \\ \hline
+            \textenglish{Gemini}     & \textenglish{Google} \\ \hline
+            \textenglish{Claude}     & \textenglish{Anthropic} \\ \hline
+            \textenglish{DeepSeek}   & \textenglish{DeepSeek} \\ \hline
+            \textenglish{Qwen}       & \textenglish{Alibaba} \\ \hline
+            \textenglish{Perplexity} & \textenglish{Perplexity AI} \\ \hline
+        \end{tabularx}
+    \end{center}
+    الطلب نفسه لا يعطي الإجابة نفسها في كل الأدوات، لذلك من المفيد أن \textbf{نقارن}.
+\end{frame}
+
+\begin{frame}{الطلب يغيّر الإجابة}
+    نسمي ما نكتبه للأداة \textbf{الطلب} أو \textbf{الأمر} \textenglish{(Prompt)}.
+    كلما كان واضحًا ودقيقًا، كانت الإجابة أفضل.
+
+    \vspace{2mm}
+    \textbf{\color{brandOrange}طلب عام:}
+    \begin{amr}[brandOrange]
+        اشرح النعت.
+    \end{amr}
+    \textbf{\color{tealDeep}طلب دقيق:}
+    \begin{amr}[brandTeal]
+        اشرح النعت لتلميذ في السنة الأولى متوسط،
+        بلغة بسيطة، مع ثلاثة أمثلة من الحياة اليومية.
+    \end{amr}
+    الطلب الثاني يحدد \textbf{المستوى} و\textbf{اللغة} و\textbf{عدد الأمثلة}،
+    لذلك تأتي إجابته أقرب إلى حاجة الأستاذ.
+\end{frame}
+
+\begin{frame}{التحقق من إجابات الذكاء الاصطناعي}
+    \begin{obox}{\faExclamationTriangle\quad الهلوسة}
+        قد تخطئ الأداة وتكتب المعلومة الخاطئة بثقة كبيرة:
+        تنسب بيتًا شعريًا إلى غير قائله، أو تعطي إعرابًا خاطئًا.
+        \textbf{الإجابة الجميلة ليست بالضرورة إجابة صحيحة.}
+    \end{obox}
+    نتحقق من المعلومة المهمة بهذه الخطوات:
+    \begin{center}
+        \flow[1.9cm]{{اقرأ\\الإجابة}, {حدد\\المعلومة}, {ابحث في\\مصدر موثوق}, {قارن}, {قرّر}}
+    \end{center}
+    \textbf{أمثلة لمصادر موثوقة:} المعاجم المعروفة، كتب النحو المعتمدة،
+    الدواوين المحققة، والكتاب المدرسي الرسمي.
+\end{frame}
+
+\begin{frame}{كيف يستفيد أستاذ اللغة العربية؟}
+    \begin{tbox}{\faChalkboardTeacher\quad استعمالات مفيدة}
+        يمكن للأستاذ أن يستعمل الذكاء الاصطناعي التوليدي في:
+        \begin{itemize}
+            \item اقتراح أمثلة جديدة لقاعدة نحوية.
+            \item إعداد أسئلة لفهم نص القراءة.
+            \item تبسيط شرح درس في البلاغة.
+            \item اقتراح موضوعات للتعبير الكتابي.
+        \end{itemize}
+    \end{tbox}
+    لكن الأستاذ يبقى هو \textbf{المسؤول}: يقرأ، ويصحح، ويختار ما يناسب تلاميذه.
+\end{frame}
+
+\begin{frame}{اختبر فهمك}
+    \begin{tbox}{\faQuestionCircle\quad صحيح أم خطأ؟}
+        \begin{enumerate}
+            \item كل ما يقدمه الذكاء الاصطناعي صحيح دائمًا.
+            \item يمكن للذكاء الاصطناعي التوليدي إنتاج الصور.
+            \item يمكن أن تتغير الإجابة حسب صياغة الطلب.
+            \item يجب التحقق من المعلومات المهمة قبل استعمالها.
+        \end{enumerate}
+    \end{tbox}
+    {\small\color{brandMuted} الإجابات: 1) خطأ \quad 2) صحيح \quad 3) صحيح \quad 4) صحيح}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item الذكاء الاصطناعي التوليدي \textbf{ينتج محتوى جديدًا}:
+                  نصوصًا وصورًا وأصواتًا.
+            \item جودة الإجابة مرتبطة بجودة \textbf{الطلب}.
+            \item الأداة قد تخطئ، لذلك \textbf{نتحقق} دائمًا من مصدر موثوق.
+            \item الذكاء الاصطناعي \textbf{مساعد} للأستاذ، وليس بديلًا عنه.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

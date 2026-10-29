@@ -1,0 +1,383 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.2,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.3]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.3]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.3, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.3, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\itemsep}{3cm}
+\arraycolsep=1.4pt
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\arabic*)}
+
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\begin{center}
+
+{\Large\khatt\textbf{سلسلة تمارين}}
+
+\vspace{0.2cm}
+
+{\Large\khatt\textbf{في الذكاء الاصطناعي }}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\begin{center}
+
+{\khatt\textbf{المحور الأول: اكتشاف الذكاء الاصطناعي التوليدي}}
+
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+
+%================================================
+% النشاط الأول
+%================================================
+
+\section*{\khatt\underline{النشاط الأول: اكتشاف أدوات الذكاء الاصطناعي التوليدي}}
+
+أصبح الذكاء الاصطناعي التوليدي من الأدوات التي يمكن للطالب
+استعمالها في التعلم والبحث وإنجاز العديد من المهام.
+
+من أشهر أدوات الذكاء الاصطناعي التوليدي:
+
+\begin{itemize}
+
+    \item \textenglish{ChatGPT}
+
+    \item \textenglish{Gemini}
+
+    \item \textenglish{Claude}
+
+    \item \textenglish{DeepSeek}
+
+    \item \textenglish{Qwen}
+
+    \item \textenglish{Perplexity}
+
+\end{itemize}
+
+سنستعمل الأدوات الستة لتقديم نفس الطلب، ثم نقارن بين
+الإجابات التي تقدمها.
+
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item أدخل الطلب الآتي في كل واحدة من الأدوات الستة:
+
+\begin{center}
+
+\textbf{
+اشرح لطالب جامعي مبتدئ ما هو الذكاء الاصطناعي التوليدي،
+واذكر ثلاثة أمثلة لاستعماله في الحياة اليومية.
+}
+
+\end{center}
+
+%------------------------------------------------
+
+\item سجّل الإجابة التي حصلت عليها من كل واحدة
+من الأدوات الستة.
+
+%------------------------------------------------
+
+\item قارن بين إجابات الأدوات الستة من خلال الجدول الآتي:
+
+\begin{center}
+
+\resizebox{\textwidth}{!}{%
+
+\begin{tabular}{|
+>{\centering\arraybackslash}m{3cm}|
+>{\centering\arraybackslash}m{2.2cm}|
+>{\centering\arraybackslash}m{2.2cm}|
+>{\centering\arraybackslash}m{2.2cm}|
+>{\centering\arraybackslash}m{2.2cm}|
+>{\centering\arraybackslash}m{2.2cm}|
+>{\centering\arraybackslash}m{2.2cm}|
+}
+
+\hline
+
+\textbf{المعيار}
+&
+\textenglish{\textbf{ChatGPT}}
+&
+\textenglish{\textbf{Gemini}}
+&
+\textenglish{\textbf{Claude}}
+&
+\textenglish{\textbf{DeepSeek}}
+&
+\textenglish{\textbf{Qwen}}
+&
+\textenglish{\textbf{Perplexity}}
+\\
+
+\hline
+
+وضوح الإجابة
+&
+&
+&
+&
+&
+&
+\\
+\hline
+
+سهولة الفهم
+&
+&
+&
+&
+&
+&
+\\
+\hline
+
+تنظيم المعلومات
+&
+&
+&
+&
+&
+&
+\\
+\hline
+
+عدد الأمثلة
+&
+&
+&
+&
+&
+&
+\\
+\hline
+
+طول الإجابة
+&
+&
+&
+&
+&
+&
+\\
+\hline
+
+\end{tabular}
+
+}
+
+\end{center}
+
+%------------------------------------------------
+
+
+\item غيّر صياغة الطلب السابق، واستعمل الطلب الآتي:
+
+\begin{center}
+
+\textbf{
+اشرح لي الذكاء الاصطناعي التوليدي كما لو كنت طالبا
+جامعيا مبتدئا، واستعمل أمثلة بسيطة من الحياة اليومية.
+}
+
+\end{center}
+
+%------------------------------------------------
+
+\item قارن بين الإجابة الجديدة والإجابة السابقة.
+
+ماذا تلاحظ؟
+
+
+\item اذكر ثلاثة أنواع مختلفة من المحتوى يستطيع
+الذكاء الاصطناعي التوليدي إنتاجها.
+
+%------------------------------------------------
+
+\item أعط مثالين لاستعمال الذكاء الاصطناعي التوليدي
+يمكن أن يساعدا الطالب في دراسته الجامعية.
+
+
+
+\end{enumerate}
+
+\newpage
+%================================================
+% النشاط الثاني
+%================================================
+
+\section*{\khatt\underline{النشاط الثاني (واجب منزلي): التحقق من إجابات الذكاء الاصطناعي}}
+
+\textbf{يُنجز هذا النشاط في المنزل ويُسلَّم في الحصة القادمة.}
+
+لا يعني الحصول على إجابة من الذكاء الاصطناعي أنها صحيحة
+بالضرورة، لذلك يجب على الطالب قراءة الإجابة وتحليلها
+والتحقق من المعلومات المهمة.
+
+
+\begin{enumerate}
+
+%------------------------------------------------
+
+\item اختر إحدى الأدوات الستة السابقة، ثم أدخل الطلب الآتي:
+
+\begin{center}
+
+\textbf{
+اكتب فقرة قصيرة حول فوائد ومخاطر استعمال الذكاء الاصطناعي
+التوليدي في التعليم الجامعي.
+}
+
+\end{center}
+
+%------------------------------------------------
+
+\item اقرأ الإجابة التي قدمتها الأداة بعناية.
+
+%------------------------------------------------
+
+\item استخرج من الإجابة:
+
+\begin{itemize}
+
+    \item فائدتين للذكاء الاصطناعي التوليدي.
+
+    \item خطرين محتملين.
+
+    \item معلومة واحدة ترى أنها تحتاج إلى التحقق.
+
+\end{itemize}
+
+%------------------------------------------------
+
+\item اختر المعلومة التي تحتاج إلى التحقق منها،
+ثم ابحث عنها باستعمال مصدر موثوق.
+
+%------------------------------------------------
+
+\item قارن بين المعلومات التي وجدتها في المصدر
+وبين إجابة الذكاء الاصطناعي.
+
+%------------------------------------------------
+
+\item هل وجدت تطابقا بين إجابة الذكاء الاصطناعي
+والمصدر الذي اعتمدت عليه؟
+
+علّل إجابتك.
+
+%------------------------------------------------
+
+\item ماذا تستنتج من هذه المقارنة؟
+
+%------------------------------------------------
+
+\item أمام العبارات الآتية، اكتب
+\textbf{صحيح} أو \textbf{خطأ}:
+
+\begin{enumerate}
+
+    \item كل المعلومات التي يقدمها الذكاء الاصطناعي
+    صحيحة دائما.
+
+    \item يمكن للذكاء الاصطناعي التوليدي إنتاج النصوص.
+
+    \item يمكن لبعض أدوات الذكاء الاصطناعي إنتاج الصور.
+
+    \item يجب التحقق من المعلومات المهمة التي يقدمها
+    الذكاء الاصطناعي.
+
+    \item يمكن أن تتغير الإجابة حسب طريقة صياغة الطلب.
+
+    \item يمكن للطالب استعمال الذكاء الاصطناعي كأداة
+    مساعدة في التعلم.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}

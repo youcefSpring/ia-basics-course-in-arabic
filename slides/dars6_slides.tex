@@ -1,0 +1,148 @@
+\documentclass[aspectratio=169, 11pt, xcolor={table}]{beamer}
+\input{style}
+\title{الذكاء الاصطناعي متعدد الأنماط}
+
+\begin{document}
+
+\cover{درس الفصل السادس}
+{الذكاء الاصطناعي متعدد الأنماط}
+{نص ــ صورة ــ صوت ــ فيديو}
+
+\begin{frame}{أهداف الدرس}
+    \begin{tbox}{\faBullseye\quad أهداف الدرس}
+        في نهاية هذا الدرس، تستطيع أن:
+        \begin{itemize}
+            \item تشرح معنى «النمط» و«متعدد الأنماط».
+            \item تستعمل أداة لفهم صورة أو مخطط، ثم تتحقق من إجابتها.
+            \item تحوّل نصًا إلى مخطط مفاهيمي بمساعدة الأداة.
+            \item تراجع المخطط وتصحح أخطاءه.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{ما معنى «متعدد الأنماط»؟}
+    نتواصل نحن البشر بطرق كثيرة: نكتب، ونتكلم، ونرسم، ونشير.
+    كل طريقة من هذه الطرق نسميها \textbf{نمطًا}.
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{النمط:} شكل المعلومة: نص، أو صورة، أو صوت، أو فيديو.\\[3pt]
+        \textbf{الذكاء الاصطناعي متعدد الأنماط:} أداة تفهم أكثر من نمط،
+        وتستطيع أن تنتج أكثر من نمط.
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{من المدخلات إلى المخرجات}
+    \begin{center}
+    \begin{tikzpicture}[
+        namat/.style={draw=brandTeal, fill=brandTeal!12, thick, rounded corners=4pt,
+            minimum width=2.6cm, minimum height=0.7cm, font=\khatt\bfseries}]
+        \node[font=\khatt\bfseries, lawn=brandMuted] at (4.5,1.9) {المدخلات};
+        \node[namat] (i1) at (4.5,1.1)   {نص};
+        \node[namat] (i2) at (4.5,0.25)  {صورة};
+        \node[namat] (i3) at (4.5,-0.6)  {صوت};
+        \node[namat] (i4) at (4.5,-1.45) {فيديو};
+        \node[draw=brandOrange, fill=brandOrange!12, very thick, rounded corners=6pt,
+            minimum width=2.6cm, minimum height=3.2cm, align=center,
+            font=\khatt\bfseries] (m) at (0,-0.17) {أداة\\متعددة\\الأنماط};
+        \node[font=\khatt\bfseries, lawn=brandMuted] at (-4.5,1.9) {المخرجات};
+        \node[namat] (o1) at (-4.5,1.1)   {شرح مكتوب};
+        \node[namat] (o2) at (-4.5,0.25)  {مخطط};
+        \node[namat] (o3) at (-4.5,-0.6)  {صورة جديدة};
+        \node[namat] (o4) at (-4.5,-1.45) {قراءة صوتية};
+        \foreach \i in {1,...,4} {
+            \draw[sahm] (i\i.west) -- (m.east);
+            \draw[sahm] (m.west) -- (o\i.east);
+        }
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{أمثلة لأستاذ اللغة العربية}
+    \begin{tbox}{\faChalkboardTeacher\quad في قسم اللغة العربية}
+        \begin{itemize}
+            \item \textbf{صورة $\leftarrow$ نص:} يصوّر صفحة مخطوطة، ويطلب كتابتها نصًا رقميًا.
+            \item \textbf{نص $\leftarrow$ مخطط:} يحوّل درس «الجملة الاسمية» إلى خريطة ذهنية.
+            \item \textbf{نص $\leftarrow$ صوت:} يستمع إلى قراءة لقصيدة قبل تقديمها للتلاميذ.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{فهم صورة باستعمال الذكاء الاصطناعي}
+    نرفع إلى الأداة صورة فيها معلومات: مخطط بياني، أو جدول، أو رسم توضيحي،
+    ثم نطلب منها شرح ما تراه.
+    \begin{amr}[brandTeal]
+        حلّل هذه الصورة، واشرح لي المعلومات الموجودة فيها بطريقة بسيطة.
+    \end{amr}
+    \textbf{\color{tealDeep}خطوات العمل:}
+    \begin{center}
+        \flow[2.2cm]{{اختر صورة\\واضحة}, {ارفعها\\مع أمر دقيق}, {اقرأ\\الشرح}, {قارن\\بالصورة}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{أين تخطئ الأداة غالبًا؟}
+    \begin{obox}{\faExclamationTriangle\quad أخطاء متكررة}
+        \begin{itemize}
+            \item \textbf{الأرقام:} قد تقرأ رقمًا خطأ، أو تخلط بين عمودين.
+            \item \textbf{العلاقات:} قد تفهم العلاقة بين عنصرين بشكل خاطئ.
+            \item \textbf{الخط العربي:} قد تخطئ في قراءة خط اليد أو الحروف غير الواضحة.
+        \end{itemize}
+    \end{obox}
+    لذلك نقارن دائمًا إجابة الأداة \textbf{بالصورة الأصلية}.
+\end{frame}
+
+\begin{frame}{تحويل النص إلى مخطط مفاهيمي}
+    \begin{tbox}{\faLightbulb\quad تعريف}
+        \textbf{المخطط المفاهيمي:} رسم يعرض المفاهيم الأساسية لدرس ما،
+        ويربط بينها بأسهم توضح العلاقات.
+    \end{tbox}
+    \textbf{\color{tealDeep}الأمر:}
+    \begin{amr}[brandTeal]
+        حوّل النص الآتي إلى مخطط مفاهيمي بسيط، يوضح العلاقة بين المفاهيم الرئيسية.
+    \end{amr}
+\end{frame}
+
+\begin{frame}{مثال: مخطط لدرس «الجملة الاسمية»}
+    \begin{center}
+    \begin{tikzpicture}[
+        mafhum/.style={thick, rounded corners=4pt,
+            minimum height=0.8cm, text width=2.4cm, align=center,
+            font=\khatt\bfseries},
+        alaqa/.style={-{Stealth[length=2.5mm]}, thick, brandMuted}]
+        \node[mafhum, rang=brandOrange, text width=3.2cm] (j) at (0,0) {الجملة الاسمية};
+        \node[mafhum, rang=brandTeal] (m) at (3,-1.7)  {المبتدأ};
+        \node[mafhum, rang=brandTeal] (k) at (-3,-1.7) {الخبر};
+        \node[mafhum, rang=brandMuted] (m1) at (3,-3.4) {اسم مرفوع};
+        \node[mafhum, rang=brandMuted] (k1) at (-1.6,-3.4) {مفرد};
+        \node[mafhum, rang=brandMuted] (k2) at (-4.6,-3.4) {جملة أو\\شبه جملة};
+        \draw[alaqa] (j) -- node[above, sloped, font=\small] {تتكون من} (m);
+        \draw[alaqa] (j) -- node[above, sloped, font=\small] {تتكون من} (k);
+        \draw[alaqa] (m) -- node[right, font=\small] {هو} (m1);
+        \draw[alaqa] (k) -- node[right, font=\small] {يكون} (k1);
+        \draw[alaqa] (k) -- (k2);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{مراجعة المخطط}
+    بعد أن تقترح الأداة المخطط، نسأل أنفسنا:
+    \begin{tbox}{\faQuestionCircle\quad أسئلة المراجعة}
+        \begin{enumerate}
+            \item هل يحتوي المخطط على \textbf{كل} الأفكار الأساسية في النص؟
+            \item هل توجد علاقة \textbf{خاطئة} بين بعض المفاهيم؟
+            \item هل أضافت الأداة مفهومًا \textbf{غير موجود} في النص؟
+            \item ماذا أضيف أو أحذف ليصبح المخطط أوضح لتلاميذي؟
+        \end{enumerate}
+    \end{tbox}
+\end{frame}
+
+\begin{frame}{خلاصة الدرس}
+    \begin{tbox}{\faCheckCircle\quad خلاصة الدرس}
+        \begin{itemize}
+            \item \textbf{النمط} هو شكل المعلومة: نص، صورة، صوت، فيديو.
+            \item الأداة متعددة الأنماط تفهم أكثر من نمط وتنتج أكثر من نمط.
+            \item الأداة قد تخطئ في \textbf{الأرقام والعلاقات}، فنقارن بالأصل دائمًا.
+            \item المخطط المفاهيمي يحتاج إلى \textbf{مراجعة} الأستاذ قبل استعماله في القسم.
+        \end{itemize}
+    \end{tbox}
+\end{frame}
+
+\end{document}

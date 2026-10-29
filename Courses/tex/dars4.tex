@@ -1,0 +1,370 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc}
+\usepackage[skins]{tcolorbox}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% الألوان: لون رئيسي هادئ + لون تنبيه فقط
+%------------------------------------------------
+
+\definecolor{asasi}{HTML}{3D6A8E}   % اللون الرئيسي: للرسوم والمخططات
+\definecolor{tanbih}{HTML}{C0603A}  % لون التنبيه: للتحذيرات والحالات السلبية
+\definecolor{ramadi}{HTML}{5F6B73}  % رمادي للنصوص الثانوية والأسهم
+\definecolor{dakin}{HTML}{263238}   % لون العناوين
+
+% أسماء قديمة تُحوَّل إلى اللونين فقط
+\colorlet{azraq}{asasi}
+\colorlet{fayruzi}{asasi}
+\colorlet{banafsaji}{asasi}
+\colorlet{akhdar}{asasi}
+\colorlet{ahmar}{tanbih}
+\colorlet{burtuqali}{asasi}
+
+%------------------------------------------------
+% الصناديق
+%------------------------------------------------
+
+\tcbset{
+    asl/.style={
+        enhanced,
+        arc=2mm,
+        boxrule=0.6pt,
+        colback=white,
+        colframe=black!18,
+        colbacktitle=black!5,
+        coltitle=dakin,
+        titlerule=0pt,
+        left=8pt, right=8pt, top=5pt, bottom=5pt,
+        fonttitle=\khatt\bfseries,
+        before skip=8pt, after skip=8pt
+    }
+}
+
+% أهداف الدرس
+\newtcolorbox{ahdaf}{asl, title={أهداف الدرس}}
+
+% تعريف (خط رئيسي رفيع على الجانب)
+\newtcolorbox{taarif}[1][تعريف]{asl, title={#1},
+    borderline east={2pt}{0pt}{asasi}}
+
+% مثال
+\newtcolorbox{mithal}[1][مثال]{asl, title={#1}}
+
+% تنبيه (اللون الوحيد البارز في النص)
+\newtcolorbox{intabih}[1][انتبه!]{asl, colback=tanbih!5, colframe=tanbih,
+    colbacktitle=tanbih, coltitle=white, title={#1}}
+
+% ركن أستاذ اللغة العربية
+\newtcolorbox{arabiyya}[1][في قسم اللغة العربية]{asl, title={#1}}
+
+% نص أمر يكتب للأداة
+\newtcolorbox{amr}[1][ramadi]{enhanced, arc=1mm, boxrule=0pt,
+    colback=black!4, borderline east={2.5pt}{0pt}{#1},
+    left=8pt, right=10pt, top=4pt, bottom=4pt,
+    before skip=6pt, after skip=6pt}
+
+% الخلاصة
+\newtcolorbox{khulasa}{asl, title={خلاصة الدرس}}
+
+% عنوان القسم
+\newcounter{qism}
+\newcommand{\qism}[1]{%
+    \stepcounter{qism}%
+    \par\bigskip
+    {\large\khatt\bfseries{\color{asasi}\arabic{qism}.}\ {\color{dakin}#1}}\par
+    \vspace{-2pt}{\color{black!20}\rule{\linewidth}{0.6pt}}\par\nopagebreak[4]
+    \smallskip}
+
+% عنوان فرعي
+\newcommand{\far}[1]{\par\smallskip
+    {\color{dakin}\khatt\bfseries {\color{asasi}$\blacktriangleleft$}\ #1}\par\nopagebreak[4]}
+
+% كلمة مهمة (خط عريض فقط)
+\newcommand{\kalima}[2][]{\textbf{#2}}
+
+%------------------------------------------------
+% أنماط الرسوم
+%------------------------------------------------
+
+\newcommand{\nodecolor}{}
+
+\tikzset{
+    % كتابة النص العربي من اليمين إلى اليسار داخل العقد
+    % (لون النص يُعطى بالمفتاح lawn=... وليس text=...)
+    every node/.append style={
+        execute at begin node={\nodecolor\everypar{\beginR}\beginR},
+        execute at end node=\endR},
+    lawn/.code={\def\nodecolor{\color{#1}}},
+    khatwa/.style={draw=#1, fill=#1!12, very thick, rounded corners=6pt,
+        minimum height=1.2cm, text width=2.3cm, align=center,
+        font=\khatt\bfseries},
+    khatwa/.default=azraq,
+    sahm/.style={-{Stealth[length=3mm]}, very thick, color=ramadi},
+    raqm/.style={circle, fill=#1, lawn=white, inner sep=2pt,
+        font=\small\bfseries},
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{4pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\arabic*), itemsep=2pt, topsep=3pt}
+\setlist[itemize]{itemsep=2pt, topsep=3pt}
+
+% الجداول
+\arrayrulecolor{black!22}
+\renewcommand{\arraystretch}{1.35}
+
+% رأس جدول ملون
+\newcommand{\ras}[1]{\cellcolor{black!7}\color{dakin}\bfseries #1}
+
+% عنوان الدرس
+\newcommand{\unwan}[3]{%
+    \begin{center}
+        {\color{asasi}\rule{\linewidth}{1.2pt}}\par\medskip
+        {\khatt\color{ramadi} #1}\par\smallskip
+        {\Large\khatt\bfseries\color{dakin} #2}\par\smallskip
+        {\khatt\color{ramadi} #3}\par\medskip
+        {\color{asasi}\rule{\linewidth}{1.2pt}}
+    \end{center}}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+\unwan{درس الفصل الرابع}
+{الأخلاقيات في الذكاء الاصطناعي}
+{المسؤولية ــ الشفافية ــ الإفصاح ــ الأمانة العلمية}
+
+\begin{ahdaf}
+في نهاية هذا الدرس، تستطيع أن:
+\begin{itemize}
+    \item تعرّف المسؤولية والشفافية والإفصاح.
+    \item تميّز بين الاستعمال المقبول والاستعمال المرفوض.
+    \item تعرّف الانتحال العلمي والانتحال بالذكاء الاصطناعي.
+    \item تكتب جملة إفصاح بسيطة في عملك.
+\end{itemize}
+\end{ahdaf}
+
+%================================================
+\qism{لماذا نتحدث عن الأخلاقيات؟}
+%================================================
+
+الذكاء الاصطناعي أداة قوية وسريعة.
+لكن الأداة لا تقرر وحدها كيف نستعملها.
+\kalima{الإنسان} هو الذي يختار: يستعملها بأمانة، أو يستعملها للغش.
+
+وأستاذ المستقبل قدوة لتلاميذه، فسلوكه مع هذه الأدوات درس في حد ذاته.
+
+%================================================
+\qism{ثلاثة مبادئ أساسية}
+%================================================
+
+\begin{center}
+\begin{tikzpicture}[
+    amud/.style={draw=#1, fill=#1!12, very thick,
+        minimum width=3.6cm, minimum height=2.6cm,
+        text width=3.3cm, align=center}]
+    % السقف
+    \fill[banafsaji!80] (-6.6,2.1) -- (6.6,2.1) -- (0,3.4) -- cycle;
+    \node[lawn=white, font=\khatt\bfseries] at (0,2.55) {الاستعمال الأخلاقي};
+    % الأعمدة
+    \node[amud=azraq, lawn=azraq!70!black]   at (4.4,0.6)
+        {{\khatt\bfseries المسؤولية}\\[3pt]\small أنا مسؤول عمّا أقدّمه};
+    \node[amud=akhdar, lawn=akhdar!70!black]  at (0,0.6)
+        {{\khatt\bfseries الشفافية}\\[3pt]\small أوضّح كيف استعملت الأداة};
+    \node[amud=burtuqali, lawn=burtuqali!70!black] at (-4.4,0.6)
+        {{\khatt\bfseries الإفصاح}\\[3pt]\small أصرّح باستعمالها};
+    % القاعدة
+    \fill[ramadi!70] (-6.6,-0.85) rectangle (6.6,-1.3);
+\end{tikzpicture}
+\end{center}
+
+\begin{taarif}
+\textbf{المسؤولية:} المستخدم مسؤول عن استعمال الأداة، وعن كل معلومة يعتمد عليها.
+
+\textbf{الشفافية:} توضيح طريقة استعمال الذكاء الاصطناعي عند الحاجة.
+
+\textbf{الإفصاح:} التصريح باستعمال أداة الذكاء الاصطناعي عندما يكون ذلك مطلوبًا أو مناسبًا.
+\end{taarif}
+
+\begin{intabih}
+الاستعانة بالذكاء الاصطناعي \textbf{لا تنقل المسؤولية} إلى الأداة.
+إذا قدّمت معلومة خاطئة، فأنت المسؤول عنها، لا الأداة.
+\end{intabih}
+
+%================================================
+\qism{الانتحال العلمي}
+%================================================
+
+\begin{taarif}
+\textbf{الانتحال العلمي:} أن ينسب الشخص إلى نفسه عملًا أو أفكارًا ليست له،
+دون ذكر مصدرها.
+
+\textbf{الانتحال بالذكاء الاصطناعي} \textenglish{(AI-Plagiarism)}:
+أن ينسخ الطالب نصًا أنتجته الأداة، ويقدمه على أنه عمله الشخصي.
+\end{taarif}
+
+\begin{mithal}[حالة]
+نسخ طالب بحثًا كاملًا من أداة ذكاء اصطناعي، ثم كتب اسمه عليه وقدّمه للأستاذ.
+هذا \kalima[ahmar]{انتحال}: العمل ليس عمله، ولم يتحقق من صحته، ولم يصرّح بمصدره.
+\end{mithal}
+
+%================================================
+\qism{مقياس الاستعمال: من المقبول إلى المرفوض}
+%================================================
+
+\begin{center}
+\begin{tikzpicture}
+    \shade[left color=ahmar!80, right color=akhdar!80, rounded corners=4pt]
+        (-7.5,0) rectangle (7.5,0.6);
+    \node[font=\khatt\bfseries, lawn=akhdar] at (6,1)  {مقبول};
+    \node[font=\khatt\bfseries, lawn=ramadi] at (0,1) {مقبول بشروط};
+    \node[font=\khatt\bfseries, lawn=ahmar] at (-6,1) {مرفوض};
+    \node[text width=4.2cm, align=center, font=\small] at (5.3,-0.8)
+        {أفهم مفهومًا صعبًا};
+    \node[text width=4.2cm, align=center, font=\small] at (0,-0.8)
+        {أنشئ مسودة ثم أراجعها وأصرّح بذلك};
+    \node[text width=4.2cm, align=center, font=\small] at (-5.3,-0.8)
+        {أنسخ إجابة كاملة وأقدّمها باسمي};
+    \foreach \x/\c in {5.3/akhdar, 0/burtuqali, -5.3/ahmar}
+        \fill[\c] (\x,0.3) circle (4pt);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tabular}{>{\raggedleft\arraybackslash}m{9.2cm}
+                >{\centering\arraybackslash}m{4.5cm}}
+\hline
+\ras{الاستعمال} & \ras{الموقف الأخلاقي} \\
+\hline
+استعمال الأداة لفهم قاعدة نحوية صعبة.
+    & \kalima[akhdar]{مقبول} \\ \hline
+طلب أفكار من الأداة، ثم كتابة الإجابة بنفسي.
+    & \kalima[akhdar]{مقبول} \\ \hline
+إنشاء مسودة بالأداة، ثم مراجعتها والتحقق منها والإفصاح.
+    & \kalima[burtuqali]{مقبول بشروط} \\ \hline
+الاعتماد على معلومات الأداة دون التحقق منها.
+    & \kalima[ahmar]{غير مسؤول} \\ \hline
+نسخ إجابة كاملة وتقديمها باسمي.
+    & \kalima[ahmar]{انتحال مرفوض} \\ \hline
+\end{tabular}
+\end{center}
+
+%================================================
+\qism{كيف أكتب جملة إفصاح؟}
+%================================================
+
+جملة الإفصاح قصيرة وصادقة. نضعها في آخر البحث أو في مقدمته.
+
+\begin{amr}[akhdar]
+\textbf{نموذج:} استعملتُ أداة \textenglish{ChatGPT} لتنظيم أفكار الفصل الثاني
+واقتراح خطة أولية.
+راجعتُ كل المعلومات وتحققت منها في المصادر المذكورة، والصياغة النهائية من عملي.
+\end{amr}
+
+\begin{arabiyya}
+عندما تصبح أستاذًا، علّم تلاميذك هذه القاعدة البسيطة:
+«الأداة تساعدني على التفكير، ولا تفكر بدلًا مني».
+\end{arabiyya}
+
+%================================================
+\qism{قواعد ذهبية للاستعمال الأخلاقي}
+%================================================
+
+\begin{center}
+\begin{tikzpicture}[
+    qaida/.style={draw=#1, fill=#1!10, thick, rounded corners=5pt,
+        text width=12.5cm, align=right, minimum height=0.9cm, inner sep=6pt}]
+    \node[qaida=azraq]     (q1) at (0,0)    {أتحقق من كل معلومة مهمة قبل استعمالها.};
+    \node[qaida=akhdar]    (q2) at (0,-1.1) {أكتب العمل النهائي بأسلوبي وأفكاري.};
+    \node[qaida=burtuqali] (q3) at (0,-2.2) {أصرّح باستعمال الأداة عندما يكون ذلك مطلوبًا.};
+    \node[qaida=banafsaji] (q4) at (0,-3.3) {أحترم قوانين المؤسسة وتعليمات الأستاذ.};
+    \foreach \i/\c in {1/azraq,2/akhdar,3/burtuqali,4/banafsaji}
+        \node[raqm=\c, minimum size=0.7cm] at ($(q\i.east)+(0.55,0)$) {\i};
+\end{tikzpicture}
+\end{center}
+
+\begin{khulasa}
+\begin{itemize}
+    \item المبادئ الثلاثة: \textbf{المسؤولية}، \textbf{الشفافية}، \textbf{الإفصاح}.
+    \item الأداة لا تتحمل المسؤولية؛ \textbf{المستخدم} هو المسؤول.
+    \item نسخ عمل الأداة وتقديمه باسمي \textbf{انتحال}.
+    \item الاستعمال الجيد: أفهم، أتحقق، أكتب بنفسي، وأصرّح.
+\end{itemize}
+\end{khulasa}
+
+\end{document}

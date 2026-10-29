@@ -1,0 +1,319 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    % خط العناوين (يعمل حتى بعد استعمال \textenglish)
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\parskip}{3pt}
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{
+    label=\arabic*),
+    itemsep=4pt,
+    topsep=3pt
+}
+
+\setlist[itemize]{
+    itemsep=2pt,
+    topsep=2pt
+}
+
+\arraycolsep=3pt
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+%------------------------------------------------
+% العنوان
+%------------------------------------------------
+
+
+\rule{\textwidth}{1pt}
+
+\begin{center}
+
+{\khatt\textbf{
+الفصل 5: البحث عن المعلومات، تحليلها وتلخيصها
+}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+%================================================
+% الوضعية المحفزة
+%================================================
+
+
+%================================================
+% النشاط الأول
+%================================================
+
+\section*{\khatt\underline{النشاط الأول: تحديد الحاجة إلى المعلومات}}
+
+\begin{enumerate}
+
+\item يريد طالب البحث عن الموضوع التالي:
+
+\begin{center}
+
+\textbf{
+``تأثير الذكاء الاصطناعي على التعليم الجامعي''
+}
+
+\end{center}
+
+حوّل الموضوع العام إلى ثلاثة أسئلة بحث أكثر تحديدًا.
+
+
+
+\item ما الفرق بين:
+
+\begin{center}
+
+\textbf{موضوع البحث}
+
+\qquad و \qquad
+
+\textbf{سؤال البحث}؟
+
+\end{center}
+
+علّل إجابتك.
+
+%------------------------------------------------
+
+\item اقترح كلمات مفتاحية مناسبة للبحث عن الموضوع
+السابق.
+
+\begin{center}
+
+\textenglish{AI}
+
+\qquad
+\textenglish{Artificial Intelligence}
+
+\qquad
+\textenglish{Education}
+
+\end{center}
+
+أضف أربع كلمات مفتاحية أخرى:
+
+\begin{itemize}
+
+    \item ............................................................
+
+    \item ............................................................
+
+    \item ............................................................
+
+    \item ............................................................
+
+\end{itemize}
+
+%------------------------------------------------
+
+\item قارن بين عبارات البحث التالية:
+
+\begin{center}
+
+\textbf{أ.} الذكاء الاصطناعي
+
+\vspace{0.15cm}
+
+\textbf{ب.} الذكاء الاصطناعي في التعليم الجامعي
+
+\vspace{0.15cm}
+
+\textbf{ج.} فوائد ومخاطر الذكاء الاصطناعي التوليدي
+في التعليم الجامعي
+
+\end{center}
+
+أي عبارة أكثر تحديدًا؟ ولماذا؟
+
+%------------------------------------------------
+
+\item اكتب صيغة بحث أكثر دقة باستعمال كلمات مفتاحية
+مناسبة.
+
+
+\end{enumerate}
+
+%================================================
+% النشاط الثاني
+%================================================
+
+\section*{\khatt\underline{النشاط الثاني (واجب منزلي): البحث واختيار المصادر}}
+
+\textbf{يُنجز هذا النشاط في المنزل ويُسلَّم في الحصة القادمة.}
+
+\begin{enumerate}
+
+\item ابحث عن معلومات حول:
+
+\begin{center}
+
+\textbf{
+الذكاء الاصطناعي التوليدي في التعليم الجامعي
+}
+
+\end{center}
+
+واختر ثلاثة مصادر مختلفة.
+
+%------------------------------------------------
+
+\item سجّل المعلومات الأساسية عن كل مصدر:
+
+\begin{center}
+
+\begin{tabular}{|
+>{\centering\arraybackslash}m{1.2cm}|
+>{\raggedleft\arraybackslash}m{4cm}|
+>{\raggedleft\arraybackslash}m{3cm}|
+>{\raggedleft\arraybackslash}m{3cm}|
+>{\raggedleft\arraybackslash}m{3cm}|}
+
+\hline
+
+\textbf{رقم}
+&
+\textbf{عنوان المصدر}
+&
+\textbf{الكاتب / الجهة}
+&
+\textbf{التاريخ}
+&
+\textbf{نوع المصدر}
+\\
+
+\hline
+
+1
+&
+&
+&
+&
+\\[0.5cm]
+
+\hline
+
+2
+&
+&
+&
+&
+\\[0.5cm]
+
+\hline
+
+3
+&
+&
+&
+&
+\\[0.5cm]
+
+\hline
+
+\end{tabular}
+
+\end{center}
+
+%------------------------------------------------
+
+\item صنّف المصادر التي عثرت عليها:
+
+\begin{itemize}
+
+    \item مصدر أكاديمي.
+    \item موقع مؤسسة رسمية.
+    \item مقال صحفي.
+    \item مدونة أو موقع شخصي.
+    \item محتوى مولد بواسطة الذكاء الاصطناعي.
+
+\end{itemize}
+
+%------------------------------------------------
+
+\item لماذا لا ينبغي الاعتماد على أول نتيجة تظهر
+في محرك البحث؟
+
+%------------------------------------------------
+
+\item اذكر ثلاثة معايير يمكن استعمالها لتقييم جودة
+المصدر.
+
+\end{enumerate}
+
+
+\end{document}
