@@ -25,6 +25,8 @@
 - `Courses/` : ملفات الدروس بصيغة PDF، ومصادرها في `Courses/tex/`.
 - `slides/` : العروض التقديمية (Beamer)، مع ملف التنسيق المشترك `style.tex`.
 - `Series/` : سلاسل الأعمال الموجهة لكل فصل.
+- `Labs/` : مخابر تطبيقية للفصول 1 إلى 4: أمثلة محلولة بجداول أرقام، وتمارين، وحلول مختصرة
+  (`lab1.pdf` … `lab4.pdf`، مع ملف التنسيق المشترك `lab_style.tex`).
 - `presentation_tex_template/` : قالب العرض التقديمي مع صورة معاينة.
 - `fonts/` : الخطوط المستعملة (Amiri و AlBattar).
 
@@ -48,6 +50,9 @@ cd Series && tectonic wajib3.tex
 
 # العروض التقديمية
 cd slides && tectonic dars3_slides.tex
+
+# المخابر التطبيقية
+cd Labs && tectonic lab1.tex
 ```
 
 ### الخطوط

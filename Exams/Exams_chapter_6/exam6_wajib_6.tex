@@ -1,0 +1,383 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.2,
+        Path=../../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.3]{AlBattar}
+    \newfontfamily\khatt[Script=Arabic, Scale=1.3]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% نسخة الطالب / نسخة التصحيح
+% لإنتاج نسخة التصحيح: عرّف \withanswers قبل \input لهذا الملف
+%------------------------------------------------
+
+\newif\ifcorrection
+\ifdefined\withanswers \correctiontrue \else \correctionfalse \fi
+
+\newcommand{\emptybox}{$\square$}
+\ifcorrection
+    \newcommand{\correctbox}{\textcolor{green!50!black}{$\boxtimes$}}
+    \newcommand{\correct}[1]{\textcolor{green!40!black}{\textbf{#1}}}
+    \newcommand{\explanation}[1]{%
+        \par\vspace{3pt}
+        \fcolorbox{gray!60}{gray!8}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+        \small\textbf{التعليل:} #1}}}
+\else
+    \newcommand{\correctbox}{$\square$}
+    \newcommand{\correct}[1]{#1}
+    \newcommand{\explanation}[1]{}
+\fi
+
+\newcommand{\pts}[1]{\textbf{(#1 ن)}}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\arraycolsep=1.4pt
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\textbf{السؤال \arabic*:}, leftmargin=*, itemsep=12pt, align=left}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+\begin{center}
+
+{\Large\khatt\textbf{الواجب السادس}\ifcorrection\ \textbf{-- التصحيح النموذجي}\fi}
+
+\vspace{0.2cm}
+
+{\Large\khatt\textbf{في الذكاء الاصطناعي}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\ifcorrection\else
+\textbf{الاسم واللقب:} \dotfill \quad \textbf{الفوج:} \makebox[3cm]{\dotfill}
+
+\vspace{0.3cm}
+\fi
+
+\begin{center}
+
+{\khatt\textbf{أسئلة متعددة الاختيارات (20 سؤالا -- 15 نقطة)}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\textbf{التعليمة:} ضع علامة \textbf{$\times$} في المربع المقابل للإجابة الصحيحة. لكل سؤال إجابة صحيحة واحدة فقط.
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+
+\needspace{9\baselineskip}\item
+\textbf{قال أستاذ: «نحن البشر نتواصل بطرق كثيرة: نكتب ونتكلم ونرسم ونشير». ما المصطلح الذي يطلقه الدرس على كل شكل من أشكال المعلومة هذه؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{النمط: وهو شكل المعلومة، مثل النص أو الصورة أو الصوت أو الفيديو.}
+    \item[\emptybox\ \textbf{ب)}] السياق: وهو المعلومات التي تساعد الأداة على فهم الوضعية.
+    \item[\emptybox\ \textbf{ج)}] الأمر: وهو النص الذي نكتبه للأداة لنطلب منها شيئًا محددًا.
+    \item[\emptybox\ \textbf{د)}] النموذج: وهو البرنامج الذي ينتج عن تدريب الآلة على البيانات.
+\end{itemize}
+\explanation{النمط هو شكل المعلومة: نص، أو صورة، أو صوت، أو فيديو.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي تعريف يعبّر بدقة عن «الذكاء الاصطناعي متعدد الأنماط»؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{أداة تفهم أكثر من نمط، وتستطيع أن تنتج أكثر من نمط.}
+    \item[\emptybox\ \textbf{ب)}] أداة تعمل على عدة أجهزة مثل الهاتف والحاسوب معًا.
+    \item[\emptybox\ \textbf{ج)}] أداة تفهم النص فقط، لكنها تعطي إجابات بعدة لغات.
+    \item[\emptybox\ \textbf{د)}] مجموعة أدوات منفصلة، كل واحدة منها تعالج نمطًا واحدًا.
+\end{itemize}
+\explanation{الأداة متعددة الأنماط تفهم أكثر من نمط (مدخلات) وتنتج أكثر من نمط (مخرجات). تعدّد اللغات أو الأجهزة لا يعني تعدّد الأنماط.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{صوّر أستاذ صفحة من مخطوطة قديمة، وطلب من الأداة أن تكتبها نصًا رقميًا. كيف نصف هذا الاستعمال بلغة الأنماط؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] نص $\leftarrow$ صورة.
+    \item[\emptybox\ \textbf{ب)}] نص $\leftarrow$ صوت.
+    \item[\correctbox\ \textbf{ج)}] \correct{صورة $\leftarrow$ نص.}
+    \item[\emptybox\ \textbf{د)}] صوت $\leftarrow$ نص.
+\end{itemize}
+\explanation{المدخل صورة (صفحة المخطوطة) والمخرج نص رقمي، وهذا من أمثلة الدرس: «صورة $\leftarrow$ نص».}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{حوّلت أستاذة درس «الجملة الاسمية» المكتوب إلى خريطة ذهنية بمساعدة أداة. كيف نصف هذا التحويل؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{نص $\leftarrow$ مخطط.}
+    \item[\emptybox\ \textbf{ب)}] فيديو $\leftarrow$ نص.
+    \item[\emptybox\ \textbf{ج)}] مخطط $\leftarrow$ صوت.
+    \item[\emptybox\ \textbf{د)}] صوت $\leftarrow$ نص.
+\end{itemize}
+\explanation{المدخل نص الدرس، والمخرج مخطط (خريطة ذهنية)، وهو مثال «نص $\leftarrow$ مخطط» في الدرس.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أراد أستاذ أن يستمع إلى قراءة لقصيدة قبل تقديمها لتلاميذه، فأعطى نصها لأداة لتقرأه بصوت مسموع. ما نوع هذا التحويل؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] صوت $\leftarrow$ صورة.
+    \item[\correctbox\ \textbf{ب)}] \correct{نص $\leftarrow$ صوت.}
+    \item[\emptybox\ \textbf{ج)}] مخطط $\leftarrow$ نص.
+    \item[\emptybox\ \textbf{د)}] صورة $\leftarrow$ نص.
+\end{itemize}
+\explanation{المدخل نص القصيدة، والمخرج قراءة صوتية: «نص $\leftarrow$ صوت».}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أداة لا تقبل إلا نصوصًا مكتوبة، ولا تقدّم إلا نصوصًا مكتوبة، لكنها تعمل بالعربية والفرنسية والإنجليزية. هل هي أداة متعددة الأنماط؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لا، لأن الأدوات متعددة الأنماط لا تعمل إلا باللغة الإنجليزية وحدها.
+    \item[\emptybox\ \textbf{ب)}] نعم، لأن كل لغة تُعدّ نمطًا مستقلًا، فثلاث لغات تعني ثلاثة أنماط مختلفة.
+    \item[\emptybox\ \textbf{ج)}] نعم، لأن أي أداة ذكاء اصطناعي حديثة تُعدّ تلقائيًا متعددة الأنماط مهما فعلت.
+    \item[\correctbox\ \textbf{د)}] \correct{لا، لأنها تتعامل مع نمط واحد هو النص، وتعدّد اللغات لا يعني تعدّد الأنماط.}
+\end{itemize}
+\explanation{النمط هو شكل المعلومة (نص، صورة، صوت، فيديو)، لا لغتها. أداة تستقبل النص وتنتج النص فقط ليست متعددة الأنماط.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما الترتيب الصحيح لخطوات فهم صورة باستعمال الذكاء الاصطناعي كما وردت في الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] قارن بالصورة $\leftarrow$ ارفعها مع أمر دقيق $\leftarrow$ اختر صورة واضحة $\leftarrow$ اقرأ الشرح.
+    \item[\correctbox\ \textbf{ب)}] \correct{اختر صورة واضحة $\leftarrow$ ارفعها مع أمر دقيق $\leftarrow$ اقرأ الشرح $\leftarrow$ قارن بالصورة.}
+    \item[\emptybox\ \textbf{ج)}] اقرأ الشرح $\leftarrow$ اختر صورة واضحة $\leftarrow$ قارن بالصورة $\leftarrow$ ارفعها مع أمر دقيق.
+    \item[\emptybox\ \textbf{د)}] ارفع أي صورة $\leftarrow$ اقرأ الشرح $\leftarrow$ انشره مباشرة $\leftarrow$ احذف الصورة الأصلية.
+\end{itemize}
+\explanation{خطوات الدرس: اختيار صورة واضحة، ورفعها مع أمر دقيق، وقراءة الشرح، ثم مقارنته بالصورة الأصلية.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{رفعت أستاذة مخططًا بيانيًا لنتائج تلاميذها، فذكرت الأداة أن معدل القسم 14 بينما المخطط يُظهر 11. في أي نوع من الأخطاء التي نبّه إليها الدرس يدخل هذا؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] التنسيق: لأن الأداة لم تعرض الإجابة في جدول.
+    \item[\emptybox\ \textbf{ب)}] الأخلاقيات: لأن الأداة تعمّدت تحسين النتائج.
+    \item[\correctbox\ \textbf{ج)}] \correct{الأرقام: قد تقرأ الأداة رقمًا خطأ أو تخلط بين عمودين.}
+    \item[\emptybox\ \textbf{د)}] الخط العربي: لأن الأرقام تُكتب دائمًا بخط اليد.
+\end{itemize}
+\explanation{الأرقام من أكثر ما تخطئ فيه الأداة عند قراءة الصور: قد تقرأ رقمًا خطأ أو تخلط بين عمودين.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{شرحت أداة مخططًا يبيّن أن نتائج القراءة تحسّنت بعد إدخال حصص المطالعة، فقالت إن «تحسّن النتائج هو سبب إدخال حصص المطالعة». ما نوع الخطأ؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] خطأ في الخط العربي: لم تستطع قراءة عنوان المخطط.
+    \item[\emptybox\ \textbf{ب)}] خطأ في الأرقام: قرأت رقمًا خطأ من محور المخطط.
+    \item[\emptybox\ \textbf{ج)}] لا خطأ، لأن الأداة لا يمكن أن تخطئ في قراءة المخططات.
+    \item[\correctbox\ \textbf{د)}] \correct{خطأ في العلاقات: فهمت العلاقة بين العنصرين بشكل خاطئ.}
+\end{itemize}
+\explanation{قد تفهم الأداة العلاقة بين عنصرين بشكل خاطئ، كأن تعكس السبب والنتيجة. لذلك نقارن الشرح بالصورة الأصلية.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{صوّر أستاذ ورقة كتبها تلميذ بخط يده، وطلب من الأداة نسخها، فجاءت بعض الكلمات خاطئة. ما التفسير الذي يقدّمه الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الأداة لا تستطيع أبدًا قراءة أي نص عربي في صورة، فالخطأ متوقع في كل الصور دون استثناء.
+    \item[\correctbox\ \textbf{ب)}] \correct{الأداة قد تخطئ في قراءة خط اليد أو الحروف العربية غير الواضحة، فنقارن دائمًا بالأصل.}
+    \item[\emptybox\ \textbf{ج)}] التلميذ هو المخطئ دائمًا، لأن الأداة تقرأ خط اليد بدقة كاملة مهما كانت جودة الكتابة.
+    \item[\emptybox\ \textbf{د)}] الخطأ سببه أن الأستاذ لم يكتب أمرًا طويلًا، ولا علاقة له بوضوح الخط أو جودة الصورة.
+\end{itemize}
+\explanation{من مواطن خطأ الأداة في الدرس: الخط العربي، خاصة خط اليد والحروف غير الواضحة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{لماذا يؤكد الدرس على مقارنة إجابة الأداة بالصورة الأصلية «دائمًا»؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لأن القوانين تمنع استعمال شرح الأداة إلا إذا طُبعت الصورة بجانبه على الورق.
+    \item[\emptybox\ \textbf{ب)}] لأن الأداة تحذف الصورة بعد تحليلها، فيجب حفظها في مكان آخر قبل قراءة الشرح.
+    \item[\emptybox\ \textbf{ج)}] لأن المقارنة تُحسّن الأداة تلقائيًا، فتصبح إجاباتها صحيحة في المرات القادمة.
+    \item[\correctbox\ \textbf{د)}] \correct{لأن الأداة قد تخطئ في الأرقام والعلاقات وقراءة الخط، والمقارنة هي التي تكشف هذه الأخطاء.}
+\end{itemize}
+\explanation{الأداة قد تخطئ في الأرقام والعلاقات والخط العربي، لذلك نقارن إجابتها دائمًا بالصورة الأصلية قبل استعمالها.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما التعريف الصحيح للمخطط المفاهيمي حسب الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] صورة زخرفية تُضاف إلى الدرس لتجميله دون أي علاقة بمحتواه العلمي.
+    \item[\correctbox\ \textbf{ب)}] \correct{رسم يعرض المفاهيم الأساسية لدرس ما، ويربط بينها بأسهم توضّح العلاقات.}
+    \item[\emptybox\ \textbf{ج)}] جدول يحتوي على علامات التلاميذ مرتبة من الأعلى إلى الأدنى في كل مادة.
+    \item[\emptybox\ \textbf{د)}] نص طويل يشرح كل مفهوم من مفاهيم الدرس في فقرة مستقلة دون روابط.
+\end{itemize}
+\explanation{المخطط المفاهيمي رسم يعرض المفاهيم الأساسية ويربط بينها بأسهم توضّح العلاقات.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{اقترحت أداة مخططًا لدرس «الجملة الاسمية»، فربطت «جملة أو شبه جملة» بالمبتدأ بدل الخبر. أي سؤال من أسئلة مراجعة المخطط يكشف هذا الخطأ؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] هل أضافت الأداة مفهومًا غير موجود في النص؟
+    \item[\emptybox\ \textbf{ب)}] هل المخطط ملوّن بألوان جذابة للتلاميذ؟
+    \item[\correctbox\ \textbf{ج)}] \correct{هل توجد علاقة خاطئة بين بعض المفاهيم؟}
+    \item[\emptybox\ \textbf{د)}] هل عدد المفاهيم في المخطط عدد زوجي؟
+\end{itemize}
+\explanation{في مخطط الدرس: الخبر يكون مفردًا أو جملة أو شبه جملة، والمبتدأ اسم مرفوع. ربط «جملة أو شبه جملة» بالمبتدأ علاقة خاطئة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{حوّلت أداة نصًا عن الجملة الاسمية إلى مخطط، لكنها أضافت مفهوم «الفاعل» الذي لم يرد في النص أصلًا. أي سؤال مراجعة يكشف ذلك؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] هل المخطط مكتوب بخط عربي جميل وواضح؟
+    \item[\emptybox\ \textbf{ب)}] هل يحتوي المخطط على ألوان كثيرة جدًا؟
+    \item[\emptybox\ \textbf{ج)}] هل توجد علاقة خاطئة بين المبتدأ والخبر؟
+    \item[\correctbox\ \textbf{د)}] \correct{هل أضافت الأداة مفهومًا غير موجود في النص؟}
+\end{itemize}
+\explanation{من أسئلة المراجعة في الدرس: هل أضافت الأداة مفهومًا غير موجود في النص؟ والفاعل من باب الجملة الفعلية لا الاسمية.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي سؤال من الأسئلة الآتية ليس من أسئلة مراجعة المخطط المفاهيمي التي ذكرها الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{هل استغرقت الأداة وقتًا طويلًا في إنتاج المخطط؟}
+    \item[\emptybox\ \textbf{ب)}] هل يحتوي المخطط على كل الأفكار الأساسية في النص؟
+    \item[\emptybox\ \textbf{ج)}] ماذا أضيف أو أحذف ليصبح المخطط أوضح لتلاميذي؟
+    \item[\emptybox\ \textbf{د)}] هل أضافت الأداة مفهومًا غير موجود في النص؟
+\end{itemize}
+\explanation{أسئلة المراجعة الأربعة: هل يحتوي على كل الأفكار؟ هل توجد علاقة خاطئة؟ هل أُضيف مفهوم غير موجود؟ ماذا أضيف أو أحذف؟ ولا يتعلق أي منها بسرعة الأداة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{رفع طالب صورة مائلة ومظلمة لجدول، فجاء شرح الأداة مليئًا بالأخطاء. أي خطوة من خطوات العمل أهملها؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الخطوة الثالثة: ترجمة الصورة إلى الإنجليزية.
+    \item[\correctbox\ \textbf{ب)}] \correct{الخطوة الأولى: اختيار صورة واضحة.}
+    \item[\emptybox\ \textbf{ج)}] الخطوة الأخيرة: كتابة جملة إفصاح.
+    \item[\emptybox\ \textbf{د)}] لا خطوة، فوضوح الصورة لا يؤثر في الشرح.
+\end{itemize}
+\explanation{أول خطوة في الدرس اختيار صورة واضحة؛ الصورة الرديئة تزيد أخطاء الأداة في الأرقام والخط.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما الأمر الذي يقدّمه الدرس مثالًا عند رفع صورة فيها معلومات إلى الأداة؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{«حلّل هذه الصورة، واشرح لي المعلومات الموجودة فيها بطريقة بسيطة».}
+    \item[\emptybox\ \textbf{ب)}] «احفظ هذه الصورة في ذاكرتك ولا تقل شيئًا عنها».
+    \item[\emptybox\ \textbf{ج)}] «ارسم صورة جديدة مختلفة تمامًا عن هذه الصورة».
+    \item[\emptybox\ \textbf{د)}] «صورة».
+\end{itemize}
+\explanation{مثال الدرس: «حلّل هذه الصورة، واشرح لي المعلومات الموجودة فيها بطريقة بسيطة»، وهو أمر يحدد المهمة وطريقة الشرح.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي قائمة تحتوي فقط على مخرجات يمكن أن تنتجها أداة متعددة الأنماط حسب مخطط الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] قراءة صوتية فقط، لأنها النمط الوحيد المتاح.
+    \item[\emptybox\ \textbf{ب)}] صورة جديدة فقط، لأن النص ليس من المخرجات.
+    \item[\emptybox\ \textbf{ج)}] شرح مكتوب فقط، لأن الأدوات لا تنتج إلا النصوص.
+    \item[\correctbox\ \textbf{د)}] \correct{شرح مكتوب، مخطط، صورة جديدة، قراءة صوتية.}
+\end{itemize}
+\explanation{في مخطط الدرس: المخرجات شرح مكتوب، ومخطط، وصورة جديدة، وقراءة صوتية.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{حوّلت أستاذة درسًا إلى مخطط مفاهيمي بالأداة، وعرضته على تلاميذها مباشرة دون مراجعة. ما الخطر الذي ينبّه إليه الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الخطر أن يصبح المخطط أوضح من شرح الأستاذة، فيفضّله التلاميذ ويتوقفون عن الانتباه أثناء الحصة.
+    \item[\emptybox\ \textbf{ب)}] لا خطر في ذلك، لأن المخططات التي تنتجها الأدوات متعددة الأنماط صحيحة دائمًا ولا تحتاج إلى أي مراجعة.
+    \item[\correctbox\ \textbf{ج)}] \correct{قد يحتوي المخطط على علاقات خاطئة أو مفاهيم غير موجودة أو أفكار ناقصة، فيتعلّمها التلاميذ على أنها صحيحة.}
+    \item[\emptybox\ \textbf{د)}] الخطر الوحيد أن تكون ألوان المخطط غير متناسقة، وهذا لا يؤثر في فهم التلاميذ للمحتوى العلمي للدرس.
+\end{itemize}
+\explanation{خلاصة الدرس: المخطط المفاهيمي يحتاج إلى مراجعة الأستاذ قبل استعماله في القسم، لأن الأداة قد تخطئ في العلاقات أو تضيف أو تحذف.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي عبارة تلخّص بدقة درس الذكاء الاصطناعي متعدد الأنماط؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] النمط هو لغة المعلومة؛ الأداة متعددة الأنماط تترجم بين اللغات فقط؛ ولا تخطئ أبدًا في الصور، فيمكن استعمال مخططاتها في القسم مباشرة.
+    \item[\emptybox\ \textbf{ب)}] النمط هو سرعة الأداة؛ الأداة متعددة الأنماط أسرع من غيرها؛ ويكفي أن نقرأ شرحها مرة واحدة دون مقارنته بالصورة أو مراجعة المخطط.
+    \item[\correctbox\ \textbf{ج)}] \correct{النمط شكل المعلومة؛ الأداة متعددة الأنماط تفهم أكثر من نمط وتنتج أكثر من نمط؛ وقد تخطئ في الأرقام والعلاقات، فنقارن بالأصل ونراجع المخطط قبل استعماله.}
+    \item[\emptybox\ \textbf{د)}] النمط هو نوع الجهاز المستعمل؛ الأداة متعددة الأنماط تعمل على الهاتف والحاسوب؛ ومراجعة مخرجاتها مضيعة للوقت لأن نتائجها مضمونة دائمًا.
+\end{itemize}
+\explanation{خلاصة الدرس: النمط شكل المعلومة، والأداة متعددة الأنماط تفهم وتنتج أكثر من نمط، وقد تخطئ في الأرقام والعلاقات، والمخطط يحتاج إلى مراجعة الأستاذ.}
+
+\end{enumerate}
+
+\vfill
+\begin{center}
+{\khatt بالتوفيق}
+\end{center}
+
+\end{document}

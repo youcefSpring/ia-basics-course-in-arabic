@@ -1,0 +1,383 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.2,
+        Path=../../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.3]{AlBattar}
+    \newfontfamily\khatt[Script=Arabic, Scale=1.3]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% نسخة الطالب / نسخة التصحيح
+% لإنتاج نسخة التصحيح: عرّف \withanswers قبل \input لهذا الملف
+%------------------------------------------------
+
+\newif\ifcorrection
+\ifdefined\withanswers \correctiontrue \else \correctionfalse \fi
+
+\newcommand{\emptybox}{$\square$}
+\ifcorrection
+    \newcommand{\correctbox}{\textcolor{green!50!black}{$\boxtimes$}}
+    \newcommand{\correct}[1]{\textcolor{green!40!black}{\textbf{#1}}}
+    \newcommand{\explanation}[1]{%
+        \par\vspace{3pt}
+        \fcolorbox{gray!60}{gray!8}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+        \small\textbf{التعليل:} #1}}}
+\else
+    \newcommand{\correctbox}{$\square$}
+    \newcommand{\correct}[1]{#1}
+    \newcommand{\explanation}[1]{}
+\fi
+
+\newcommand{\pts}[1]{\textbf{(#1 ن)}}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\arraycolsep=1.4pt
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\textbf{السؤال \arabic*:}, leftmargin=*, itemsep=12pt, align=left}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+\begin{center}
+
+{\Large\khatt\textbf{الواجب الخامس}\ifcorrection\ \textbf{-- التصحيح النموذجي}\fi}
+
+\vspace{0.2cm}
+
+{\Large\khatt\textbf{في الذكاء الاصطناعي}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\ifcorrection\else
+\textbf{الاسم واللقب:} \dotfill \quad \textbf{الفوج:} \makebox[3cm]{\dotfill}
+
+\vspace{0.3cm}
+\fi
+
+\begin{center}
+
+{\khatt\textbf{أسئلة متعددة الاختيارات (20 سؤالا -- 15 نقطة)}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\textbf{التعليمة:} ضع علامة \textbf{$\times$} في المربع المقابل للإجابة الصحيحة. لكل سؤال إجابة صحيحة واحدة فقط.
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+
+\needspace{9\baselineskip}\item
+\textbf{بدأ طالب بحثه بكتابة كلمة عامة في محرك البحث مباشرة، فغرق في آلاف النتائج. حسب الدرس، ما الترتيب الصحيح لمراحل البحث عن المعلومة؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{حدّد الحاجة $\leftarrow$ ابحث $\leftarrow$ قيّم المصادر $\leftarrow$ لخّص.}
+    \item[\emptybox\ \textbf{ب)}] قيّم المصادر $\leftarrow$ ابحث $\leftarrow$ لخّص $\leftarrow$ حدّد الحاجة.
+    \item[\emptybox\ \textbf{ج)}] ابحث $\leftarrow$ لخّص $\leftarrow$ حدّد الحاجة $\leftarrow$ قيّم المصادر.
+    \item[\emptybox\ \textbf{د)}] لخّص $\leftarrow$ حدّد الحاجة $\leftarrow$ قيّم المصادر $\leftarrow$ ابحث.
+\end{itemize}
+\explanation{البحث الجيد لا يبدأ بمحرك البحث بل بسؤال واضح: نحدّد الحاجة، ثم نبحث، ثم نقيّم المصادر، ثم نلخّص.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي مما يلي يُعدّ «سؤال بحث» وليس مجرد «موضوع بحث»؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] تعليم النحو في المدرسة الجزائرية.
+    \item[\correctbox\ \textbf{ب)}] \correct{كيف يساعد الذكاء الاصطناعي التلميذ على تحسين التعبير الكتابي؟}
+    \item[\emptybox\ \textbf{ج)}] البلاغة العربية.
+    \item[\emptybox\ \textbf{د)}] الذكاء الاصطناعي والتعليم.
+\end{itemize}
+\explanation{موضوع البحث مجال عام وواسع، أما سؤال البحث فسؤال محدد نريد الإجابة عنه، مثل السؤال الأول وهو مثال الدرس نفسه.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{انتقل طالب من «الذكاء الاصطناعي» إلى «الذكاء الاصطناعي في التعليم الجامعي» ثم إلى «فوائده ومخاطره». لماذا يُعدّ هذا التدرّج مفيدًا؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لأن محركات البحث لا تقبل إلا العبارات الطويلة، والعبارات القصيرة تُرفض تلقائيًا ولا تعطي أي نتيجة.
+    \item[\emptybox\ \textbf{ب)}] لأن الأستاذ يشترط عناوين طويلة، ولا علاقة لذلك بجودة النتائج أو بدقة المعلومات التي نجدها.
+    \item[\correctbox\ \textbf{ج)}] \correct{لأن الموضوع العام يعطي نتائج كثيرة جدًا ومتفرقة، أما السؤال المحدد فيوجّه البحث نحو معلومات مفيدة.}
+    \item[\emptybox\ \textbf{د)}] لأن كل تدقيق في الموضوع يضاعف عدد النتائج، وكلما زادت النتائج كان البحث أفضل وأكثر شمولًا.
+\end{itemize}
+\explanation{في الدرس: الذكاء الاصطناعي «عام جدًا»، ثم «أدق»، ثم «دقيق». السؤال المحدد يوجّه البحث ويقلل النتائج المتفرقة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما الخطوات الصحيحة لاختيار الكلمات المفتاحية من سؤال البحث حسب الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] نختار كلمة واحدة عشوائية من السؤال، ثم نترجمها إلى عدة لغات، لأن الترجمة وحدها تكفي للوصول إلى أفضل المصادر.
+    \item[\correctbox\ \textbf{ب)}] \correct{نحذف الكلمات العامة مثل «كيف» و«ما» و«هل»، ونحتفظ بالكلمات التي تحمل المعنى، ثم نضيف المرادفات والكلمات الإنجليزية المقابلة.}
+    \item[\emptybox\ \textbf{ج)}] نحتفظ بالكلمات العامة فقط مثل «كيف» و«ما» و«هل»، ونحذف الكلمات التي تحمل المعنى لأنها تقيّد البحث وتقلل النتائج.
+    \item[\emptybox\ \textbf{د)}] نكتب السؤال كاملًا كما هو دون أي تغيير، ثم نضيف إليه كلمات عامة أخرى مثل «كيف» و«لماذا» حتى نحصل على نتائج أكثر.
+\end{itemize}
+\explanation{خطوات الدرس الثلاث: حذف الكلمات العامة، والاحتفاظ بالكلمات التي تحمل المعنى، وإضافة المرادفات والمقابلات الإنجليزية.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{سؤال البحث: «كيف يساعد الذكاء الاصطناعي على تحسين التعبير الكتابي؟». أي مجموعة كلمات مفتاحية هي الأنسب؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الحاسوب ــ الإنترنت ــ الهاتف ــ الشبكة ــ التطبيقات
+    \item[\emptybox\ \textbf{ب)}] التعليم ــ المدرسة ــ الأستاذ ــ التلميذ ــ القسم
+    \item[\correctbox\ \textbf{ج)}] \correct{الذكاء الاصطناعي ــ التعبير الكتابي ــ الإنشاء ــ \textenglish{AI} ــ \textenglish{Writing skills}}
+    \item[\emptybox\ \textbf{د)}] كيف ــ يساعد ــ على ــ تحسين ــ ما ــ هل
+\end{itemize}
+\explanation{هذا مثال الدرس: نحتفظ بالكلمات التي تحمل المعنى (الذكاء الاصطناعي، التعبير الكتابي)، ونضيف المرادف (الإنشاء) والمقابل الإنجليزي.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{لماذا ينصح الدرس بإضافة المرادفات والكلمات الإنجليزية المقابلة إلى الكلمات المفتاحية؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لأن المرادفات تقلل عدد النتائج إلى نتيجة واحدة فقط، وهي دائمًا أفضل نتيجة ممكنة في محرك البحث.
+    \item[\correctbox\ \textbf{ب)}] \correct{لأن المصادر المفيدة قد تستعمل كلمات أخرى للمعنى نفسه، فنصل إلى معلومات لا تظهر بالكلمة الأولى وحدها.}
+    \item[\emptybox\ \textbf{ج)}] لأن الكلمات المفتاحية الكثيرة تجعل كل النتائج موثوقة تلقائيًا، فلا نحتاج بعدها إلى تقييم المصادر.
+    \item[\emptybox\ \textbf{د)}] لأن محركات البحث لا تفهم اللغة العربية إطلاقًا، فلا تظهر أي نتيجة إلا إذا كتبنا الكلمات بالإنجليزية.
+\end{itemize}
+\explanation{المرادفات والمقابلات الإنجليزية توسّع البحث نحو مصادر تعبّر عن المعنى نفسه بألفاظ مختلفة، دون أن تغني عن تقييم المصادر.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{رتّب الدرس أنواع المصادر من الأكثر موثوقية إلى الأقل. أي ترتيب صحيح؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] مدونة أو موقع شخصي $\leftarrow$ مقال صحفي $\leftarrow$ مصدر أكاديمي $\leftarrow$ موقع مؤسسة رسمية $\leftarrow$ محتوى أنتجه الذكاء الاصطناعي.
+    \item[\emptybox\ \textbf{ب)}] موقع مؤسسة رسمية $\leftarrow$ محتوى أنتجه الذكاء الاصطناعي $\leftarrow$ مدونة أو موقع شخصي $\leftarrow$ مصدر أكاديمي $\leftarrow$ مقال صحفي.
+    \item[\correctbox\ \textbf{ج)}] \correct{مصدر أكاديمي $\leftarrow$ موقع مؤسسة رسمية $\leftarrow$ مقال صحفي $\leftarrow$ مدونة أو موقع شخصي $\leftarrow$ محتوى أنتجه الذكاء الاصطناعي.}
+    \item[\emptybox\ \textbf{د)}] محتوى أنتجه الذكاء الاصطناعي $\leftarrow$ مصدر أكاديمي $\leftarrow$ مقال صحفي $\leftarrow$ موقع مؤسسة رسمية $\leftarrow$ مدونة أو موقع شخصي.
+\end{itemize}
+\explanation{في الدرس: الكتاب المحقق والمقال العلمي المحكّم في أعلى درجات الثقة، ثم مواقع المؤسسات الرسمية، ثم المقال الصحفي، ثم المدونة، وفي الأسفل محتوى الذكاء الاصطناعي.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{كتب طالب في قائمة مراجع بحثه: «\textenglish{ChatGPT}، محادثة بتاريخ 3 مارس». ما الملاحظة المناسبة حسب الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] هذا مقبول تمامًا إذا ذكر الطالب تاريخ المحادثة، لأن التاريخ وحده يكفي ليصبح أي محتوى مصدرًا علميًا.
+    \item[\correctbox\ \textbf{ب)}] \correct{محتوى الذكاء الاصطناعي ليس مصدرًا علميًا؛ نستعمله للفهم أو لاقتراح أفكار، ثم نبحث عن المعلومة في مصدر حقيقي.}
+    \item[\emptybox\ \textbf{ج)}] هذا أفضل من الكتب، لأن المحادثة أحدث من أي كتاب، والمعلومة الأحدث هي دائمًا المعلومة الأصح والأدق.
+    \item[\emptybox\ \textbf{د)}] هذا مرجع ممتاز، لأن محتوى الذكاء الاصطناعي في أعلى درجات الثقة، أعلى من الكتب المحققة والمقالات المحكّمة.
+\end{itemize}
+\explanation{يحذّر الدرس صراحة: محتوى الذكاء الاصطناعي ليس مصدرًا علميًا، وهو في أسفل سلّم الثقة. نستعمله للفهم ثم نعود إلى مصدر حقيقي.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{اعتمدت طالبة على أول نتيجة ظهرت في محرك البحث لأنها «في المرتبة الأولى». ما الذي يحذّر منه الدرس في هذه الحالة؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] النتيجة الأولى مقبولة فقط إذا كانت مكتوبة بالعربية، أما الإنجليزية فتحتاج إلى تحقق إضافي.
+    \item[\emptybox\ \textbf{ب)}] النتيجة الأولى لا تصلح أبدًا، ويجب دائمًا اختيار النتيجة الأخيرة في الصفحة لأنها الأدق.
+    \item[\correctbox\ \textbf{ج)}] \correct{النتيجة الأولى ليست بالضرورة الأفضل؛ قد تكون إعلانًا، أو موقعًا مشهورًا لكنه غير دقيق.}
+    \item[\emptybox\ \textbf{د)}] النتيجة الأولى هي دائمًا الأكثر موثوقية، لأن محرك البحث يرتّب النتائج حسب صحتها العلمية.
+\end{itemize}
+\explanation{«لا تكتفِ بالنتيجة الأولى»: ترتيب محرك البحث لا يعني الموثوقية، فقد تكون النتيجة إعلانًا أو موقعًا مشهورًا غير دقيق.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{وجدت طالبة مقالًا عن صعوبات تعلّم الإعراب، فسألت: «من كتب هذا المحتوى؟ وهل هو مختص في تعليمية اللغة؟». أي معيار من معايير تقييم المصدر تطبّقه؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الهدف.
+    \item[\emptybox\ \textbf{ب)}] الدقة.
+    \item[\emptybox\ \textbf{ج)}] التاريخ.
+    \item[\correctbox\ \textbf{د)}] \correct{الكاتب.}
+\end{itemize}
+\explanation{معيار الكاتب يجيب عن سؤال: من كتب هذا المحتوى؟ وهل هو مختص في المجال؟}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{وجد طالب إحصائيات عن استعمال التلاميذ للإنترنت منشورة سنة 2009، وأراد الاعتماد عليها في بحث حول الوضع الحالي. أي معيار يجب أن يثير انتباهه أولًا؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الكاتب: هل اسم الكاتب مكتوب بالعربية أم بالفرنسية؟
+    \item[\emptybox\ \textbf{ب)}] الجهة: هل الموقع يستعمل ألوانًا رسمية في تصميمه؟
+    \item[\correctbox\ \textbf{ج)}] \correct{التاريخ: هل ما زالت المعلومة صالحة بعد كل هذه السنوات؟}
+    \item[\emptybox\ \textbf{د)}] الهدف: هل الموقع يبيع منتجات تتعلق بالإنترنت أم لا؟
+\end{itemize}
+\explanation{معيار التاريخ يسأل: متى نُشر المحتوى؟ وهل المعلومة ما زالت صالحة؟ والإحصائيات القديمة قد لا تعبّر عن الواقع الحالي.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{قرأت أستاذة صفحة تمدح طريقة جديدة «مضمونة» لتعليم النحو في أسبوع، وفي آخرها رابط لشراء دورة مدفوعة. أي معيار يكشف ضعف هذا المصدر بوضوح؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الكاتب: الصفحة مكتوبة بأسلوب سهل، والأسلوب السهل علامة ضعف.
+    \item[\emptybox\ \textbf{ب)}] الدقة: الصفحة طويلة، والصفحات الطويلة غير دقيقة في العادة.
+    \item[\emptybox\ \textbf{ج)}] التاريخ: الصفحة حديثة، والمعلومات الحديثة غير موثوقة بطبيعتها.
+    \item[\correctbox\ \textbf{د)}] \correct{الهدف: الصفحة تهدف إلى البيع والإقناع، لا إلى الإعلام الموضوعي.}
+\end{itemize}
+\explanation{معيار الهدف يسأل: هل هدف المصدر الإعلام، أم الإقناع، أم البيع؟ المحتوى التجاري يحتاج إلى حذر أكبر.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{لاحظ طالب أن مقالًا يذكر مراجعه بوضوح، ووجد المعلومة نفسها في كتاب محقق. أي معيار من معايير التقييم يتحقق هنا؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{الدقة: المصدر يذكر مراجعه، والمعلومة موجودة في مصدر آخر.}
+    \item[\emptybox\ \textbf{ب)}] التاريخ: المصدر قديم، والقديم أصدق دائمًا من الحديث.
+    \item[\emptybox\ \textbf{ج)}] الكاتب: المصدر لا يذكر اسم كاتبه، وهذا دليل تواضع.
+    \item[\emptybox\ \textbf{د)}] الهدف: المصدر يبيع كتبًا، فهو مهتم بصحة معلوماته.
+\end{itemize}
+\explanation{معيار الدقة يسأل: هل يذكر المصدر مراجعه؟ وهل نجد المعلومة نفسها في مصدر آخر؟}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{وجدت طالبة المعلومة نفسها في موقع جامعة جزائرية وفي موقع مجهول لا يُعرف من يديره. أي معيار يرجّح الاعتماد على موقع الجامعة؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الهدف: المواقع المجهولة لا تهدف إلى شيء، فهي محايدة دائمًا.
+    \item[\emptybox\ \textbf{ب)}] الدقة: الموقع المجهول أسرع في التحميل، فهو أدق في المعلومات.
+    \item[\emptybox\ \textbf{ج)}] التاريخ: موقع الجامعة أقدم، والأقدم هو الأصح في كل الحالات.
+    \item[\correctbox\ \textbf{د)}] \correct{الجهة: من نشر المحتوى؟ جامعة أو مجلة علمية أم موقع مجهول؟}
+\end{itemize}
+\explanation{معيار الجهة يسأل: من نشر المحتوى؟ والمؤسسات الرسمية كالجامعات أعلى موثوقية من المواقع المجهولة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي تعريف للتلخيص يوافق ما ورد في الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] حذف نصف كلمات النص بشكل عشوائي، مع الإبقاء على ترتيب الجمل كما هو في الأصل.
+    \item[\correctbox\ \textbf{ب)}] \correct{إعادة كتابة الأفكار الأساسية لنص ما، بكلمات أقل وبأسلوبنا الخاص، دون تغيير المعنى.}
+    \item[\emptybox\ \textbf{ج)}] إضافة أفكار جديدة إلى النص الأصلي لجعله أطول وأوضح وأقرب إلى رأي القارئ.
+    \item[\emptybox\ \textbf{د)}] نسخ الجمل الأولى من كل فقرة كما هي، ثم جمعها في فقرة واحدة دون أي إعادة صياغة.
+\end{itemize}
+\explanation{التلخيص: إعادة كتابة الأفكار الأساسية بكلمات أقل وبأسلوبنا، دون تغيير المعنى، مع ذكر المصدر.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما الترتيب الصحيح لخطوات التلخيص كما وردت في الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{اقرأ النص كاملًا $\leftarrow$ حدّد الأفكار الأساسية $\leftarrow$ احذف التكرار والأمثلة $\leftarrow$ اكتب بأسلوبك $\leftarrow$ اذكر المصدر.}
+    \item[\emptybox\ \textbf{ب)}] حدّد الأفكار الأساسية $\leftarrow$ اكتب بأسلوبك $\leftarrow$ احذف التكرار والأمثلة $\leftarrow$ اذكر المصدر $\leftarrow$ اقرأ النص كاملًا.
+    \item[\emptybox\ \textbf{ج)}] اكتب بأسلوبك $\leftarrow$ اقرأ النص كاملًا $\leftarrow$ اذكر المصدر $\leftarrow$ حدّد الأفكار الأساسية $\leftarrow$ احذف التكرار والأمثلة.
+    \item[\emptybox\ \textbf{د)}] احذف التكرار والأمثلة $\leftarrow$ اذكر المصدر $\leftarrow$ اكتب بأسلوبك $\leftarrow$ اقرأ النص كاملًا $\leftarrow$ حدّد الأفكار الأساسية.
+\end{itemize}
+\explanation{خطوات التلخيص في الدرس: قراءة النص كاملًا، ثم تحديد الأفكار الأساسية، ثم حذف التكرار والأمثلة، ثم الكتابة بالأسلوب الخاص، ثم ذكر المصدر.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{طلبت أستاذة من أداة ذكاء اصطناعي تلخيص مقال طويل، فحصلت على ملخص منظّم وجميل. ما الخطوة التي يؤكدها الدرس قبل استعماله؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{مقارنة الملخص بالنص الأصلي: هل حذفت الأداة فكرة مهمة؟ هل أضافت معلومة غير موجودة؟}
+    \item[\emptybox\ \textbf{ب)}] حذف اسم المقال الأصلي من الملخص، لأن الملخص الذي تكتبه الأداة لا يحتاج إلى ذكر المصدر.
+    \item[\emptybox\ \textbf{ج)}] طلب ملخص ثانٍ من أداة أخرى، واختيار الأقصر منهما دون الرجوع إلى النص الأصلي أبدًا.
+    \item[\emptybox\ \textbf{د)}] استعمال الملخص مباشرة، لأن تنظيمه الجيد دليل كافٍ على أنه وفيّ تمامًا للنص الأصلي.
+\end{itemize}
+\explanation{يمكن الاستعانة بالأداة في التلخيص، لكن يجب مقارنة الملخص بالأصل: هل حذفت فكرة مهمة؟ هل أضافت معلومة غير موجودة؟}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{قدّم طالب «ملخصًا» يتكون من جمل منقولة حرفيًا من مقال، دون أن يذكر المقال. ما المشكلتان الأساسيتان في عمله؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لم يستعمل أداة ذكاء اصطناعي، والدرس يشترط أن يُنجز كل تلخيص بأداة ذكاء اصطناعي.
+    \item[\emptybox\ \textbf{ب)}] نقل جملًا صحيحة، والملخص يجب أن يحتوي على أخطاء حتى يظهر أنه من عمل الطالب فعلًا.
+    \item[\emptybox\ \textbf{ج)}] استعمل كلمات أقل من النص الأصلي، ولم يضف إلى الملخص أفكارًا جديدة من عنده تجعله أطول.
+    \item[\correctbox\ \textbf{د)}] \correct{لم يكتب بأسلوبه الخاص كما يقتضي التلخيص، ولم يذكر المصدر، وهو ما يقرّب عمله من الانتحال.}
+\end{itemize}
+\explanation{التلخيص يكون بأسلوبنا الخاص، ونذكر المصدر دائمًا. النقل الحرفي دون ذكر المصدر يخالف الأمرين معًا.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{تريد أستاذة التأكد من قاعدة نحوية قبل تدريسها. أي مصدر هو الأكثر موثوقية حسب سلّم الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{كتاب نحو محقق أو مقال علمي محكّم في المجال.}
+    \item[\emptybox\ \textbf{ب)}] منشور على شبكة اجتماعية حصل على إعجابات كثيرة.
+    \item[\emptybox\ \textbf{ج)}] مدونة شخصية لطالب يشارك ملاحظاته في النحو.
+    \item[\emptybox\ \textbf{د)}] إجابة أداة ذكاء اصطناعي مكتوبة بثقة وتفصيل.
+\end{itemize}
+\explanation{المصادر الأكاديمية (الكتاب المحقق والمقال العلمي المحكّم) في أعلى سلّم الثقة، أما المدونات ومحتوى الذكاء الاصطناعي ففي أسفله.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي عبارة تلخّص بدقة درس البحث عن المعلومات وتحليلها وتلخيصها؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] نبدأ بمحرك البحث مباشرة، ونأخذ النتيجة الأولى، وننقلها كما هي، لأن الوقت أهم من تقييم المصادر.
+    \item[\emptybox\ \textbf{ب)}] نسأل أداة ذكاء اصطناعي، ونعدّ إجابتها مصدرًا علميًا، ونكتفي بذكر اسم الأداة في قائمة المراجع.
+    \item[\emptybox\ \textbf{ج)}] نبدأ بموضوع عام جدًا، ونجمع أكبر عدد من النتائج، ثم نختار أطول نص ونعتمد عليه دون تلخيص.
+    \item[\correctbox\ \textbf{د)}] \correct{نبدأ بسؤال محدد، ونختار كلمات مفتاحية دقيقة، ونقيّم المصدر بخمسة معايير، ونلخّص بأسلوبنا ونذكر المصدر.}
+\end{itemize}
+\explanation{خلاصة الدرس: سؤال محدد، كلمات مفتاحية دقيقة مع مرادفاتها، تقييم المصدر (الكاتب، الجهة، التاريخ، الدقة، الهدف)، وتلخيص بأسلوبنا مع ذكر المصدر.}
+
+\end{enumerate}
+
+\vfill
+\begin{center}
+{\khatt بالتوفيق}
+\end{center}
+
+\end{document}

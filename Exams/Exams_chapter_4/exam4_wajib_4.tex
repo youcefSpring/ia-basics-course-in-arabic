@@ -1,0 +1,383 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.2,
+        Path=../../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.3]{AlBattar}
+    \newfontfamily\khatt[Script=Arabic, Scale=1.3]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% نسخة الطالب / نسخة التصحيح
+% لإنتاج نسخة التصحيح: عرّف \withanswers قبل \input لهذا الملف
+%------------------------------------------------
+
+\newif\ifcorrection
+\ifdefined\withanswers \correctiontrue \else \correctionfalse \fi
+
+\newcommand{\emptybox}{$\square$}
+\ifcorrection
+    \newcommand{\correctbox}{\textcolor{green!50!black}{$\boxtimes$}}
+    \newcommand{\correct}[1]{\textcolor{green!40!black}{\textbf{#1}}}
+    \newcommand{\explanation}[1]{%
+        \par\vspace{3pt}
+        \fcolorbox{gray!60}{gray!8}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+        \small\textbf{التعليل:} #1}}}
+\else
+    \newcommand{\correctbox}{$\square$}
+    \newcommand{\correct}[1]{#1}
+    \newcommand{\explanation}[1]{}
+\fi
+
+\newcommand{\pts}[1]{\textbf{(#1 ن)}}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\arraycolsep=1.4pt
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\textbf{السؤال \arabic*:}, leftmargin=*, itemsep=12pt, align=left}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+\begin{center}
+
+{\Large\khatt\textbf{الواجب الرابع}\ifcorrection\ \textbf{-- التصحيح النموذجي}\fi}
+
+\vspace{0.2cm}
+
+{\Large\khatt\textbf{في الذكاء الاصطناعي}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\ifcorrection\else
+\textbf{الاسم واللقب:} \dotfill \quad \textbf{الفوج:} \makebox[3cm]{\dotfill}
+
+\vspace{0.3cm}
+\fi
+
+\begin{center}
+
+{\khatt\textbf{أسئلة متعددة الاختيارات (20 سؤالا -- 15 نقطة)}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\textbf{التعليمة:} ضع علامة \textbf{$\times$} في المربع المقابل للإجابة الصحيحة. لكل سؤال إجابة صحيحة واحدة فقط.
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+
+\needspace{9\baselineskip}\item
+\textbf{في نقاش حول الذكاء الاصطناعي في التعليم، قال طالب: «الأداة هي المشكلة، فهي التي تدفع الطلبة إلى الغش». أي ردّ يوافق ما جاء في الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الغش مسؤولية الشركات المطوّرة وحدها، فالطالب يستعمل ما يُتاح له، ولا يُحاسَب على طريقة استعماله لأي أداة.
+    \item[\correctbox\ \textbf{ب)}] \correct{الأداة لا تقرر وحدها كيف تُستعمل؛ الإنسان هو الذي يختار أن يستعملها بأمانة أو للغش، ولهذا نتحدث عن الأخلاقيات.}
+    \item[\emptybox\ \textbf{ج)}] لا علاقة للأخلاقيات بالذكاء الاصطناعي، لأن الأدوات التقنية محايدة دائمًا ولا يترتب على استعمالها أي مسؤولية.
+    \item[\emptybox\ \textbf{د)}] الأداة مسؤولة فعلًا عن الغش، لأنها مصمّمة لتعطي إجابات كاملة، ولذلك يجب منعها نهائيًا من كل المؤسسات التعليمية.
+\end{itemize}
+\explanation{يؤكد الدرس أن الأداة قوية وسريعة لكنها لا تقرر كيف نستعملها. الإنسان هو الذي يختار، ومن هنا تأتي أهمية الأخلاقيات.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{قدّم أستاذ متربص في القسم معلومة تاريخية خاطئة أخذها من أداة ذكاء اصطناعي دون تحقق. من المسؤول عن هذا الخطأ حسب الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الشركة المطوّرة للأداة، لأنها لم تمنع ظهور المعلومات الخاطئة، فالمسؤولية تقع كلها على من صنع الأداة.
+    \item[\emptybox\ \textbf{ب)}] التلاميذ، لأنهم لم ينتبهوا إلى الخطأ أثناء الحصة، وكان عليهم أن يتحققوا بأنفسهم من كل ما يقدّمه الأستاذ.
+    \item[\emptybox\ \textbf{ج)}] الأداة وحدها، لأنها هي التي ولّدت المعلومة الخاطئة، والأستاذ نقلها بحسن نية دون أن يتدخل في صياغتها.
+    \item[\correctbox\ \textbf{د)}] \correct{الأستاذ نفسه، لأن الاستعانة بالأداة لا تنقل المسؤولية إليها، والمستخدم مسؤول عن كل معلومة يعتمد عليها.}
+\end{itemize}
+\explanation{مبدأ المسؤولية: المستخدم مسؤول عن استعمال الأداة وعن كل معلومة يعتمد عليها. إذا قدّمت معلومة خاطئة، فأنت المسؤول لا الأداة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{سأل أستاذ طالبته: «كيف استعملتِ الذكاء الاصطناعي في هذا البحث بالضبط؟»، فشرحت أنها استعملته لاقتراح خطة أولية، ثم بحثت في المصادر وكتبت الفصول بنفسها. أي مبدأ يتجسّد في هذا الشرح المفصّل لطريقة الاستعمال؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] المسؤولية، لأنها تنقل عبء الأخطاء من الطالبة إلى الأداة.
+    \item[\emptybox\ \textbf{ب)}] الانتحال، لأنها اعترفت باستعمال أداة في إنجاز البحث.
+    \item[\correctbox\ \textbf{ج)}] \correct{الشفافية، لأنها توضّح طريقة استعمال الأداة عند الحاجة.}
+    \item[\emptybox\ \textbf{د)}] التلخيص، لأنها أعادت كتابة أفكارها بكلمات أقل من الأصل.
+\end{itemize}
+\explanation{الشفافية هي توضيح طريقة استعمال الذكاء الاصطناعي عند الحاجة، أي ماذا فعلت الأداة وماذا فعل الطالب.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما التعريف الصحيح لمبدأ «الإفصاح» كما ورد في الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] ذكر اسم الأستاذ المشرف في الصفحة الأولى من البحث بدل اسم الطالب.
+    \item[\emptybox\ \textbf{ب)}] نشر البحث على الإنترنت حتى يطّلع عليه أكبر عدد ممكن من القرّاء.
+    \item[\correctbox\ \textbf{ج)}] \correct{التصريح باستعمال أداة الذكاء الاصطناعي عندما يكون ذلك مطلوبًا أو مناسبًا.}
+    \item[\emptybox\ \textbf{د)}] إخفاء استعمال الأداة إذا كانت الصياغة النهائية جيدة ولا يلاحظ أحد الفرق.
+\end{itemize}
+\explanation{الإفصاح هو التصريح باستعمال أداة الذكاء الاصطناعي عندما يكون ذلك مطلوبًا أو مناسبًا، ويكون غالبًا بجملة إفصاح قصيرة وصادقة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي تعريف يعبّر بدقة عن «الانتحال العلمي»؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] أن يكتب الشخص بحثه بأسلوبه الخاص بعد قراءة عدة مصادر مختلفة.
+    \item[\correctbox\ \textbf{ب)}] \correct{أن ينسب الشخص إلى نفسه عملًا أو أفكارًا ليست له، دون ذكر مصدرها.}
+    \item[\emptybox\ \textbf{ج)}] أن يستعمل الشخص أداة ذكاء اصطناعي لفهم مفهوم صعب قبل الكتابة.
+    \item[\emptybox\ \textbf{د)}] أن يقتبس الشخص فقرة من كتاب مع ذكر المؤلف والصفحة بشكل صحيح.
+\end{itemize}
+\explanation{الانتحال العلمي هو نسبة عمل الغير أو أفكاره إلى النفس دون ذكر المصدر. الاقتباس مع ذكر المصدر ليس انتحالًا.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{نسخ طالب بحثًا كاملًا أنتجته أداة ذكاء اصطناعي، ثم كتب اسمه عليه وقدّمه للأستاذ. كيف يصنّف الدرس هذا السلوك؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] استعمال مقبول، لأن الطالب هو الذي كتب الأمر، فالنص الناتج يُعدّ ملكًا له بالكامل.
+    \item[\emptybox\ \textbf{ب)}] سلوك محايد، لأن القوانين لا تتحدث عن الذكاء الاصطناعي، فلا يمكن وصفه بالانتحال.
+    \item[\correctbox\ \textbf{ج)}] \correct{انتحال بالذكاء الاصطناعي: العمل ليس عمله، ولم يتحقق من صحته، ولم يصرّح بمصدره.}
+    \item[\emptybox\ \textbf{د)}] استعمال مقبول بشروط، يكفي فيه أن يغيّر الطالب الخط وحجمه قبل تقديم البحث.
+\end{itemize}
+\explanation{هذا مثال الدرس على الانتحال بالذكاء الاصطناعي: تقديم نص أنتجته الأداة على أنه عمل شخصي، دون تحقق ودون تصريح.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{استعملت طالبة أداة ذكاء اصطناعي لتفهم قاعدة نحوية صعبة في الممنوع من الصرف، ثم أنجزت تمارينها بنفسها. كيف يُصنّف هذا الاستعمال؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{مقبول، لأنها استعملت الأداة للفهم، والعمل المقدَّم من إنجازها.}
+    \item[\emptybox\ \textbf{ب)}] مقبول بشروط، بشرط أن تنسخ شرح الأداة في كراسها حرفيًا.
+    \item[\emptybox\ \textbf{ج)}] غير مسؤول، لأنها لم تكتب جملة إفصاح في كراس التمارين.
+    \item[\emptybox\ \textbf{د)}] مرفوض، لأن أي استعمال للأداة في الدراسة يُعدّ انتحالًا.
+\end{itemize}
+\explanation{في مقياس الاستعمال: استعمال الأداة لفهم مفهوم أو قاعدة صعبة استعمال مقبول.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{طلب طالب من أداة أفكارًا لموضوع إنشاء، ثم اختار منها ما يناسبه وكتب الموضوع كله بأسلوبه. ما الموقف الأخلاقي من هذا الاستعمال؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] انتحال مرفوض، لأن الأفكار الأولى جاءت من الأداة لا من الطالب.
+    \item[\emptybox\ \textbf{ب)}] غير مسؤول، لأن الطالب لم يقبل كل الأفكار التي اقترحتها الأداة.
+    \item[\emptybox\ \textbf{ج)}] مرفوض، لأن طلب الأفكار أخطر من نسخ إجابة كاملة من الأداة.
+    \item[\correctbox\ \textbf{د)}] \correct{مقبول، لأن الأداة اقترحت أفكارًا فقط، والكتابة من عمل الطالب.}
+\end{itemize}
+\explanation{في جدول الدرس: طلب أفكار من الأداة ثم كتابة الإجابة بنفسي استعمال مقبول.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أنشأ طالب مسودة لبحثه بأداة ذكاء اصطناعي، ثم راجعها وتحقق من معلوماتها في المصادر، وأضاف جملة إفصاح. كيف يصنّف الدرس هذا الاستعمال؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{مقبول بشروط: المراجعة والتحقق والإفصاح هي التي تجعله مقبولًا.}
+    \item[\emptybox\ \textbf{ب)}] مقبول دون أي شرط: ولا حاجة إلى المراجعة أو التحقق أو الإفصاح.
+    \item[\emptybox\ \textbf{ج)}] مرفوض دائمًا: لأن إنشاء المسودة بالأداة انتحال مهما فعل بعد ذلك.
+    \item[\emptybox\ \textbf{د)}] غير مسؤول: لأن جملة الإفصاح تكشف ضعف الطالب أمام أستاذه.
+\end{itemize}
+\explanation{في الدرس: إنشاء مسودة بالأداة ثم مراجعتها والتحقق منها والإفصاح استعمال «مقبول بشروط». غياب هذه الشروط يحوّله إلى استعمال مرفوض.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{اعتمد طالب على تواريخ وأسماء قدّمتها أداة ذكاء اصطناعي، وأدرجها في بحثه دون أن يتحقق منها في أي مصدر. كيف يصف الدرس هذا السلوك؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{غير مسؤول، لأنه اعتمد على معلومات الأداة دون التحقق منها.}
+    \item[\emptybox\ \textbf{ب)}] شفاف، لأن الطالب استعمل الأداة بطريقة واضحة ومباشرة.
+    \item[\emptybox\ \textbf{ج)}] مقبول بشروط، يكفي فيه أن تكون المعلومات مكتوبة بثقة.
+    \item[\emptybox\ \textbf{د)}] مقبول، لأن التواريخ والأسماء لا تحتاج إلى أي تحقق إضافي.
+\end{itemize}
+\explanation{الاعتماد على معلومات الأداة دون التحقق منها مصنّف في الدرس على أنه «غير مسؤول»، خاصة أن الأداة قد تخطئ أو تهلوس.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{ما التصنيف الذي يعطيه الدرس لنسخ إجابة كاملة من أداة ذكاء اصطناعي وتقديمها باسم الطالب؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] استعمال مقبول.
+    \item[\emptybox\ \textbf{ب)}] استعمال شفاف.
+    \item[\correctbox\ \textbf{ج)}] \correct{انتحال مرفوض.}
+    \item[\emptybox\ \textbf{د)}] مقبول بشروط.
+\end{itemize}
+\explanation{نسخ إجابة كاملة وتقديمها باسمي يقع في أقصى مقياس الاستعمال: انتحال مرفوض.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{طُلب من طلبة كتابة جملة إفصاح في آخر بحثهم. أي جملة تحقق شروط الإفصاح الجيد؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{استعملتُ أداة \textenglish{ChatGPT} لتنظيم أفكار الفصل الثاني واقتراح خطة أولية، وراجعتُ كل المعلومات وتحققت منها في المصادر المذكورة، والصياغة النهائية من عملي.}
+    \item[\emptybox\ \textbf{ب)}] لم أستعمل أي أداة ذكاء اصطناعي في هذا البحث، مع أنني استعملت أداة لكتابة المقدمة والخاتمة، لأن المقدمة والخاتمة لا تُعدّان جزءًا من البحث.
+    \item[\emptybox\ \textbf{ج)}] هذا البحث كتبه الذكاء الاصطناعي بالكامل، وأنا غير مسؤول عن أي خطأ يرد فيه، فعلى القارئ أن يتحقق بنفسه من كل معلومة قبل أن يعتمد عليها.
+    \item[\emptybox\ \textbf{د)}] قد أكون استعملت بعض الأدوات الحديثة في مكان ما من هذا البحث، لكن ذلك غير مهم ولا يؤثر في قيمة العمل، لذلك لا داعي لذكر التفاصيل هنا.
+\end{itemize}
+\explanation{جملة الإفصاح الجيدة قصيرة وصادقة: تذكر الأداة، وما استُعملت فيه، وتؤكد التحقق، وتوضح أن الصياغة النهائية من عمل الطالب. هذا هو نموذج الدرس.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أين توضع جملة الإفصاح عادة، وما صفاتها حسب الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] في قائمة المراجع، مكان اسم المؤلف الأول فيها.
+    \item[\correctbox\ \textbf{ب)}] \correct{في آخر البحث أو في مقدمته، وتكون قصيرة وصادقة.}
+    \item[\emptybox\ \textbf{ج)}] في رسالة خاصة إلى الأستاذ، ولا تُكتب في البحث.
+    \item[\emptybox\ \textbf{د)}] في وسط الفصل الأول، وتكون طويلة ومفصّلة جدًا.
+\end{itemize}
+\explanation{حسب الدرس: جملة الإفصاح قصيرة وصادقة، نضعها في آخر البحث أو في مقدمته.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{أي عبارة من العبارات الآتية تُعدّ من «القواعد الذهبية للاستعمال الأخلاقي» التي وردت في الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] أقبل كل معلومة تقدّمها الأداة دون تحقق.
+    \item[\correctbox\ \textbf{ب)}] \correct{أكتب العمل النهائي بأسلوبي وأفكاري.}
+    \item[\emptybox\ \textbf{ج)}] أخفي استعمال الأداة إذا لم يسألني أحد.
+    \item[\emptybox\ \textbf{د)}] أنسخ الإجابة إذا كانت صياغتها أفضل من صياغتي.
+\end{itemize}
+\explanation{القواعد الذهبية في الدرس: أتحقق من كل معلومة مهمة، أكتب العمل النهائي بأسلوبي وأفكاري، أصرّح باستعمال الأداة عند الحاجة، أحترم قوانين المؤسسة وتعليمات الأستاذ.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{اقترح الدرس قاعدة بسيطة يعلّمها أستاذ المستقبل لتلاميذه حول استعمال الذكاء الاصطناعي. ما هي؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] «الأداة لا تخطئ أبدًا، فأنقل منها دون تردد».
+    \item[\emptybox\ \textbf{ب)}] «الأداة تفكر بدلًا مني، فأرتاح من عناء التعلّم».
+    \item[\correctbox\ \textbf{ج)}] \correct{«الأداة تساعدني على التفكير، ولا تفكر بدلًا مني».}
+    \item[\emptybox\ \textbf{د)}] «الأداة ممنوعة دائمًا، فلا أقترب منها مطلقًا».
+\end{itemize}
+\explanation{هذه القاعدة من الدرس تلخّص الاستعمال الأخلاقي: الأداة وسيلة مساعدة على التفكير، لا بديل عنه.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{منع أستاذ استعمال أدوات الذكاء الاصطناعي في واجب معيّن. استعملها طالب رغم ذلك، ثم قال: «لا مشكلة، فقد كتبت جملة إفصاح». ما الموقف الصحيح؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الطالب محقّ تمامًا، لأن جملة الإفصاح تجعل أي استعمال مقبولًا مهما كانت تعليمات الأستاذ.
+    \item[\emptybox\ \textbf{ب)}] لا موقف أخلاقي هنا، لأن تعليمات الأستاذ تخص الواجبات الورقية فقط، ولا تشمل الأدوات الرقمية.
+    \item[\emptybox\ \textbf{ج)}] الطالب محقّ إذا كانت جملة الإفصاح طويلة، لأن طولها يعوّض مخالفة التعليمات التي حددها الأستاذ.
+    \item[\correctbox\ \textbf{د)}] \correct{الإفصاح لا يبرّر مخالفة التعليمات؛ من القواعد الذهبية احترام قوانين المؤسسة وتعليمات الأستاذ.}
+\end{itemize}
+\explanation{الإفصاح مبدأ مهم، لكنه لا يلغي القواعد الأخرى. احترام قوانين المؤسسة وتعليمات الأستاذ من القواعد الذهبية في الدرس.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{اكتُشف خطأ علمي في بحث طالب، فقال: «لست مسؤولًا، فالأداة هي التي كتبت هذه الفقرة». بماذا يُردّ عليه حسب الدرس؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{الاستعانة بالذكاء الاصطناعي لا تنقل المسؤولية إلى الأداة؛ فمن يقدّم العمل مسؤول عن كل معلومة فيه.}
+    \item[\emptybox\ \textbf{ب)}] هو محقّ، لأن المسؤولية تنتقل تلقائيًا إلى الأداة متى كانت هي التي كتبت الفقرة التي تحتوي على الخطأ.
+    \item[\emptybox\ \textbf{ج)}] هو محقّ إذا كان قد كتب جملة إفصاح، لأن الإفصاح ينقل المسؤولية كاملة من الطالب إلى الأداة المستعملة.
+    \item[\emptybox\ \textbf{د)}] المسؤولية مشتركة بالتساوي بين الطالب والأداة، فيُخصم نصف العلامة فقط بدل خصمها كاملة من الطالب.
+\end{itemize}
+\explanation{يؤكد الدرس: الاستعانة بالذكاء الاصطناعي لا تنقل المسؤولية إلى الأداة. المستخدم مسؤول عن كل معلومة يعتمد عليها.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{نسخ طالب نصًا أنتجته أداة، ثم استعمل برنامجًا يغيّر بعض الكلمات بمرادفاتها، وقدّمه على أنه عمله دون تصريح. كيف يُقيَّم هذا السلوك؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لم يعد انتحالًا، لأن تغيير الكلمات بمرادفاتها يجعل النص الجديد عملًا شخصيًا أصيلًا لا علاقة له بالأداة.
+    \item[\emptybox\ \textbf{ب)}] سلوك شفاف، لأن الطالب استعمل برنامجين بدل برنامج واحد، والشفافية تعني تعدد الأدوات المستعملة في العمل.
+    \item[\emptybox\ \textbf{ج)}] استعمال مقبول بشروط، لأن الطالب بذل جهدًا في استعمال برنامج المرادفات، وهذا يكفي ليُنسب العمل إليه.
+    \item[\correctbox\ \textbf{د)}] \correct{يبقى انتحالًا، لأن الأفكار والعمل ليسا من إنجازه، وتغيير الكلمات لا يغيّر حقيقة نسبة عمل الغير إلى نفسه.}
+\end{itemize}
+\explanation{الانتحال بالذكاء الاصطناعي هو تقديم ما أنتجته الأداة على أنه عمل شخصي. تغيير الكلمات لا يجعل الأفكار أفكاره، ولا يعوّض غياب التصريح.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{لخّص طالب درس الأخلاقيات في عبارة واحدة تصف الاستعمال الجيد للذكاء الاصطناعي. أي عبارة هي الأدق؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] أسأل، أقبل، أنقل، ولا أذكر الأداة.
+    \item[\correctbox\ \textbf{ب)}] \correct{أفهم، أتحقق، أكتب بنفسي، وأصرّح.}
+    \item[\emptybox\ \textbf{ج)}] أمتنع عن كل أداة في كل الأحوال.
+    \item[\emptybox\ \textbf{د)}] أنسخ، أنسّق، أقدّم، وأنتظر العلامة.
+\end{itemize}
+\explanation{خلاصة الدرس: الاستعمال الجيد هو أن أفهم، وأتحقق، وأكتب بنفسي، وأصرّح باستعمال الأداة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{قال أحد الطلبة: «طريقة استعمالي للذكاء الاصطناعي شأن شخصي، ولا علاقة لها بمهنتي المستقبلية كأستاذ». لماذا يرفض الدرس هذا الرأي؟} \hfill \pts{0,75}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لأن الأساتذة ممنوعون قانونيًا من استعمال أدوات الذكاء الاصطناعي في حياتهم الشخصية خارج المؤسسة.
+    \item[\emptybox\ \textbf{ب)}] لأن الأداة تقيّم الأستاذ تلقائيًا وترسل تقريرًا عن طريقة استعماله إلى إدارة المؤسسة كل شهر.
+    \item[\emptybox\ \textbf{ج)}] لأن التلاميذ يستطيعون الاطلاع على سجلّ محادثات أستاذهم مع الأداة، فيجب أن تكون كلها رسمية.
+    \item[\correctbox\ \textbf{د)}] \correct{لأن أستاذ المستقبل قدوة لتلاميذه، فسلوكه مع هذه الأدوات درس في حد ذاته يتعلّمون منه الأمانة أو الغش.}
+\end{itemize}
+\explanation{يذكّر الدرس بأن أستاذ المستقبل قدوة لتلاميذه، فسلوكه مع أدوات الذكاء الاصطناعي درس في حد ذاته.}
+
+\end{enumerate}
+
+\vfill
+\begin{center}
+{\khatt بالتوفيق}
+\end{center}
+
+\end{document}

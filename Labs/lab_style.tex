@@ -1,0 +1,132 @@
+% Shared preamble for the labs (compile from Labs/ with XeLaTeX or tectonic).
+% Same fonts and header as the Series sheets, plus colored boxes and tables.
+
+\usepackage{enumitem}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage[skins,breakable]{tcolorbox}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% Languages and fonts
+%------------------------------------------------
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.15]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.15,
+        Path=../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.2]{AlBattar}
+    \newfontfamily\khatt[Script=Arabic, Scale=1.2]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.2, Path=../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% Colors (same palette as the slides)
+%------------------------------------------------
+\definecolor{brandTeal}{HTML}{00B4D8}
+\definecolor{brandOrange}{HTML}{FF7043}
+\definecolor{brandDark}{HTML}{263238}
+\definecolor{brandMuted}{HTML}{6C757D}
+\colorlet{tealDeep}{brandTeal!70!black}
+
+%------------------------------------------------
+% Page setup
+%------------------------------------------------
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\setlength{\headheight}{16pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\arabic*), itemsep=4pt, topsep=3pt}
+\setlist[enumerate,2]{label=\alph*), itemsep=2pt, topsep=2pt}
+\setlist[itemize]{itemsep=2pt, topsep=2pt}
+
+%------------------------------------------------
+% Tables
+%------------------------------------------------
+\renewcommand{\arraystretch}{1.4}
+\setlength{\arrayrulewidth}{0.6pt}
+\arrayrulecolor{brandMuted!80}
+% Header cell
+\newcommand{\ras}[1]{\cellcolor{brandTeal!20}\textbf{#1}}
+% Highlighted result cell
+\newcommand{\natija}[1]{\cellcolor{brandOrange!15}\textbf{#1}}
+% Empty cell to be filled by the student
+\newcommand{\fragh}{\rule{0pt}{0.55cm}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}}
+
+%------------------------------------------------
+% Boxes
+%------------------------------------------------
+\tcbset{labbox/.style={enhanced, breakable, arc=3pt, boxrule=1.2pt,
+    coltitle=white, fonttitle=\khatt\bfseries,
+    top=1.5mm, bottom=1.5mm, left=3mm, right=3mm,
+    before skip=6pt, after skip=6pt}}
+% Worked example
+\newtcolorbox{mithal}[1]{labbox, colback=brandTeal!6, colframe=brandTeal,
+    title={مثال محلول: #1}}
+% Reminder / method
+\newtcolorbox{tadhkir}[1][تذكير]{labbox, colback=brandTeal!3,
+    colframe=tealDeep, title={#1}}
+% Warning
+\newtcolorbox{tanbih}[1][انتبه]{labbox, colback=brandOrange!8,
+    colframe=brandOrange, title={#1}}
+% Exercise
+\newtcolorbox{tamrin}[1]{labbox, colback=white, colframe=brandDark!80,
+    title={#1}}
+
+% Section title
+\newcommand{\qism}[1]{\section*{\khatt\underline{#1}}}
+
+% Title block: \unwan{lab number}{title}{subtitle}
+\newcommand{\unwan}[3]{%
+    \begin{center}
+        {\Large\khatt\textbf{المخبر التطبيقي رقم #1}}\\[0.15cm]
+        {\Large\khatt\textbf{#2}}\\[0.1cm]
+        {\khatt\textbf{#3}}
+    \end{center}
+    \rule{\textwidth}{1pt}
+    \begin{center}
+        \small المدة: ساعة ونصف \quad$\cdot$\quad الأدوات: آلة حاسبة، أداة ذكاء اصطناعي، مصدر موثوق
+    \end{center}
+    \rule{\textwidth}{1pt}}
+
+% Percentage reminder used in every lab
+\newcommand{\nisba}{%
+    \begin{tadhkir}[تذكير: حساب النسبة المئوية]
+        \begin{center}
+            \textbf{النسبة المئوية = (الجزء $\div$ الكل) $\times$ 100}
+        \end{center}
+        مثال: 15 إجابة صحيحة من 20 سؤالًا:
+        $\dfrac{15}{20}\times 100 = 75\%$.
+    \end{tadhkir}}

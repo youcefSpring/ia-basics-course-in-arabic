@@ -1,0 +1,463 @@
+\documentclass[a4paper]{article}
+
+%------------------------------------------------
+% الحزم
+%------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[charter]{mathdesign}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{polyglossia}
+
+%------------------------------------------------
+% اللغات والخطوط
+%------------------------------------------------
+
+\setdefaultlanguage[
+    calendar=gregorian,
+    numerals=maghrib
+]{arabic}
+
+\setotherlanguage{english}
+
+% إذا لم تكن الخطوط مثبتة في الجهاز، تُؤخذ من المجلد ../../fonts/
+\IfFontExistsTF{Amiri}{%
+    \newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Amiri}
+}{%
+    \newfontfamily\arabicfont[
+        Script=Arabic, Scale=1.2,
+        Path=../../fonts/, Extension=.ttf,
+        UprightFont=*-Regular, BoldFont=*-Bold,
+        ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic
+    ]{Amiri}
+}
+
+\IfFontExistsTF{AlBattar}{%
+    \newfontfamily\arabicfontsf[Script=Arabic, Scale=1.3]{AlBattar}
+    \newfontfamily\khatt[Script=Arabic, Scale=1.3]{AlBattar}
+}{%
+    \newfontfamily\arabicfontsf[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+    \newfontfamily\khatt[
+        Script=Arabic, Scale=1.3, Path=../../fonts/,
+        BoldFont=ae_AlBattar.ttf
+    ]{ae_AlBattar.ttf}
+}
+
+%------------------------------------------------
+% نسخة الطالب / نسخة التصحيح
+% لإنتاج نسخة التصحيح: عرّف \withanswers قبل \input لهذا الملف
+%------------------------------------------------
+
+\newif\ifcorrection
+\ifdefined\withanswers \correctiontrue \else \correctionfalse \fi
+
+\newcommand{\emptybox}{$\square$}
+\ifcorrection
+    \newcommand{\correctbox}{\textcolor{green!50!black}{$\boxtimes$}}
+    \newcommand{\correct}[1]{\textcolor{green!40!black}{\textbf{#1}}}
+    \newcommand{\explanation}[1]{%
+        \par\vspace{3pt}
+        \fcolorbox{gray!60}{gray!8}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+        \small\textbf{التعليل:} #1}}}
+\else
+    \newcommand{\correctbox}{$\square$}
+    \newcommand{\correct}[1]{#1}
+    \newcommand{\explanation}[1]{}
+\fi
+
+\newcommand{\pts}[1]{\textbf{(#1 ن)}}
+
+%------------------------------------------------
+% إعداد الصفحة
+%------------------------------------------------
+
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+
+\cfoot{\thepage}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+
+\parindent 0pt
+\setlength{\headsep}{15pt}
+\arraycolsep=1.4pt
+
+\pagestyle{fancy}
+
+\setlist[enumerate,1]{label=\textbf{السؤال \arabic*:}, leftmargin=*, itemsep=12pt, align=left}
+
+%================================================
+% بداية الوثيقة
+%================================================
+
+\begin{document}
+
+\begin{center}
+
+{\Large\khatt\textbf{الامتحان النهائي}\ifcorrection\ \textbf{-- التصحيح النموذجي}\fi}
+
+\vspace{0.2cm}
+
+{\Large\khatt\textbf{في الذكاء الاصطناعي}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\ifcorrection\else
+\textbf{الاسم واللقب:} \dotfill \quad \textbf{الفوج:} \makebox[3cm]{\dotfill}
+
+\vspace{0.3cm}
+\fi
+
+\begin{center}
+
+{\khatt\textbf{أسئلة متعددة الاختيارات (20 سؤالا -- 20 نقطة)}}
+
+\end{center}
+
+\rule{\textwidth}{1pt}
+
+\textbf{التعليمة:} ضع علامة \textbf{$\times$} في المربع المقابل للإجابة الصحيحة. لكل سؤال إجابة صحيحة واحدة فقط.
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 1) ما الذي يميّز الذكاء الاصطناعي «التوليدي» عن غيره من تطبيقات الذكاء الاصطناعي؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] أنه مخصص للحساب الرياضي ولا يتعامل مع اللغة.
+    \item[\correctbox\ \textbf{ب)}] \correct{أنه ينتج محتوى جديدًا لم يكن موجودًا بهذا الشكل.}
+    \item[\emptybox\ \textbf{ج)}] أنه لا يخطئ أبدًا لأنه يعتمد على قواعد ثابتة.
+    \item[\emptybox\ \textbf{د)}] أنه يبحث فقط عن إجابة جاهزة مخزّنة مسبقًا.
+    \item[\emptybox\ \textbf{هـ)}] أنه يعمل دون كهرباء أو اتصال بالإنترنت.
+    \item[\emptybox\ \textbf{و)}] أنه يحفظ كل ما يكتبه المستخدم ويعيده كما هو.
+    \item[\emptybox\ \textbf{ز)}] أنه يرتّب نتائج البحث حسب تاريخ نشرها.
+    \item[\emptybox\ \textbf{ح)}] أنه جهاز عتادي يُركَّب داخل الهاتف لتسريعه.
+\end{itemize}
+\explanation{الذكاء الاصطناعي التوليدي نوع من الذكاء الاصطناعي ينتج محتوى جديدًا: نصًا أو صورة أو صوتًا أو جدولًا.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 1) أجاب مساعد ذكاء اصطناعي بثقة أن بيتًا شعريًا لشاعر معيّن، ثم تبيّن أن الإجابة مختلَقة. ما اسم هذه الظاهرة؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{الهلوسة.}
+    \item[\emptybox\ \textbf{ب)}] تعدّد الأنماط.
+    \item[\emptybox\ \textbf{ج)}] التلخيص.
+    \item[\emptybox\ \textbf{د)}] الانحياز الخوارزمي.
+    \item[\emptybox\ \textbf{هـ)}] هندسة الأوامر.
+    \item[\emptybox\ \textbf{و)}] الإفصاح.
+    \item[\emptybox\ \textbf{ز)}] الانتحال العلمي.
+    \item[\emptybox\ \textbf{ح)}] الشفافية.
+\end{itemize}
+\explanation{الهلوسة هي أن تقدّم الأداة معلومة غير صحيحة أو مختلَقة بطلاقة وثقة، ولهذا نتحقق دائمًا من مصدر موثوق.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 1) أي أداة ذكاء اصطناعي توليدي تطوّرها شركة \textenglish{Anthropic}؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] \textenglish{Google}
+    \item[\emptybox\ \textbf{ب)}] \textenglish{Perplexity}
+    \item[\emptybox\ \textbf{ج)}] \textenglish{Gemini}
+    \item[\emptybox\ \textbf{د)}] \textenglish{ChatGPT}
+    \item[\emptybox\ \textbf{هـ)}] \textenglish{Alibaba}
+    \item[\correctbox\ \textbf{و)}] \correct{\textenglish{Claude}}
+    \item[\emptybox\ \textbf{ز)}] \textenglish{Qwen}
+    \item[\emptybox\ \textbf{ح)}] \textenglish{DeepSeek}
+\end{itemize}
+\explanation{\textenglish{Claude} من \textenglish{Anthropic}، و\textenglish{ChatGPT} من \textenglish{OpenAI}، و\textenglish{Gemini} من \textenglish{Google}، و\textenglish{Qwen} من \textenglish{Alibaba}، و\textenglish{DeepSeek} من الشركة التي تحمل الاسم نفسه، و\textenglish{Perplexity} من \textenglish{Perplexity AI}.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 1) ما الموقف الصحيح من دور الذكاء الاصطناعي في عمل أستاذ اللغة العربية؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{مساعد للأستاذ وليس بديلًا عنه، والأستاذ يبقى المسؤول.}
+    \item[\emptybox\ \textbf{ب)}] وسيلة لتصحيح الامتحانات دون مراجعة الأستاذ.
+    \item[\emptybox\ \textbf{ج)}] مسؤول عن الأخطاء بدلًا من الأستاذ.
+    \item[\emptybox\ \textbf{د)}] أداة تغني عن المعاجم وكتب النحو المعتمدة.
+    \item[\emptybox\ \textbf{هـ)}] بديل كامل عن الأستاذ في إعداد الدروس وتقديمها.
+    \item[\emptybox\ \textbf{و)}] مصدر علمي معتمد لا تحتاج معلوماته إلى تحقق.
+    \item[\emptybox\ \textbf{ز)}] أداة ممنوعة لا يجوز استعمالها في أي حال.
+    \item[\emptybox\ \textbf{ح)}] أداة لا تفيد إلا أساتذة المواد العلمية.
+\end{itemize}
+\explanation{خلاصة الفصل الأول: الذكاء الاصطناعي مساعد للأستاذ وليس بديلًا عنه، والأستاذ يبقى المسؤول عن التحقق.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 2) ما الترتيب الصحيح لمراحل تعلّم الآلة؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] النموذج $\leftarrow$ البيانات $\leftarrow$ التدريب $\leftarrow$ الاختبار $\leftarrow$ النتيجة
+    \item[\emptybox\ \textbf{ب)}] النتيجة $\leftarrow$ البيانات $\leftarrow$ التدريب $\leftarrow$ النموذج $\leftarrow$ الاختبار
+    \item[\emptybox\ \textbf{ج)}] التدريب $\leftarrow$ النموذج $\leftarrow$ البيانات $\leftarrow$ الاختبار $\leftarrow$ النتيجة
+    \item[\emptybox\ \textbf{د)}] البيانات $\leftarrow$ النموذج $\leftarrow$ التدريب $\leftarrow$ النتيجة $\leftarrow$ الاختبار
+    \item[\emptybox\ \textbf{هـ)}] التدريب $\leftarrow$ البيانات $\leftarrow$ النموذج $\leftarrow$ النتيجة $\leftarrow$ الاختبار
+    \item[\emptybox\ \textbf{و)}] الاختبار $\leftarrow$ البيانات $\leftarrow$ التدريب $\leftarrow$ النموذج $\leftarrow$ النتيجة
+    \item[\emptybox\ \textbf{ز)}] البيانات $\leftarrow$ الاختبار $\leftarrow$ التدريب $\leftarrow$ النموذج $\leftarrow$ النتيجة
+    \item[\correctbox\ \textbf{ح)}] \correct{البيانات $\leftarrow$ التدريب $\leftarrow$ النموذج $\leftarrow$ الاختبار $\leftarrow$ النتيجة}
+\end{itemize}
+\explanation{تبدأ العملية بالبيانات، ثم التدريب الذي ينتج النموذج، ثم اختبار النموذج ببيانات جديدة، ثم النتيجة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 2) لماذا نختبر النموذج ببيانات جديدة لم يرها أثناء التدريب؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] لأن النموذج لا يقبل البيانات نفسها مرتين.
+    \item[\emptybox\ \textbf{ب)}] لأن بيانات التدريب تُحذف بعد انتهاء التدريب.
+    \item[\emptybox\ \textbf{ج)}] لأن الاختبار بالبيانات القديمة ممنوع قانونيًا.
+    \item[\emptybox\ \textbf{د)}] لا سبب لذلك، فهي مجرد عادة عند المهندسين.
+    \item[\emptybox\ \textbf{هـ)}] لزيادة حجم بيانات التدريب دون جهد إضافي.
+    \item[\emptybox\ \textbf{و)}] لأن البيانات الجديدة أقصر فيكون الاختبار أسرع.
+    \item[\correctbox\ \textbf{ز)}] \correct{لنعرف هل فهم القاعدة فعلًا، لا أنه يجيب من الذاكرة.}
+    \item[\emptybox\ \textbf{ح)}] لتقليل استهلاك الكهرباء أثناء الاختبار.
+\end{itemize}
+\explanation{كما لا نختبر التلميذ بالجمل التي شُرحت له، نختبر النموذج ببيانات جديدة لنعرف هل فهم حقًا.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 2) نموذج تدرّب على نصوص صحفية حديثة فقط، فعدّ كلمات فصيحة قديمة في الشعر الجاهلي أخطاءً. ما اسم هذه المشكلة؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] خطأ في هندسة الأمر لغياب الدور.
+    \item[\emptybox\ \textbf{ب)}] خطأ في التنسيق الناتج عن غياب الجداول.
+    \item[\correctbox\ \textbf{ج)}] \correct{الانحياز الخوارزمي الناتج عن بيانات غير ممثِّلة.}
+    \item[\emptybox\ \textbf{د)}] خطأ في الأرقام عند قراءة الصور.
+    \item[\emptybox\ \textbf{هـ)}] الانتحال الناتج عن نسخ النصوص الصحفية.
+    \item[\emptybox\ \textbf{و)}] ضعف الإفصاح عن مصدر البيانات.
+    \item[\emptybox\ \textbf{ز)}] نقص في تعدّد أنماط الأداة.
+    \item[\emptybox\ \textbf{ح)}] الهلوسة الناتجة عن ضعف الاتصال بالإنترنت.
+\end{itemize}
+\explanation{النموذج لم يرَ هذا النوع من النصوص أثناء التدريب، فبياناته غير ممثِّلة، فجاءت نتائجه منحازة وغير دقيقة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 3) في الأمر: «تصرّف كأستاذ لغة عربية...»، ما العنصر الذي تمثّله هذه العبارة؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] القيود
+    \item[\emptybox\ \textbf{ب)}] الإفصاح
+    \item[\emptybox\ \textbf{ج)}] الكلمات المفتاحية
+    \item[\correctbox\ \textbf{د)}] \correct{الدور}
+    \item[\emptybox\ \textbf{هـ)}] السياق
+    \item[\emptybox\ \textbf{و)}] النمط
+    \item[\emptybox\ \textbf{ز)}] التنسيق
+    \item[\emptybox\ \textbf{ح)}] المهمة
+\end{itemize}
+\explanation{الدور يحدد من تكون الأداة وأي خبرة تعتمد عليها.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 3) أضاف أستاذ إلى أمره: «في 150 كلمة، بلغة بسيطة». ما العنصر الذي أضافه؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\correctbox\ \textbf{أ)}] \correct{القيود}
+    \item[\emptybox\ \textbf{ب)}] الشفافية
+    \item[\emptybox\ \textbf{ج)}] البيانات
+    \item[\emptybox\ \textbf{د)}] الدور
+    \item[\emptybox\ \textbf{هـ)}] النموذج
+    \item[\emptybox\ \textbf{و)}] السياق
+    \item[\emptybox\ \textbf{ز)}] المهمة
+    \item[\emptybox\ \textbf{ح)}] التنسيق
+\end{itemize}
+\explanation{القيود هي الشروط التي يجب احترامها في الإجابة، مثل عدد الكلمات وبساطة اللغة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 3) أي أمر يحتوي على العناصر الخمسة للأمر الجيد؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] اشرح الحال.
+    \item[\correctbox\ \textbf{ب)}] \correct{تصرّف كأستاذ نحو. اشرح الحال لتلاميذ الثانية متوسط، في 150 كلمة، في شكل تعريف ثم أمثلة ثم خلاصة.}
+    \item[\emptybox\ \textbf{ج)}] اشرح الحال في جدول.
+    \item[\emptybox\ \textbf{د)}] اشرح الحال وترجمه واكتب اختبارًا وصحّحه.
+    \item[\emptybox\ \textbf{هـ)}] أنا أستاذ. اشرح الحال.
+    \item[\emptybox\ \textbf{و)}] اشرح الحال في 150 كلمة.
+    \item[\emptybox\ \textbf{ز)}] اكتب شيئًا جميلًا عن النحو.
+    \item[\emptybox\ \textbf{ح)}] تصرّف كأستاذ نحو. اشرح الحال.
+\end{itemize}
+\explanation{الأمر الأول يجمع الدور والمهمة والسياق والقيود والتنسيق. الأوامر الأخرى ينقصها عنصر أو أكثر، أو تخلط مهام كثيرة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 3) لم تكن أستاذة راضية عن أول إجابة من الأداة. ما التصرف الصحيح؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] كتابة الأمر بالأحرف الكبيرة.
+    \item[\emptybox\ \textbf{ب)}] إضافة مهام أخرى كثيرة إلى الأمر نفسه.
+    \item[\emptybox\ \textbf{ج)}] قبول الإجابة الأولى لأنها الأفضل دائمًا.
+    \item[\emptybox\ \textbf{د)}] حذف السياق والقيود لتقصير الأمر.
+    \item[\correctbox\ \textbf{هـ)}] \correct{تعديل الأمر وإضافة ما ينقصه، ثم إعادة المحاولة.}
+    \item[\emptybox\ \textbf{و)}] التوقف نهائيًا عن استعمال الأداة.
+    \item[\emptybox\ \textbf{ز)}] تكرار الأمر نفسه حرفيًا عشر مرات.
+    \item[\emptybox\ \textbf{ح)}] نسخ إجابة أداة أخرى دون قراءتها.
+\end{itemize}
+\explanation{قبول أول إجابة من الأخطاء الشائعة. نبني الأمر تدريجيًا ونحسّنه بعد قراءة الإجابة.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 4) قدّم أستاذ معلومة خاطئة أخذها من أداة دون تحقق. من المسؤول؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الأداة وحدها لأنها ولّدت المعلومة.
+    \item[\correctbox\ \textbf{ب)}] \correct{الأستاذ، لأن الاستعانة بالأداة لا تنقل المسؤولية.}
+    \item[\emptybox\ \textbf{ج)}] مدير المؤسسة لأنه لم يمنع الأداة.
+    \item[\emptybox\ \textbf{د)}] التلاميذ لأنهم لم ينتبهوا للخطأ.
+    \item[\emptybox\ \textbf{هـ)}] الشركة المطوّرة للأداة وحدها.
+    \item[\emptybox\ \textbf{و)}] لا أحد، لأن الأخطاء الرقمية لا تُحاسَب.
+    \item[\emptybox\ \textbf{ز)}] المسؤولية مقسومة بالتساوي بين الأستاذ والأداة.
+    \item[\emptybox\ \textbf{ح)}] محرك البحث الذي أوصل إلى الأداة.
+\end{itemize}
+\explanation{مبدأ المسؤولية: المستخدم مسؤول عن كل معلومة يعتمد عليها، والأداة لا تتحمل المسؤولية.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 4) أنشأ طالب مسودة بالأداة، ثم راجعها وتحقق منها وصرّح بذلك. كيف يُصنَّف هذا الاستعمال؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] مرفوض دائمًا.
+    \item[\emptybox\ \textbf{ب)}] انحياز خوارزمي.
+    \item[\correctbox\ \textbf{ج)}] \correct{مقبول بشروط.}
+    \item[\emptybox\ \textbf{د)}] هلوسة.
+    \item[\emptybox\ \textbf{هـ)}] غير مسؤول.
+    \item[\emptybox\ \textbf{و)}] مقبول دون أي شرط.
+    \item[\emptybox\ \textbf{ز)}] ممنوع في كل المؤسسات.
+    \item[\emptybox\ \textbf{ح)}] انتحال مرفوض.
+\end{itemize}
+\explanation{إنشاء مسودة بالأداة ثم مراجعتها والتحقق منها والإفصاح استعمال «مقبول بشروط» في مقياس الدرس.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 4) نسخ طالب بحثًا كاملًا من أداة وقدّمه باسمه دون تصريح. ما اسم هذا السلوك؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الشفافية.
+    \item[\emptybox\ \textbf{ب)}] الاستعمال المقبول.
+    \item[\correctbox\ \textbf{ج)}] \correct{الانتحال بالذكاء الاصطناعي.}
+    \item[\emptybox\ \textbf{د)}] التلخيص.
+    \item[\emptybox\ \textbf{هـ)}] التعلّم الآلي.
+    \item[\emptybox\ \textbf{و)}] تقييم المصادر.
+    \item[\emptybox\ \textbf{ز)}] هندسة الأوامر.
+    \item[\emptybox\ \textbf{ح)}] الإفصاح.
+\end{itemize}
+\explanation{الانتحال بالذكاء الاصطناعي: أن ينسخ الطالب نصًا أنتجته الأداة ويقدّمه على أنه عمله الشخصي.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 5) أي مما يلي سؤال بحث محدد وليس موضوعًا عامًا؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] اللغة العربية في المدرسة.
+    \item[\emptybox\ \textbf{ب)}] الأدب الجاهلي.
+    \item[\emptybox\ \textbf{ج)}] تعليم النحو.
+    \item[\correctbox\ \textbf{د)}] \correct{ما الصعوبات التي يواجهها تلاميذ المتوسط في الإعراب؟}
+    \item[\emptybox\ \textbf{هـ)}] البلاغة العربية.
+    \item[\emptybox\ \textbf{و)}] الذكاء الاصطناعي.
+    \item[\emptybox\ \textbf{ز)}] الذكاء الاصطناعي والتعليم.
+    \item[\emptybox\ \textbf{ح)}] التكنولوجيا الحديثة.
+\end{itemize}
+\explanation{موضوع البحث مجال عام وواسع، أما سؤال البحث فسؤال محدد نريد الإجابة عنه.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 5) أي مصدر هو الأكثر موثوقية حسب سلّم الدرس؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] موقع مجهول لا يُعرف كاتبه.
+    \item[\emptybox\ \textbf{ب)}] منشور على شبكة اجتماعية.
+    \item[\emptybox\ \textbf{ج)}] أول نتيجة في محرك البحث.
+    \item[\emptybox\ \textbf{د)}] مقال صحفي.
+    \item[\emptybox\ \textbf{هـ)}] محتوى أنتجه الذكاء الاصطناعي.
+    \item[\emptybox\ \textbf{و)}] إعلان لدورة تكوينية مدفوعة.
+    \item[\emptybox\ \textbf{ز)}] مدونة شخصية.
+    \item[\correctbox\ \textbf{ح)}] \correct{كتاب محقق أو مقال علمي محكّم.}
+\end{itemize}
+\explanation{المصادر الأكاديمية في أعلى السلّم، ثم مواقع المؤسسات الرسمية، ثم المقال الصحفي، ثم المدونة، وفي الأسفل محتوى الذكاء الاصطناعي.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 5) صفحة تمدح طريقة لتعليم النحو وتنتهي برابط لشراء دورة. أي معيار يكشف ضعفها؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] الكاتب
+    \item[\emptybox\ \textbf{ب)}] النمط
+    \item[\emptybox\ \textbf{ج)}] التنسيق
+    \item[\emptybox\ \textbf{د)}] الدور
+    \item[\emptybox\ \textbf{هـ)}] الدقة
+    \item[\correctbox\ \textbf{و)}] \correct{الهدف}
+    \item[\emptybox\ \textbf{ز)}] الجهة
+    \item[\emptybox\ \textbf{ح)}] التاريخ
+\end{itemize}
+\explanation{معيار الهدف يسأل: هل هدف المصدر الإعلام، أم الإقناع، أم البيع؟}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 6) ما المقصود بالأداة «متعددة الأنماط»؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] أداة تعمل على الهاتف والحاسوب معًا.
+    \item[\emptybox\ \textbf{ب)}] أداة تتصل بعدة محركات بحث في الوقت نفسه.
+    \item[\emptybox\ \textbf{ج)}] أداة يستعملها عدة أشخاص في الحساب نفسه.
+    \item[\emptybox\ \textbf{د)}] أداة تعمل بعدة لغات لكن بالنص فقط.
+    \item[\emptybox\ \textbf{هـ)}] أداة لها عدة أسماء تجارية مختلفة.
+    \item[\emptybox\ \textbf{و)}] أداة تُحدَّث عدة مرات في السنة.
+    \item[\correctbox\ \textbf{ز)}] \correct{أداة تفهم أكثر من نمط وتنتج أكثر من نمط.}
+    \item[\emptybox\ \textbf{ح)}] أداة تقدّم عدة إجابات نصية للسؤال نفسه.
+\end{itemize}
+\explanation{النمط شكل المعلومة (نص، صورة، صوت، فيديو). الأداة متعددة الأنماط تفهم أكثر من نمط وتنتج أكثر من نمط.}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 6) صوّر أستاذ صفحة مخطوطة وطلب كتابتها نصًا رقميًا. ما نوع هذا التحويل؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] صوت $\leftarrow$ فيديو
+    \item[\emptybox\ \textbf{ب)}] نص $\leftarrow$ صوت
+    \item[\emptybox\ \textbf{ج)}] نص $\leftarrow$ صورة
+    \item[\correctbox\ \textbf{د)}] \correct{صورة $\leftarrow$ نص}
+    \item[\emptybox\ \textbf{هـ)}] مخطط $\leftarrow$ صوت
+    \item[\emptybox\ \textbf{و)}] نص $\leftarrow$ مخطط
+    \item[\emptybox\ \textbf{ز)}] فيديو $\leftarrow$ صورة
+    \item[\emptybox\ \textbf{ح)}] صوت $\leftarrow$ نص
+\end{itemize}
+\explanation{المدخل صورة (صفحة المخطوطة) والمخرج نص رقمي: «صورة $\leftarrow$ نص».}
+
+%------------------------------------------------
+
+\needspace{9\baselineskip}\item
+\textbf{(الفصل 6) أي مجال تخطئ فيه الأداة غالبًا عند قراءة صورة أو مخطط بياني؟} \hfill \pts{1}
+\begin{itemize}[leftmargin=1.6cm, labelsep=0.3cm, itemsep=2pt, topsep=4pt]
+    \item[\emptybox\ \textbf{أ)}] اسم الجهاز الذي التُقطت به الصورة.
+    \item[\emptybox\ \textbf{ب)}] لا تخطئ أبدًا في قراءة الصور.
+    \item[\emptybox\ \textbf{ج)}] عدد الألوان المستعملة في الصورة.
+    \item[\emptybox\ \textbf{د)}] تاريخ التقاط الصورة بالهاتف.
+    \item[\correctbox\ \textbf{هـ)}] \correct{الأرقام: قد تقرأ رقمًا خطأ أو تخلط بين عمودين.}
+    \item[\emptybox\ \textbf{و)}] حجم ملف الصورة على الحاسوب.
+    \item[\emptybox\ \textbf{ز)}] اتجاه الصورة أفقيًا أو عموديًا فقط.
+    \item[\emptybox\ \textbf{ح)}] اسم الملف الذي حُفظت به الصورة.
+\end{itemize}
+\explanation{تخطئ الأداة غالبًا في الأرقام والعلاقات والخط العربي، لذلك نقارن إجابتها دائمًا بالصورة الأصلية.}
+
+\end{enumerate}
+
+\vfill
+\begin{center}
+{\khatt بالتوفيق}
+\end{center}
+
+\end{document}
