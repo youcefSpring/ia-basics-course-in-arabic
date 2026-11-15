@@ -1,17 +1,16 @@
-"""يولّد 12 اختبارًا (15 سؤالًا لكل منها) من بنك الأسئلة questions.py، ومفتاح الإجابات.
+"""يولّد 12 فرضًا (15 سؤالًا لكل منها) من بنك الأسئلة questions.py، ومفتاح الإجابات.
 
-التوزيع في كل اختبار: 3 أسئلة سهلة، 7 متوسطة، 5 صعبة، من الفصول 1 إلى 6.
-كل سؤال من البنك (180 سؤالًا) يُستعمل مرة واحدة فقط في مجموع الاختبارات.
+التوزيع في كل فرض: 3 أسئلة سهلة، 7 متوسطة، 5 صعبة، من الفصول 1 إلى 6.
+كل سؤال من البنك (180 سؤالًا) يُستعمل مرة واحدة فقط في مجموع الفروض.
 الاستعمال:  python3 make_tests.py   ثم   tectonic test_XX.tex
 """
-import random, re, sys, os
+import random, sys, os
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from questions import Q
 
 N_TESTS = 12
-LETTERS = ['أ', 'ب', 'ج', 'د', 'هـ']
 ORD = ['الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
        'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر']
 
@@ -47,58 +46,13 @@ for t in range(N_TESTS):
     tests.append(items)
 assert all(not v for v in pool.values())
 
-# ---------- LaTeX ----------
-def tex(s):
-    for a, b in [('\\', '\x00'), ('&', r'\&'), ('%', r'\%'), ('$', r'\$'),
-                 ('#', r'\#'), ('_', r'\_'), ('{', r'\{'), ('}', r'\}')]:
-        s = s.replace(a, b)
-    s = s.replace('\x00', r'\textbackslash{}')
-    s = re.sub(r'[A-Za-z][A-Za-z0-9.\- ]*[A-Za-z0-9]|[A-Za-z]',
-               lambda m: r'\textenglish{' + m.group(0) + '}', s)
-    return s.replace('←', r'$\leftarrow$')
-
-PREAMBLE = r'''\documentclass[11pt,a4paper]{article}
-\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
-\usepackage{enumitem}
-\usepackage{amssymb}
-\usepackage{array}
-\usepackage{xcolor}
-\usepackage{fancyhdr}
-\usepackage{multicol}
-\usepackage{polyglossia}
-\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
-\setotherlanguage{english}
-\IfFontExistsTF{Amiri}{%
-  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
-}{%
-  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
-    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
-    BoldItalicFont=*-BoldItalic]{Amiri}
-}
-\IfFontExistsTF{AlBattar}{%
-  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
-}{%
-  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
-    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
-}
-\renewcommand{\headrulewidth}{0.8pt}
-\renewcommand{\footrulewidth}{0.8pt}
-\fancyhf{}
-\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
-\lhead{\khatt ملحقة بومرداس}
-\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
-\cfoot{\thepage/2}
-\pagestyle{fancy}
-\parindent 0pt
-\setlength{\columnsep}{0.6cm}
-\setlength{\columnseprule}{0.4pt}
-\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
-\begin{document}
-'''
+from common import tex, LETTERS, ROW_COLORS
+from common import PREAMBLE as _P
+PREAMBLE = _P.replace('@PAGES@', '2')
 
 def test_tex(n, items):
     out = [PREAMBLE, r'''\begin{center}
-{\Large\khatt\textbf{الاختبار %s في الذكاء الاصطناعي}}\\[2pt]
+{\Large\khatt\textbf{الفرض %s في الذكاء الاصطناعي}}\\[2pt]
 {\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
 \end{center}
 \vspace{-4pt}\rule{\textwidth}{0.6pt}\\
@@ -150,10 +104,10 @@ for n, items in enumerate(tests, 1):
 
 # ---------- مفتاح الإجابات ----------
 nums = ' & '.join(r'\textbf{%d}' % i for i in range(1, 16))
-rows = '\n'.join(r'\textbf{الاختبار %d} & %s \\ \hline' % (
-    n, ' & '.join(LETTERS[it['key']] for it in items)) for n, items in enumerate(tests, 1))
-key = PREAMBLE.replace(r'\cfoot{\thepage/2}', r'\cfoot{}') + r'''\begin{center}
-{\Large\khatt\textbf{مفتاح الإجابات ــ الاختبارات من 1 إلى 12}}\\[4pt]
+rows = '\n'.join(r'\rowcolor{%s}\textbf{الفرض %d} & %s \\ \hline' % (
+    ROW_COLORS[n - 1], n, ' & '.join(LETTERS[it['key']] for it in items)) for n, items in enumerate(tests, 1))
+key = _P.replace(r'\cfoot{\thepage/@PAGES@}', r'\cfoot{}') + r'''\begin{center}
+{\Large\khatt\textbf{مفتاح الإجابات ــ الفروض من 1 إلى 12}}\\[4pt]
 {\small (نسخة الأستاذ ــ لا تُوزَّع على الطلبة)}\\[10pt]
 \renewcommand{\arraystretch}{1.8}
 \begin{tabular}{|>{\centering\arraybackslash}m{2.2cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}

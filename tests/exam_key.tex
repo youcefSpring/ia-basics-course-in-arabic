@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+\begin{center}
+{\Large\khatt\textbf{مفتاح الإجابات ــ الاختبار في الذكاء الاصطناعي}}\\[4pt]
+{\small (نسخة الأستاذ ــ لا تُوزَّع على الطلبة)}\\[10pt]
+\renewcommand{\arraystretch}{1.9}\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{20}{>{\centering\arraybackslash}m{0.5cm}|}}
+\hline
+\rowcolor{blue!12}\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20} \\ \hline
+\rowcolor{green!16}\textbf{الإجابة} & أ & د & ج & ج & هـ & أ & ج & د & ب & هـ & هـ & ج & د & ب & ب & هـ & ب & أ & د & أ \\ \hline
+\end{tabular}
+
+\vspace{10pt}
+{\small سلّم التنقيط: نقطة واحدة لكل سؤال (المجموع 20 نقطة).
+ترتيب الأسئلة: 1--4 سهلة، 5--10 متوسطة، 11--17 صعبة، 18--20 صعبة جدًا.}
+\end{center}
+\end{document}
