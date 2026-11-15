@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار الثاني عشر في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{ما الانحياز الخوارزمي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نسخ عمل الآخرين دون ذكر مصدره أو صاحبه
+  \item[\textbf{ب)}] نتائج غير عادلة سببها مشكلة في البيانات أو التصميم
+  \item[\textbf{ج)}] التصريح باستعمال أداة الذكاء الاصطناعي في بحث
+  \item[\textbf{د)}] انقطاع الإنترنت أثناء مرحلة التدريب الطويلة
+  \item[\textbf{هـ)}] سرعة كبيرة جدًا في معالجة البيانات وتخزينها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{ما المبادئ الثلاثة الأساسية لأخلاقيات استعمال الذكاء الاصطناعي في الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] السرعة والدقة وجمال الأسلوب
+  \item[\textbf{ب)}] الكاتب والجهة وتاريخ النشر
+  \item[\textbf{ج)}] البيانات والتدريب والاختبار
+  \item[\textbf{د)}] المسؤولية والشفافية والإفصاح
+  \item[\textbf{هـ)}] الدور والمهمة وسياق الطلب
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{ما الأداة متعددة الأنماط؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] أداة تفهم وتنتج أكثر من نمط
+  \item[\textbf{ب)}] أداة تنتج الصور الثابتة فقط
+  \item[\textbf{ج)}] أداة تعمل دون اتصال بالإنترنت
+  \item[\textbf{د)}] أداة تكتب بعدة لغات فقط
+  \item[\textbf{هـ)}] أداة تفهم النصوص المكتوبة فقط
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{ما الفرق الأساسي بين الذكاء الاصطناعي التوليدي ومحرك البحث التقليدي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التوليدي يعمل وحده دون أي طلب من المستخدم
+  \item[\textbf{ب)}] المحرك ينتج صورًا جديدة، والتوليدي لا يستطيع ذلك
+  \item[\textbf{ج)}] التوليدي ينتج محتوى جديدًا، والمحرك يعرض وثائق موجودة
+  \item[\textbf{د)}] لا فرق بينهما، فكلاهما يعرض صفحات ويب جاهزة
+  \item[\textbf{هـ)}] التوليدي لا يقبل الطلبات المكتوبة باللغة العربية
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{في تشبيه التلميذ والآلة، عبارة «يلاحظ القاعدة» تقابل عند الآلة:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] تكتشف الأنماط
+  \item[\textbf{ب)}] تأخذ بيانات التدريب
+  \item[\textbf{ج)}] تقدّم النتيجة
+  \item[\textbf{د)}] تُقسِّم البيانات
+  \item[\textbf{هـ)}] تُختبر ببيانات جديدة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{في الأمر «حوّل هذه الأبيات إلى نثر بسيط، دون تغيير المعنى»، عبارة «دون تغيير المعنى» تمثّل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] القيود
+  \item[\textbf{ب)}] الدور
+  \item[\textbf{ج)}] التنسيق
+  \item[\textbf{د)}] المهمة
+  \item[\textbf{هـ)}] السياق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{«الاستعانة بالذكاء الاصطناعي لا تنقل المسؤولية إلى الأداة». ما معنى هذه العبارة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الشركة المطوِّرة وحدها مسؤولة
+  \item[\textbf{ب)}] الأداة مسؤولة عن كل أخطائها
+  \item[\textbf{ج)}] لا أحد مسؤول عن أخطاء الأداة
+  \item[\textbf{د)}] المسؤولية مقسومة بين الطرفين
+  \item[\textbf{هـ)}] المستخدم يبقى مسؤولًا عمّا يقدّمه
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{لخّصت أداة نصًا طويلًا. ماذا نفعل بعد ذلك؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نضع اسمنا على الملخص فقط
+  \item[\textbf{ب)}] ننشر الملخص مباشرة كما هو
+  \item[\textbf{ج)}] نحذف النص الأصلي نهائيًا
+  \item[\textbf{د)}] نقارن الملخص بالنص الأصلي
+  \item[\textbf{هـ)}] نطلب ملخصًا أطول دون قراءته
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{لماذا نختار صورة واضحة قبل رفعها إلى الأداة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن حجم الصورة يحدد لغة الإجابة
+  \item[\textbf{ب)}] لا أهمية لوضوح الصورة في أي حالة
+  \item[\textbf{ج)}] لأن الصورة غير الواضحة تزيد أخطاء القراءة
+  \item[\textbf{د)}] لأن الأداة ترفض كل الصور الملونة
+  \item[\textbf{هـ)}] لأن الصور الواضحة لا تحتاج إلى مقارنة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{قرأت أداة صفحة مخطوطة بخط اليد العربي. ما الخطر الذي نبّه إليه الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] تحذف المخطوطة الأصلية من الجهاز
+  \item[\textbf{ب)}] تخطئ في قراءة الحروف غير الواضحة
+  \item[\textbf{ج)}] تقرأ بدقة أكبر من الإنسان دائمًا
+  \item[\textbf{د)}] لا يوجد أي خطر في هذه الحالة
+  \item[\textbf{هـ)}] تحوّل المخطوطة إلى فيديو متحرك
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{أي ربط بين الأداة والشركة المطوِّرة لها خاطئ؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] \textenglish{ChatGPT} ــ \textenglish{OpenAI}
+  \item[\textbf{ب)}] \textenglish{Claude} ــ \textenglish{Anthropic}
+  \item[\textbf{ج)}] \textenglish{Qwen} ــ \textenglish{Alibaba}
+  \item[\textbf{د)}] \textenglish{Gemini} ــ \textenglish{Google}
+  \item[\textbf{هـ)}] \textenglish{Perplexity} ــ \textenglish{Google}
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{قسّم فريق 2000 مثال بنسبة 80٪ للتدريب و20٪ للاختبار. ما عدد أمثلة التدريب والاختبار؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] 1800 للتدريب و200 للاختبار
+  \item[\textbf{ب)}] 400 للتدريب و1600 للاختبار
+  \item[\textbf{ج)}] 1000 للتدريب و1000 للاختبار
+  \item[\textbf{د)}] 1600 للتدريب و200 للاختبار
+  \item[\textbf{هـ)}] 1600 للتدريب و400 للاختبار
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{«الأداة لا تعرف ما في ذهنك». أي ممارسة تطبّق هذه الفكرة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] إعادة الأمر نفسه دون تغيير حتى يتحسن
+  \item[\textbf{ب)}] الاعتماد على أن الأداة تعرف تلاميذك
+  \item[\textbf{ج)}] ذكر مستوى التلاميذ وشكل الإجابة صراحةً
+  \item[\textbf{د)}] كتابة كلمة واحدة وانتظار فهم المقصود
+  \item[\textbf{هـ)}] حذف السياق من الأمر لاختصاره وتسريعه
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{حسّنت طالبة صياغة مقدمة بحثها بأداة، وراجعتها، لكنها لم تصرّح بذلك رغم أن الأستاذ طلب التصريح. ما المبدأ الذي أخلّت به مباشرة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لم تخلّ بأي مبدأ
+  \item[\textbf{ب)}] هندسة الأوامر
+  \item[\textbf{ج)}] التلخيص الأمين
+  \item[\textbf{د)}] الإفصاح
+  \item[\textbf{هـ)}] تنوع البيانات
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{وجد طالب مقالًا محكّمًا قديمًا جدًا عن أدوات تقنية في التعليم، وهو مجال يتغير بسرعة. ماذا يفعل؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] يفضّل عليه أي مدونة حديثة دون أي تحقق
+  \item[\textbf{ب)}] يراعي معيار التاريخ ويتحقق من صلاحية المعلومة
+  \item[\textbf{ج)}] يعتمده مباشرة لأن المقالات المحكّمة لا تتقادم
+  \item[\textbf{د)}] يتجاهل التاريخ لأنه لا يهم في أي بحث
+  \item[\textbf{هـ)}] يرفضه تمامًا لأن كل مقال محكّم غير مفيد
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

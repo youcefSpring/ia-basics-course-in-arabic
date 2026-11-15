@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار العاشر في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{ما المرحلة الأولى في تعلّم الآلة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التدريب
+  \item[\textbf{ب)}] النموذج
+  \item[\textbf{ج)}] الاختبار
+  \item[\textbf{د)}] البيانات
+  \item[\textbf{هـ)}] النتيجة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{قدّم مستخدم معلومة خاطئة أخذها من أداة. من يتحمل المسؤولية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الإنترنت
+  \item[\textbf{ب)}] المستخدم
+  \item[\textbf{ج)}] لا أحد
+  \item[\textbf{د)}] الشركة وحدها
+  \item[\textbf{هـ)}] الأداة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{تحويل درس «الجملة الاسمية» إلى خريطة ذهنية هو تحويل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نص $\leftarrow$ مخطط
+  \item[\textbf{ب)}] صوت $\leftarrow$ نص
+  \item[\textbf{ج)}] صورة $\leftarrow$ نص
+  \item[\textbf{د)}] نص $\leftarrow$ صوت
+  \item[\textbf{هـ)}] فيديو $\leftarrow$ صوت
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{الشركة المطوِّرة لأداة \textenglish{Qwen} هي:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] \textenglish{Google}
+  \item[\textbf{ب)}] \textenglish{OpenAI}
+  \item[\textbf{ج)}] \textenglish{Anthropic}
+  \item[\textbf{د)}] \textenglish{Microsoft}
+  \item[\textbf{هـ)}] \textenglish{Alibaba}
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{ما النموذج في مراحل تعلم الآلة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ما ينتج عن التدريب: برنامج «تعلّم» القاعدة
+  \item[\textbf{ب)}] الطلب الذي يكتبه المستخدم ليحصل على إجابة
+  \item[\textbf{ج)}] مجموعة الأمثلة الأولى التي نجمعها للتدريب
+  \item[\textbf{د)}] جهاز الحاسوب الذي يجري عليه التدريب كله
+  \item[\textbf{هـ)}] الأمثلة الجديدة التي نختبر بها في النهاية
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{لماذا يجب أن يكون الأمر واضحًا وكاملًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن الأداة لا تفهم إلا اللغة الإنجليزية
+  \item[\textbf{ب)}] لأن الأداة لا تعرف إلا ما تكتبه لها
+  \item[\textbf{ج)}] لأن الأمر الطويل أسرع في التنفيذ دائمًا
+  \item[\textbf{د)}] لأن الأداة تقرأ أفكار المستخدم وحدها
+  \item[\textbf{هـ)}] لأن الأوامر القصيرة ممنوعة في الأدوات
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{ما صفات جملة الإفصاح الجيدة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] بالإنجليزية دائمًا
+  \item[\textbf{ب)}] قصيرة وصادقة
+  \item[\textbf{ج)}] مخفية عن القارئ
+  \item[\textbf{د)}] عامة وغامضة
+  \item[\textbf{هـ)}] طويلة ومبهمة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{ما الشفافية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ترجمة إجابة الأداة إلى لغة القارئ
+  \item[\textbf{ب)}] إخفاء طريقة استعمال الأداة عن القارئ
+  \item[\textbf{ج)}] توضيح طريقة استعمال الأداة عند الحاجة
+  \item[\textbf{د)}] تحمّل الأداة وحدها مسؤولية أخطائها
+  \item[\textbf{هـ)}] نسخ إجابة الأداة كما هي دون تعديل
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{ما الترتيب الصحيح لمراحل البحث عن المعلومة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] قيّم المصادر $\leftarrow$ حدّد الحاجة $\leftarrow$ ابحث $\leftarrow$ لخّص
+  \item[\textbf{ب)}] ابحث $\leftarrow$ حدّد الحاجة $\leftarrow$ لخّص $\leftarrow$ قيّم المصادر
+  \item[\textbf{ج)}] حدّد الحاجة $\leftarrow$ ابحث $\leftarrow$ قيّم المصادر $\leftarrow$ لخّص
+  \item[\textbf{د)}] حدّد الحاجة $\leftarrow$ لخّص $\leftarrow$ ابحث $\leftarrow$ قيّم المصادر
+  \item[\textbf{هـ)}] لخّص $\leftarrow$ ابحث $\leftarrow$ قيّم المصادر $\leftarrow$ حدّد الحاجة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{أي مما يلي من المخرجات التي تستطيع الأداة متعددة الأنماط إنتاجها حسب الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] شرح مكتوب ومخطط وقراءة صوتية
+  \item[\textbf{ب)}] جداول رقمية فقط دون شرح
+  \item[\textbf{ج)}] أصوات وتسجيلات فقط دون نص
+  \item[\textbf{د)}] صور فوتوغرافية حقيقية فقط
+  \item[\textbf{هـ)}] نصوص مكتوبة فقط دون غيرها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{ما الذي يفسّر اختلاف إجابات الأدوات للطلب نفسه، وماذا نستنتج عمليًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] العربية غير مدعومة، فنكتب الطلب بالإنجليزية فقط
+  \item[\textbf{ب)}] الإجابات عشوائية تمامًا، فلا فائدة من الأدوات
+  \item[\textbf{ج)}] إحدى الأدوات معطلة، فنعيد تشغيل الجهاز ونكرر
+  \item[\textbf{د)}] لكل أداة أسلوبها، فمن المفيد المقارنة بين الأدوات
+  \item[\textbf{هـ)}] الطلب خاطئ، فلا نستعمل إلا أداة واحدة بعد ذلك
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{أداة تقترح جملًا للإعراب تدرّبت على أمثلة من بيئة المدينة فقط. ماذا قد يحدث مع تلاميذ من بيئات أخرى؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لا يحدث شيء، لأن قواعد الإعراب واحدة للجميع
+  \item[\textbf{ب)}] تصبح الأمثلة أكثر تنوعًا لأن التلاميذ مختلفون
+  \item[\textbf{ج)}] تتوقف الأداة عن العمل نهائيًا مع هؤلاء التلاميذ
+  \item[\textbf{د)}] تتحسن الأمثلة تلقائيًا مع مرور الوقت وحدها
+  \item[\textbf{هـ)}] تقترح أمثلة لا تناسبهم، وهذا شكل من الانحياز
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{الأمر: «اشرح الاستعارة، واكتب قصيدة عن الربيع، وترجم النص إلى الفرنسية، ولخّص درس الأمس». ما الخطأ وما الحل؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] غياب الدور؛ نضيف دورًا ونترك المهام
+  \item[\textbf{ب)}] أمر قصير جدًا؛ نضيف إليه كلمات أكثر
+  \item[\textbf{ج)}] لا خطأ فيه؛ فهو أمر نموذجي ومكتمل
+  \item[\textbf{د)}] أمر غامض؛ نحذف منه كل المهام المذكورة
+  \item[\textbf{هـ)}] مهام مختلطة؛ نقسمها إلى أوامر متتابعة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{مقال على موقع شركة تبيع برنامجًا، يؤكد أن برنامجها يضاعف مستوى التلاميذ، دون أي مرجع. أي معيارين يثيران الشك أكثر؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التاريخ (الحداثة) والكاتب (الاختصاص)
+  \item[\textbf{ب)}] لا شيء، لأن الشركة معروفة ومشهورة
+  \item[\textbf{ج)}] الهدف (البيع) والدقة (غياب المراجع)
+  \item[\textbf{د)}] طول المقال وجودة تنسيقه وصوره
+  \item[\textbf{هـ)}] الجهة وحدها لأنها ليست وزارة رسمية
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{أي أمر أنسب لتحويل نص درس إلى مخطط مفاهيمي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] «اشرح النص المرفق شرحًا مفصلًا في عدة صفحات»
+  \item[\textbf{ب)}] «ارسم لي أي شيء جميل يتعلق بهذا النص المرفق»
+  \item[\textbf{ج)}] «اكتب لي مخططًا، أو جدولًا، أو قصة، كما تريد أنت»
+  \item[\textbf{د)}] «حوّل النص إلى مخطط مفاهيمي يوضح العلاقة بين المفاهيم»
+  \item[\textbf{هـ)}] «لخّص النص المرفق في سطر واحد فقط لا أكثر»
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

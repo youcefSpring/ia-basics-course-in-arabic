@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار الرابع في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{كيف نقسم البيانات عادة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] جزء كبير للاختبار وجزء صغير للتدريب
+  \item[\textbf{ب)}] جزء كبير للتدريب وجزء صغير للاختبار
+  \item[\textbf{ج)}] كل البيانات للتدريب ولا شيء للاختبار
+  \item[\textbf{د)}] الأمثلة نفسها للتدريب وللاختبار معًا
+  \item[\textbf{هـ)}] كل البيانات للاختبار ولا شيء للتدريب
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{نسخ نص أنتجته الأداة وتقديمه على أنه عمل شخصي يسمّى:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التلخيص
+  \item[\textbf{ب)}] الهلوسة
+  \item[\textbf{ج)}] الانتحال
+  \item[\textbf{د)}] الشفافية
+  \item[\textbf{هـ)}] الإفصاح
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{الاستماع إلى قراءة مولَّدة لقصيدة مكتوبة هو تحويل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نص $\leftarrow$ صوت
+  \item[\textbf{ب)}] صوت $\leftarrow$ نص
+  \item[\textbf{ج)}] فيديو $\leftarrow$ صورة
+  \item[\textbf{د)}] صورة $\leftarrow$ نص
+  \item[\textbf{هـ)}] نص $\leftarrow$ مخطط
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{شبّه الدرس الأداة التوليدية بتلميذ قرأ آلاف النصوص. ماذا يعني هذا التشبيه؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] قرأت نصوصًا قليلة، لذلك تخطئ في كل إجابة
+  \item[\textbf{ب)}] تكتب نصًا جديدًا بعد قراءة نصوص كثيرة جدًا
+  \item[\textbf{ج)}] لا تكتب إلا ما قرأته بالحروف نفسها تمامًا
+  \item[\textbf{د)}] تحفظ النصوص وتنسخها حرفيًا عند كل طلب
+  \item[\textbf{هـ)}] تحتاج إلى أستاذ يرافقها عند كتابة كل إجابة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{ماذا نعني بأن البيانات «غير ممثِّلة»؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] تحتوي على أمثلة كثيرة ومتنوعة من كل الفئات
+  \item[\textbf{ب)}] لا تحتوي على أي صورة، بل على نصوص فقط
+  \item[\textbf{ج)}] مكتوبة بخط غير واضح يصعب على الآلة قراءته
+  \item[\textbf{د)}] محفوظة في ملف كبير الحجم يصعب نقله وفتحه
+  \item[\textbf{هـ)}] لا تغطي الحالات التي سيواجهها النظام في الواقع
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{في الأمر: «تصرّف كأستاذ جامعي في البلاغة. اشرح مفهوم التشبيه لطالب في السنة الأولى، في أقل من 200 كلمة، مع جدول يبيّن أركان التشبيه»، عبارة «مع جدول يبيّن أركان التشبيه» تمثّل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] المهمة
+  \item[\textbf{ب)}] السياق
+  \item[\textbf{ج)}] الدور
+  \item[\textbf{د)}] القيود
+  \item[\textbf{هـ)}] التنسيق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{ما الاستعمال الجيد للأداة كما يلخّصه الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] أسأل، أنسخ، أعدّل قليلًا، وأخفي
+  \item[\textbf{ب)}] أطلب، أقبل أول إجابة، ثم أنشر
+  \item[\textbf{ج)}] أفهم، أتحقق، أكتب بنفسي، وأصرّح
+  \item[\textbf{د)}] أسأل، أنسخ، ألصق، ثم أرسل
+  \item[\textbf{هـ)}] أترجم، أنسخ، أنسّق، ثم أوقّع
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{من الذي يقرر كيف تُستعمل أداة الذكاء الاصطناعي: بأمانة أو للغش؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الإنترنت
+  \item[\textbf{ب)}] الإنسان
+  \item[\textbf{ج)}] الشركة
+  \item[\textbf{د)}] النموذج
+  \item[\textbf{هـ)}] الأداة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{ما الخطوة الأخيرة في التلخيص حسب الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] اقرأ النص كاملًا
+  \item[\textbf{ب)}] احذف التكرار
+  \item[\textbf{ج)}] حدّد الأفكار الأساسية
+  \item[\textbf{د)}] اذكر المصدر
+  \item[\textbf{هـ)}] اكتب بأسلوبك
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{ماذا يحتاج المخطط المفاهيمي الذي تنتجه الأداة قبل استعماله في القسم؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ترجمة إنجليزية
+  \item[\textbf{ب)}] تحويلًا إلى صوت
+  \item[\textbf{ج)}] مراجعة الأستاذ
+  \item[\textbf{د)}] نشرًا مباشرًا
+  \item[\textbf{هـ)}] لا شيء إطلاقًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{لماذا لا يكفي أن تبدو الأداة واثقة من إجابتها؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن الأداة لا تكون واثقة إلا عند الكتابة بالإنجليزية
+  \item[\textbf{ب)}] لأن الأدوات الواثقة أبطأ في الإجابة من غيرها
+  \item[\textbf{ج)}] لأن الثقة تعني أنها نسخت الإجابة من الإنترنت
+  \item[\textbf{د)}] لأن الثقة لا تدل على الصحة، والهلوسة تُكتب بثقة
+  \item[\textbf{هـ)}] لأن الثقة تعني دائمًا أن المعلومة خاطئة تمامًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{في التشبيه، ما الذي يقابل «يُعرب جملًا جديدة» عند الآلة، وما هدفه؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] تُختبر ببيانات جديدة، للتأكد من أنها فهمت
+  \item[\textbf{ب)}] تأخذ بيانات التدريب، لجمع أمثلة كثيرة
+  \item[\textbf{ج)}] تأخذ بيانات الاختبار أولًا، لتسريع التدريب
+  \item[\textbf{د)}] تكتشف الأنماط، لتحفظ الأمثلة حفظًا جيدًا
+  \item[\textbf{هـ)}] يُنتَج النموذج، لزيادة عدد البيانات
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{ما الذي يميّز الدرجة الرابعة من بناء الأمر عن الدرجة الثالثة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] إضافة السياق: مستوى التلاميذ وسنتهم
+  \item[\textbf{ب)}] حذف المثالين من الحياة اليومية
+  \item[\textbf{ج)}] إضافة القيود: عدد الكلمات المطلوب
+  \item[\textbf{د)}] إضافة التنسيق: تعريف وأمثلة وخلاصة
+  \item[\textbf{هـ)}] إضافة الدور: «تصرّف كأستاذ متربص»
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{أي خطة عمل تجمع مراحل البحث الأربع مع الأمانة العلمية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] سؤال محدد، ثم البحث، ثم التقييم، ثم التلخيص مع المصدر
+  \item[\textbf{ب)}] تلخيص أول موقع، ثم صياغة سؤال البحث، ثم التقييم
+  \item[\textbf{ج)}] موضوع عام، ثم البحث، ثم نسخ النتيجة الأولى كما هي
+  \item[\textbf{د)}] كتابة الملخص ونشره، ثم البحث عن مصادر وتقييمها
+  \item[\textbf{هـ)}] سؤال الأداة، ثم اعتبار جوابها مصدرًا علميًا موثوقًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{أداة تفهم النصوص فقط وتنتج نصوصًا بلغات كثيرة. هل هي متعددة الأنماط؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لا؛ لأن تعدد الأنماط يعني تعدد اللغات
+  \item[\textbf{ب)}] نعم؛ لأنها تنتج نصوصًا متنوعة المواضيع
+  \item[\textbf{ج)}] نعم؛ إذا أنتجت جداول نصية منظمة
+  \item[\textbf{د)}] نعم؛ لأنها تتكلم وتكتب لغات كثيرة
+  \item[\textbf{هـ)}] لا؛ لأنها تتعامل مع نمط واحد هو النص
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

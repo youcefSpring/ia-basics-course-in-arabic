@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار التاسع في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{كلمة «التوليدي» مأخوذة من الفعل «ولَّد»، ومعناه:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] بحث عن شيء مخزّن
+  \item[\textbf{ب)}] أنشأ شيئًا جديدًا
+  \item[\textbf{ج)}] حذف شيئًا قديمًا
+  \item[\textbf{د)}] نسخ شيئًا موجودًا
+  \item[\textbf{هـ)}] ترجم شيئًا إلى لغة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{عبارة «تصرّف كأستاذ لغة عربية» تمثّل عنصر:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] السياق
+  \item[\textbf{ب)}] الدور
+  \item[\textbf{ج)}] المهمة
+  \item[\textbf{د)}] القيود
+  \item[\textbf{هـ)}] التنسيق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{ما الكلمات المفتاحية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الكلمات الأساسية في سؤال البحث
+  \item[\textbf{ب)}] كلمات المرور لحسابات البحث
+  \item[\textbf{ج)}] كلمات مثل «كيف» و«ما» و«هل»
+  \item[\textbf{د)}] عناوين الكتب الطويلة في المكتبة
+  \item[\textbf{هـ)}] أسماء مؤلفي المقالات العلمية
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{طلب أستاذ جدولًا يلخّص أنواع الخبر مع أمثلة. هذا المُخرَج من نوع:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] برامج حاسوبية
+  \item[\textbf{ب)}] أصوات وقراءات
+  \item[\textbf{ج)}] جداول ومخططات
+  \item[\textbf{د)}] صور ورسوم
+  \item[\textbf{هـ)}] فيديو متحرك
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{«النموذج أعطى النتيجة، إذن هي صحيحة». لماذا هذه العبارة خاطئة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن نتيجة النموذج خاطئة في كل الحالات
+  \item[\textbf{ب)}] لأن الحاسوب لا يخطئ إلا إذا انقطعت الكهرباء
+  \item[\textbf{ج)}] لأن النموذج لا يتعلم شيئًا من البيانات
+  \item[\textbf{د)}] لأن النماذج لا تعطي أي نتائج في الواقع
+  \item[\textbf{هـ)}] لأن النموذج يعكس بياناته بما فيها من نقص
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{ماذا ننصح عندما تكون المهمة كبيرة وفيها أجزاء كثيرة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نكتبها كلها في جملة واحدة
+  \item[\textbf{ب)}] نحذف السياق لاختصارها
+  \item[\textbf{ج)}] نكتفي بذكر الدور وحده
+  \item[\textbf{د)}] نقسمها إلى أوامر متتابعة
+  \item[\textbf{هـ)}] نقبل أول إجابة تقدّمها الأداة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{كتب طالب: «أعطني خطة للمراجعة»، وكتب آخر أمرًا يحدد الدور والمادة والمدة والتنسيق. لماذا يحصل الثاني على إجابة أفضل؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأنه أعطى الأداة كل ما تحتاجه
+  \item[\textbf{ب)}] لأنه كتب أمره باللغة الإنجليزية
+  \item[\textbf{ج)}] لأن الأداة تعرفه معرفة شخصية
+  \item[\textbf{د)}] لأن أمره أقصر من أمر زميله
+  \item[\textbf{هـ)}] لأنه استعمل أداة أغلى ثمنًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{إنشاء مسودة بالأداة، ثم مراجعتها والتحقق منها والإفصاح، استعمال:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ممنوع دائمًا
+  \item[\textbf{ب)}] مقبول بشروط
+  \item[\textbf{ج)}] غش صريح
+  \item[\textbf{د)}] غير مسؤول
+  \item[\textbf{هـ)}] انتحال مرفوض
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{السؤالان «هل يذكر مراجعه؟ هل نجد المعلومة نفسها في مصدر آخر؟» يخصان معيار:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التاريخ
+  \item[\textbf{ب)}] الهدف
+  \item[\textbf{ج)}] الكاتب
+  \item[\textbf{د)}] الدقة
+  \item[\textbf{هـ)}] الجهة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{لماذا نقارن دائمًا إجابة الأداة بالصورة الأصلية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن الأداة لا تستطيع قراءة الصور أبدًا
+  \item[\textbf{ب)}] لأن الصورة تتغير تلقائيًا بعد رفعها
+  \item[\textbf{ج)}] لأن إجابة الأداة صحيحة دائمًا وموثوقة
+  \item[\textbf{د)}] لأنها قد تخطئ في الأرقام والعلاقات والخط
+  \item[\textbf{هـ)}] لتسريع العمل فقط وربح بعض الوقت
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{أي وضعية تمثل ذكاءً اصطناعيًا عامًا، وليس ذكاءً اصطناعيًا توليديًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] أداة تكتب قصة قصيرة جديدة لتلاميذ المتوسط
+  \item[\textbf{ب)}] أداة تنشئ جدولًا جديدًا يلخص أنواع الخبر
+  \item[\textbf{ج)}] أداة تنتج قراءة صوتية جديدة لقصيدة مكتوبة
+  \item[\textbf{د)}] أداة تنتج رسمًا جديدًا لمشهد من نص القراءة
+  \item[\textbf{هـ)}] تطبيق خرائط يقترح أقصر طريق إلى المدرسة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{أي ممارسة تجمع شروط البيانات الجيدة والاختبار السليم؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] بيانات كثيرة من فئة واحدة تُستعمل كلها للتدريب
+  \item[\textbf{ب)}] بيانات متنوعة تُستعمل كلها للاختبار دون تدريب
+  \item[\textbf{ج)}] بيانات غير ممثِّلة، مع اختبار متنوع يعوّض النقص
+  \item[\textbf{د)}] بيانات متوازنة، والاختبار بأمثلة التدريب نفسها
+  \item[\textbf{هـ)}] بيانات متنوعة متوازنة، وجزء جديد منها للاختبار
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{أي حالة توصف بأنها «غير مسؤولة» وليست «انتحالًا»؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نقل معلومة من الأداة إلى بحثه بأسلوبه دون التحقق منها
+  \item[\textbf{ب)}] تقديم بحث أنتجته الأداة كاملًا على أنه عمله الشخصي
+  \item[\textbf{ج)}] طلب أفكار من الأداة ثم كتابة الإجابة كلها بنفسه
+  \item[\textbf{د)}] نسخ إجابة كاملة من الأداة وتقديمها باسمه للأستاذ
+  \item[\textbf{هـ)}] استعمال الأداة لفهم قاعدة نحوية صعبة قبل الامتحان
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{ما الكلمات المفتاحية الأنسب للسؤال: «هل تساعد الأمثلة من الحياة اليومية على فهم القاعدة النحوية؟»}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] على، من، الحياة، هل، تساعد، ما، كيف، في، عن، إلى
+  \item[\textbf{ب)}] فهم، هل، ما، كيف، على، من، لماذا، متى، أين، إلى
+  \item[\textbf{ج)}] أمثلة الحياة اليومية، القاعدة النحوية، تعليم النحو
+  \item[\textbf{د)}] هل، تساعد، على، من، في، إلى، عن، كيف، ما، لماذا
+  \item[\textbf{هـ)}] الأمثلة، من، هل، على، تساعد، كيف، ما، أين، متى
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{أي العبارات الآتية صحيحة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الأداة متعددة الأنماط لا تقرأ الخط العربي أبدًا
+  \item[\textbf{ب)}] النمط هو اللغة المستعملة في كتابة الأمر للأداة
+  \item[\textbf{ج)}] قد تنتج الأداة متعددة الأنماط صورة جديدة من نص
+  \item[\textbf{د)}] المخططات التي تنتجها الأداة لا تحتاج إلى مراجعة
+  \item[\textbf{هـ)}] تفهم الأداة متعددة الأنماط الصور دون أي خطأ
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

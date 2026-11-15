@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار الحادي عشر في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{ماذا نسمي ظاهرة كتابة الأداة معلومة خاطئة بثقة كبيرة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التلخيص
+  \item[\textbf{ب)}] الإفصاح
+  \item[\textbf{ج)}] الهلوسة
+  \item[\textbf{د)}] الانتحال
+  \item[\textbf{هـ)}] الانحياز
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{ما هندسة الأوامر؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] برمجة الحواسيب بلغة الآلة والأصفار
+  \item[\textbf{ب)}] تدريب النموذج على بيانات جديدة ومتنوعة
+  \item[\textbf{ج)}] إصلاح أعطال الأداة وتحديث برامجها
+  \item[\textbf{د)}] تصميم المباني والجسور بواسطة الحاسوب
+  \item[\textbf{هـ)}] مهارة كتابة أوامر واضحة ومنظمة للأداة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{هل محتوى الذكاء الاصطناعي مصدر علمي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نعم؛ إذا كان مكتوبًا باللغة العربية
+  \item[\textbf{ب)}] نعم؛ وهو أعلى درجات الثقة بين المصادر
+  \item[\textbf{ج)}] نعم؛ إذا كانت الأداة مشهورة ومعروفة
+  \item[\textbf{د)}] لا؛ نستعمله للفهم ثم نبحث في مصدر حقيقي
+  \item[\textbf{هـ)}] نعم؛ إذا كان طويلًا ومفصلًا ومنظمًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{«الإجابة الجميلة ليست بالضرورة إجابة صحيحة». ما الفكرة التي تعبّر عنها هذه العبارة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] قد تخطئ الأداة رغم حسن الصياغة، فنتحقق
+  \item[\textbf{ب)}] الإجابات الطويلة والجميلة خاطئة دائمًا
+  \item[\textbf{ج)}] يجب أن نختار دائمًا الإجابة الأقل جمالًا
+  \item[\textbf{د)}] الأداة تخطئ في الصياغة لا في المعلومات
+  \item[\textbf{هـ)}] الأدوات لا تكتب أبدًا بأسلوب جميل ومنظم
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{لو اختبر الأستاذ التلميذ بالجمل نفسها التي شرحها في القسم، فقد:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] يفهم القاعدة فهمًا أعمق
+  \item[\textbf{ب)}] يجيب من الذاكرة لا من الفهم
+  \item[\textbf{ج)}] يرفض الإجابة عن الأسئلة
+  \item[\textbf{د)}] يكتشف قواعد نحوية جديدة
+  \item[\textbf{هـ)}] ينسى القاعدة التي درسها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{الأمر «اكتب شيئًا جميلًا» مثال على:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] أمر غامض
+  \item[\textbf{ب)}] أمر يحدد التنسيق
+  \item[\textbf{ج)}] أمر بمهام مختلطة
+  \item[\textbf{د)}] أمر دقيق
+  \item[\textbf{هـ)}] أمر يحدد الدور
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{أي مما يلي من القواعد الذهبية للاستعمال الأخلاقي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] أنسخ الإجابة إذا كانت جيدة ومقنعة
+  \item[\textbf{ب)}] أتجاهل تعليمات الأستاذ إن خالفت الأداة
+  \item[\textbf{ج)}] أخفي استعمال الأداة حتى لا أُعاقب
+  \item[\textbf{د)}] أكتب العمل النهائي بأسلوبي وأفكاري
+  \item[\textbf{هـ)}] أعتمد أول إجابة دون مراجعتها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{عند اختيار الكلمات المفتاحية من سؤال البحث، ماذا نحذف؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] المرادفات التي تقابل الكلمات
+  \item[\textbf{ب)}] الكلمات العامة مثل «كيف» و«ما»
+  \item[\textbf{ج)}] الكلمات الإنجليزية المقابلة لها
+  \item[\textbf{د)}] الكلمات التي تحمل المعنى الأساسي
+  \item[\textbf{هـ)}] المصطلحات الأساسية في السؤال
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{لماذا لا نعتمد دائمًا على النتيجة الأولى في محرك البحث؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن المحرك يرتّب النتائج عشوائيًا تمامًا
+  \item[\textbf{ب)}] لأن النتيجة الأولى قديمة في كل الحالات
+  \item[\textbf{ج)}] قد تكون إعلانًا أو موقعًا مشهورًا غير دقيق
+  \item[\textbf{د)}] لأن النتيجة الأولى مدونة شخصية دائمًا
+  \item[\textbf{هـ)}] لأن النتيجة الأولى بالإنجليزية دائمًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{أي سؤال ليس من أسئلة مراجعة المخطط المفاهيمي التي اقترحها الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] هل يحتوي على كل الأفكار الأساسية؟
+  \item[\textbf{ب)}] ماذا أضيف أو أحذف ليصبح أوضح؟
+  \item[\textbf{ج)}] هل توجد علاقة خاطئة بين المفاهيم؟
+  \item[\textbf{د)}] هل أضافت الأداة مفهومًا غير موجود؟
+  \item[\textbf{هـ)}] هل ألوان المخطط زاهية بما يكفي؟
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{أعطت أداة تاريخ وفاة خاطئًا لشاعر مشهور بأسلوب واثق. ما الوصف الأدق؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] خطأ في التنسيق، يُصلح بطلب جدول منظم
+  \item[\textbf{ب)}] انتحال، لأن الأداة نسبت المعلومة إلى نفسها
+  \item[\textbf{ج)}] إفصاح، لأن الأداة صرّحت بالمعلومة كاملة
+  \item[\textbf{د)}] هلوسة، تُكتشف بالرجوع إلى مصدر موثوق
+  \item[\textbf{هـ)}] انحياز خوارزمي سببه قلة الصور في البيانات
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{لدى فريق 9000 عينة بخط النسخ و300 عينة بخط الرقعة لتدريب نموذج يقرأ الخط العربي. ما الإجراء الأنسب؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التدريب على كل البيانات والاختبار على النسخ فقط
+  \item[\textbf{ب)}] حذف عينات الرقعة كلها لأن عددها قليل جدًا
+  \item[\textbf{ج)}] جمع عينات أكثر من الرقعة ثم الاختبار على الخطين
+  \item[\textbf{د)}] وضع كل عينات الرقعة في بيانات الاختبار فقط
+  \item[\textbf{هـ)}] الاكتفاء بالعدد الكبير للعينات لأنه يكفي وحده
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{في تحليل الأمر «تصرّف كأستاذ جامعي في البلاغة. اشرح مفهوم التشبيه لطالب في السنة الأولى، في أقل من 200 كلمة، مع جدول»، أي ربط خاطئ؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] «اشرح مفهوم التشبيه» $\leftarrow$ المهمة
+  \item[\textbf{ب)}] «تصرّف كأستاذ جامعي» $\leftarrow$ السياق
+  \item[\textbf{ج)}] «في أقل من 200 كلمة» $\leftarrow$ القيود
+  \item[\textbf{د)}] «لطالب في السنة الأولى» $\leftarrow$ السياق
+  \item[\textbf{هـ)}] «مع جدول يبيّن أركانه» $\leftarrow$ التنسيق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{صرّح طالب بأنه استعمل أداة، لكنه نسخ البحث كله منها دون مراجعة. هل الإفصاح يجعل عمله مقبولًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لا؛ الإفصاح لا يعوّض غياب العمل الشخصي والتحقق
+  \item[\textbf{ب)}] نعم؛ إذا كان البحث قصيرًا ولا يتجاوز صفحتين
+  \item[\textbf{ج)}] لا؛ لأن الإفصاح نفسه ممنوع في البحوث الجامعية
+  \item[\textbf{د)}] نعم؛ إذا كانت الأداة المستعملة دقيقة ومشهورة
+  \item[\textbf{هـ)}] نعم؛ لأن الإفصاح وحده يكفي ليكون العمل مقبولًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{أضافت الأداة إلى مخطط «الجملة الاسمية» مفهوم «الفاعل» الذي لا يوجد في النص. أي سؤال مراجعة يكشف ذلك مباشرة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] هل ألوان المخطط زاهية وواضحة؟
+  \item[\textbf{ب)}] هل الصورة الأصلية واضحة بما يكفي؟
+  \item[\textbf{ج)}] هل ذكرت الأداة مصدر المخطط؟
+  \item[\textbf{د)}] هل يحتوي على كل الأفكار الأساسية؟
+  \item[\textbf{هـ)}] هل أضافت الأداة مفهومًا غير موجود؟
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

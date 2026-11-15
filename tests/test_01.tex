@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار الأول في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{ما الذكاء الاصطناعي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] شبكة إنترنت سريعة تربط الحواسيب والهواتف فيما بينها
+  \item[\textbf{ب)}] برنامج لتخزين الملفات وحفظها وترتيبها في مجلدات
+  \item[\textbf{ج)}] فرع من علوم الحاسوب يؤدي مهامًا تحتاج عادة إلى ذكاء الإنسان
+  \item[\textbf{د)}] فرع من اللسانيات يدرس قواعد اللغة العربية ونطق كلماتها
+  \item[\textbf{هـ)}] جهاز إلكتروني يُركَّب داخل الهاتف ليجعله أسرع في العمل
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{عبارة «تعريف، ثم أمثلة، ثم خلاصة» تمثّل عنصر:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التنسيق
+  \item[\textbf{ب)}] السياق
+  \item[\textbf{ج)}] المهمة
+  \item[\textbf{د)}] الدور
+  \item[\textbf{هـ)}] القيود
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{أي المصادر الآتية أكثر موثوقية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نص من أداة ذكاء اصطناعي
+  \item[\textbf{ب)}] مقال صحفي
+  \item[\textbf{ج)}] مقال علمي محكّم
+  \item[\textbf{د)}] منشور مجهول
+  \item[\textbf{هـ)}] مدونة شخصية
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{ما دور الأستاذ عند استعمال الأداة في إعداد درسه؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] يقرأ ويصحح ويختار ما يناسب تلاميذه
+  \item[\textbf{ب)}] ينقل ما تكتبه الأداة كما هو دون تغيير
+  \item[\textbf{ج)}] يترك الأداة تختار المحتوى والتقويم
+  \item[\textbf{د)}] لا يراجع الإجابة لأن الأداة أدرى منه
+  \item[\textbf{هـ)}] يكتفي بأول إجابة دون أن يقرأها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{نسبت أداة بيتًا شعريًا إلى غير قائله. ما التصرف الأنسب؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] اعتماد الإجابة لأن أسلوبها جميل ومقنع
+  \item[\textbf{ب)}] اعتماد الإجابة لأنها مكتوبة بثقة كبيرة
+  \item[\textbf{ج)}] سؤال الأداة نفسها والاكتفاء بجوابها
+  \item[\textbf{د)}] الرجوع إلى الديوان المحقق للتحقق من القائل
+  \item[\textbf{هـ)}] نشر البيت وترك التلاميذ يكتشفون الخطأ
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{ما دور مرحلة الاختبار؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] حذف البيانات الناقصة وغير المتوازنة
+  \item[\textbf{ب)}] جمع الأمثلة الأولى من مصادر متنوعة
+  \item[\textbf{ج)}] إنتاج النموذج انطلاقًا من البيانات
+  \item[\textbf{د)}] كتابة الطلب الذي نوجهه إلى الأداة
+  \item[\textbf{هـ)}] تجريب النموذج على أمثلة جديدة لم يرها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{ما الترتيب الصحيح لبناء الأمر خطوة بخطوة كما في الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] + السياق $\leftarrow$ أمر عام $\leftarrow$ + التنسيق $\leftarrow$ + المهمة والقيود
+  \item[\textbf{ب)}] أمر عام $\leftarrow$ + التنسيق $\leftarrow$ + السياق $\leftarrow$ + المهمة والقيود
+  \item[\textbf{ج)}] + التنسيق $\leftarrow$ + السياق $\leftarrow$ أمر عام $\leftarrow$ + المهمة والقيود
+  \item[\textbf{د)}] أمر عام $\leftarrow$ + السياق $\leftarrow$ + المهمة والقيود $\leftarrow$ + التنسيق
+  \item[\textbf{هـ)}] أمر عام $\leftarrow$ + المهمة والقيود $\leftarrow$ + التنسيق $\leftarrow$ + السياق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{نسخ طالب بحثًا كاملًا من أداة ووضع اسمه عليه. لماذا يُعدّ هذا انتحالًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن البحث طويل جدًا، والأستاذ طلب بحثًا قصيرًا
+  \item[\textbf{ب)}] لأنه لم يستعمل أداة ثانية لمقارنة البحث
+  \item[\textbf{ج)}] لأن تنسيق البحث غير جيد وفيه أخطاء شكلية
+  \item[\textbf{د)}] ليس عمله، ولم يتحقق منه، ولم يصرّح بمصدره
+  \item[\textbf{هـ)}] لأنه لم يكتب أمرًا دقيقًا يحدد عناصره الخمسة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{أين يقع موقع مؤسسة رسمية (وزارة، جامعة) في ترتيب الثقة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] قبل المصدر الأكاديمي المحكّم مباشرة
+  \item[\textbf{ب)}] في المرتبة الأخيرة بعد المدونات كلها
+  \item[\textbf{ج)}] بعد المدونة الشخصية وقبل محتوى الأداة
+  \item[\textbf{د)}] في مستوى محتوى الذكاء الاصطناعي نفسه
+  \item[\textbf{هـ)}] بعد المصدر الأكاديمي وقبل المقال الصحفي
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{نتواصل بالكتابة والكلام والرسم والإشارة. كل طريقة من هذه الطرق نسميها:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] انحيازًا
+  \item[\textbf{ب)}] أمرًا
+  \item[\textbf{ج)}] مصدرًا
+  \item[\textbf{د)}] نموذجًا
+  \item[\textbf{هـ)}] نمطًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{لماذا لا تكفي زيادة كمية البيانات وحدها لتفادي الانحياز؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن الانحياز سببه التصميم لا البيانات
+  \item[\textbf{ب)}] لأن الكثرة من فئة واحدة تبقى غير ممثِّلة
+  \item[\textbf{ج)}] لأن البيانات الكثيرة تمنع مرحلة الاختبار
+  \item[\textbf{د)}] لأن الكمية لا علاقة لها إطلاقًا بالتعلم
+  \item[\textbf{هـ)}] لأن البيانات الكثيرة تبطئ الحاسوب فقط
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{كتب طالب أمرًا جيدًا فحصل على خطة مراجعة، لكن فيها يومًا عن موضوع لم يدرسه. ما التصرف الأنسب؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] يحذف الدور من الأمر ويعيد إرساله كما هو
+  \item[\textbf{ب)}] يطلب الخطة نفسها في سبع كلمات فقط لا أكثر
+  \item[\textbf{ج)}] يذكر في الأمر المواضيع المدروسة ويعيد المحاولة
+  \item[\textbf{د)}] يغيّر الأداة دون أن يعدّل أي شيء في الأمر
+  \item[\textbf{هـ)}] يقبل الخطة كما هي لأنها أول إجابة حصل عليها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{قدّم أستاذ لتلاميذه معلومة خاطئة أخذها من أداة، ثم قال: «الخطأ خطأ الأداة». ما تقييم موقفه؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] خاطئ؛ هو مسؤول عمّا يقدّمه، وكان عليه التحقق
+  \item[\textbf{ب)}] صحيح؛ إذا كانت الأداة مشهورة وكثيرة الاستعمال
+  \item[\textbf{ج)}] صحيح؛ لأن الأداة هي التي أخطأت لا الأستاذ
+  \item[\textbf{د)}] خاطئ؛ لأن الشركة المطوِّرة هي المسؤولة وحدها
+  \item[\textbf{هـ)}] صحيح؛ لأن الأستاذ لم يكن مطالبًا بالتحقق منها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{ما الفرق بين التلخيص والانتحال؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التلخيص أطول دائمًا من النص الأصلي، والانتحال أقصر
+  \item[\textbf{ب)}] التلخيص يذكر المصدر، والانتحال ينسب العمل لنفسه
+  \item[\textbf{ج)}] لا فرق بينهما، فكلاهما إعادة كتابة لنص موجود
+  \item[\textbf{د)}] الانتحال يحافظ على المعنى، والتلخيص يغيّره دائمًا
+  \item[\textbf{هـ)}] التلخيص لا يحتاج إلى مصدر، والانتحال يحتاج إليه
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{ما القاسم المشترك بين التعامل مع مخطط أنتجته الأداة وملخص أنتجته؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] كلاهما يغني عن قراءة النص الأصلي قراءة كاملة
+  \item[\textbf{ب)}] نقارنه بالأصل: هل حذف فكرة أو أضاف ما ليس فيه؟
+  \item[\textbf{ج)}] كلاهما مصدر علمي موثوق يمكن الاستشهاد به
+  \item[\textbf{د)}] كلاهما يُنتَج دائمًا انطلاقًا من صورة مرفوعة
+  \item[\textbf{هـ)}] كلاهما لا يحتاج إلى أي مراجعة قبل استعماله
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

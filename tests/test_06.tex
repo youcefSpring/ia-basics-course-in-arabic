@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار السادس في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{كم عدد مراحل تعلّم الآلة حسب الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] سبع مراحل
+  \item[\textbf{ب)}] ست مراحل
+  \item[\textbf{ج)}] ثلاث مراحل
+  \item[\textbf{د)}] خمس مراحل
+  \item[\textbf{هـ)}] أربع مراحل
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{ما الإفصاح؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] التصريح باستعمال أداة ذكاء اصطناعي
+  \item[\textbf{ب)}] نسخ النص الذي أنتجته الأداة كما هو
+  \item[\textbf{ج)}] ترجمة النص المكتوب إلى لغة أخرى
+  \item[\textbf{د)}] حذف كل المصادر من آخر البحث
+  \item[\textbf{هـ)}] إخفاء استعمال الأداة عن الأستاذ دائمًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{تصوير صفحة مخطوطة وطلب كتابتها نصًا رقميًا هو تحويل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نص $\leftarrow$ مخطط
+  \item[\textbf{ب)}] نص $\leftarrow$ صوت
+  \item[\textbf{ج)}] نص $\leftarrow$ صورة
+  \item[\textbf{د)}] صورة $\leftarrow$ نص
+  \item[\textbf{هـ)}] صوت $\leftarrow$ فيديو
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{ما الترتيب الصحيح لعمل الأداة التوليدية؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] محتوى جديد $\leftarrow$ الأداة تحلل الطلب $\leftarrow$ المستخدم يكتب طلبًا
+  \item[\textbf{ب)}] الأداة تحلل الطلب $\leftarrow$ محتوى جديد $\leftarrow$ المستخدم يكتب طلبًا
+  \item[\textbf{ج)}] المستخدم يكتب طلبًا $\leftarrow$ الأداة تحلل الطلب $\leftarrow$ محتوى جديد
+  \item[\textbf{د)}] الأداة تحلل الطلب $\leftarrow$ المستخدم يكتب طلبًا $\leftarrow$ محتوى جديد
+  \item[\textbf{هـ)}] المستخدم يكتب طلبًا $\leftarrow$ محتوى جديد $\leftarrow$ الأداة تحلل الطلب
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{لماذا نختبر النموذج ببيانات جديدة لم يرها؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لزيادة عدد الأمثلة في التدريب
+  \item[\textbf{ب)}] لنعرف هل فهم حقًا، لا هل حفظ
+  \item[\textbf{ج)}] لأن بيانات التدريب خاطئة دائمًا
+  \item[\textbf{د)}] لأن بيانات التدريب تُحذف بعده
+  \item[\textbf{هـ)}] لتسريع مرحلة التدريب الطويلة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{ما السؤال الذي يجيب عنه عنصر «المهمة»؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ما المعلومات التي تساعدها على الفهم؟
+  \item[\textbf{ب)}] من تكون الأداة وما خبرتها؟
+  \item[\textbf{ج)}] ما الشروط التي يجب احترامها؟
+  \item[\textbf{د)}] كيف نريد أن يكون شكل الإجابة؟
+  \item[\textbf{هـ)}] ماذا نريد أن تفعل الأداة؟
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{لماذا يهم سلوك أستاذ المستقبل مع أدوات الذكاء الاصطناعي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن القانون يمنعه من استعمالها
+  \item[\textbf{ب)}] لأن التلاميذ لا يستعملون الأدوات
+  \item[\textbf{ج)}] لأنه قدوة لتلاميذه في سلوكه
+  \item[\textbf{د)}] لأن الأداة تراقب سلوك الأستاذ
+  \item[\textbf{هـ)}] لأنه يدفع ثمن الأداة من ماله
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{في خطوات التلخيص، ما الخطوة التي تأتي بعد «حدّد الأفكار الأساسية»؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] اذكر المصدر الأصلي
+  \item[\textbf{ب)}] اكتب بأسلوبك الخاص
+  \item[\textbf{ج)}] قيّم المصادر المختلفة
+  \item[\textbf{د)}] اقرأ النص كاملًا
+  \item[\textbf{هـ)}] احذف التكرار والأمثلة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{ما الترتيب الصحيح لخطوات فهم صورة بالأداة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ارفعها مع أمر دقيق $\leftarrow$ اختر صورة واضحة $\leftarrow$ قارن بالصورة $\leftarrow$ اقرأ الشرح
+  \item[\textbf{ب)}] قارن بالصورة $\leftarrow$ اقرأ الشرح $\leftarrow$ اختر صورة واضحة $\leftarrow$ ارفعها مع أمر دقيق
+  \item[\textbf{ج)}] اختر صورة واضحة $\leftarrow$ ارفعها مع أمر دقيق $\leftarrow$ اقرأ الشرح $\leftarrow$ قارن بالصورة
+  \item[\textbf{د)}] اقرأ الشرح $\leftarrow$ اختر صورة واضحة $\leftarrow$ ارفعها مع أمر دقيق $\leftarrow$ قارن بالصورة
+  \item[\textbf{هـ)}] اختر صورة واضحة $\leftarrow$ قارن بالصورة $\leftarrow$ ارفعها مع أمر دقيق $\leftarrow$ اقرأ الشرح
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{حسب مخطط الدرس، المبتدأ:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] اسم منصوب
+  \item[\textbf{ب)}] جملة فعلية
+  \item[\textbf{ج)}] اسم مجرور
+  \item[\textbf{د)}] فعل ماضٍ
+  \item[\textbf{هـ)}] اسم مرفوع
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{كتب أستاذ طلبًا دقيقًا فحصل على إعراب مقنع. ماذا يفعل قبل استعماله في القسم؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] يتحقق منه في كتاب نحو معتمد، ثم يقرّر
+  \item[\textbf{ب)}] يستعمله مباشرة لأن طلبه كان دقيقًا جدًا
+  \item[\textbf{ج)}] يعيد الطلب، فإن تكرر الإعراب فهو صحيح
+  \item[\textbf{د)}] يستعمله إذا كان طويلًا ومفصلًا ومنظمًا
+  \item[\textbf{هـ)}] يقارنه بأداة ثانية ويعتمد ما اتفقتا عليه
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{أي سلسلة تصف كيف ينشأ الانحياز الخوارزمي؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] بيانات ناقصة $\leftarrow$ نموذج تعلّم صورة ناقصة $\leftarrow$ نتائج منحازة
+  \item[\textbf{ب)}] بيانات متنوعة $\leftarrow$ نموذج تعلّم صورة كاملة $\leftarrow$ نتائج منحازة
+  \item[\textbf{ج)}] نموذج تعلّم صورة كاملة $\leftarrow$ بيانات ناقصة $\leftarrow$ نتائج عادلة
+  \item[\textbf{د)}] نتائج منحازة $\leftarrow$ بيانات ناقصة $\leftarrow$ نموذج تعلّم صورة ناقصة
+  \item[\textbf{هـ)}] بيانات متوازنة $\leftarrow$ نموذج تعلّم صورة ناقصة $\leftarrow$ نتائج عادلة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{في الأمر: «تصرّف كمساعد أكاديمي. أنشئ خطة مراجعة لمادة النحو مدتها 7 أيام، بمعدل ساعتين يوميًا. نظّم الخطة في جدول»، عبارة «مدتها 7 أيام، بمعدل ساعتين يوميًا» تمثّل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] المهمة
+  \item[\textbf{ب)}] القيود
+  \item[\textbf{ج)}] التنسيق
+  \item[\textbf{د)}] الدور
+  \item[\textbf{هـ)}] السياق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{رتّب الاستعمالات من الأكثر قبولًا إلى المرفوض:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] أنشئ مسودة وأراجعها وأصرّح $\leftarrow$ أنسخ إجابة كاملة باسمي $\leftarrow$ أفهم مفهومًا صعبًا
+  \item[\textbf{ب)}] أنسخ إجابة كاملة باسمي $\leftarrow$ أفهم مفهومًا صعبًا $\leftarrow$ أنشئ مسودة وأراجعها وأصرّح
+  \item[\textbf{ج)}] أفهم مفهومًا صعبًا $\leftarrow$ أنسخ إجابة كاملة باسمي $\leftarrow$ أنشئ مسودة وأراجعها وأصرّح
+  \item[\textbf{د)}] أفهم مفهومًا صعبًا $\leftarrow$ أنشئ مسودة وأراجعها وأصرّح $\leftarrow$ أنسخ إجابة كاملة باسمي
+  \item[\textbf{هـ)}] أنسخ إجابة كاملة باسمي $\leftarrow$ أنشئ مسودة وأراجعها وأصرّح $\leftarrow$ أفهم مفهومًا صعبًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{مدونة شخصية لأستاذ مختص في النحو يذكر فيها مراجعه. كيف نتعامل معها؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نرفضها تمامًا لأن كل المدونات خاطئة وغير مفيدة
+  \item[\textbf{ب)}] نقيّمها بالمعايير، ونتحقق منها لأنها أقل ثقة من المحكّم
+  \item[\textbf{ج)}] نعدّها مقالًا علميًا محكّمًا لأنها تذكر مراجعها
+  \item[\textbf{د)}] لا نطبّق عليها أي معيار لأنها كُتبت من أستاذ
+  \item[\textbf{هـ)}] نعدّها أوثق من الكتب المحققة لأن كاتبها مختص
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار الثالث في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{أي أداة من الأدوات الآتية تطوّرها شركة \textenglish{Google}؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] \textenglish{DeepSeek}
+  \item[\textbf{ب)}] \textenglish{ChatGPT}
+  \item[\textbf{ج)}] \textenglish{Claude}
+  \item[\textbf{د)}] \textenglish{Gemini}
+  \item[\textbf{هـ)}] \textenglish{Qwen}
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{عبارة «التلاميذ في السنة الثانية متوسط» تمثّل عنصر:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] المهمة
+  \item[\textbf{ب)}] القيود
+  \item[\textbf{ج)}] السياق
+  \item[\textbf{د)}] التنسيق
+  \item[\textbf{هـ)}] الدور
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{ما التلخيص؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] إضافة أفكار جديدة إلى النص لجعله أغنى وأطول
+  \item[\textbf{ب)}] ترجمة النص كاملًا إلى لغة أخرى دون حذف شيء
+  \item[\textbf{ج)}] نسخ النص كاملًا كما هو مع تغيير العنوان فقط
+  \item[\textbf{د)}] حذف الفقرة الأولى والأخيرة من النص فقط
+  \item[\textbf{هـ)}] كتابة الأفكار الأساسية بأسلوبنا دون تغيير المعنى
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{أعطينا الطلب نفسه لأداتين مختلفتين. ماذا نتوقع؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] رفض إحدى الأداتين للطلب في كل مرة
+  \item[\textbf{ب)}] إجابتين مختلفتين في الوضوح والطول والتنظيم
+  \item[\textbf{ج)}] إجابة صحيحة من الأولى وخاطئة من الثانية
+  \item[\textbf{د)}] لا إجابة، لأن الطلب استُعمل من قبل
+  \item[\textbf{هـ)}] إجابتين متطابقتين حرفيًا في كل كلمة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{لدينا 1000 مثال نقسمها بنسبة 80٪ للتدريب و20٪ للاختبار. كم عدد أمثلة الاختبار؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] 500
+  \item[\textbf{ب)}] 100
+  \item[\textbf{ج)}] 800
+  \item[\textbf{د)}] 200
+  \item[\textbf{هـ)}] 250
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{في الأمر: «تصرّف كأستاذ جامعي في البلاغة. اشرح مفهوم التشبيه لطالب في السنة الأولى...»، عبارة «لطالب في السنة الأولى» تمثّل:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الدور
+  \item[\textbf{ب)}] المهمة
+  \item[\textbf{ج)}] القيود
+  \item[\textbf{د)}] التنسيق
+  \item[\textbf{هـ)}] السياق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{في الدرجة الثانية من بناء الأمر خطوة بخطوة، ما العنصر الذي أُضيف إلى الأمر العام؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] القيود والتنسيق
+  \item[\textbf{ب)}] الدور
+  \item[\textbf{ج)}] المهمة والقيود
+  \item[\textbf{د)}] التنسيق
+  \item[\textbf{هـ)}] السياق
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{أي جملة إفصاح مناسبة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] «قد أكون استعملت شيئًا ما أثناء كتابة هذا البحث»
+  \item[\textbf{ب)}] «استعملتُ \textenglish{ChatGPT} لتنظيم الأفكار، والصياغة من عملي»
+  \item[\textbf{ج)}] «هذا البحث من عمل الأداة كله، وأنا قدّمته فقط»
+  \item[\textbf{د)}] «لا أذكر مصادري ولا أدواتي لأنها كثيرة جدًا»
+  \item[\textbf{هـ)}] «كتبت الأداة هذا البحث، ولا أتحمل أي خطأ فيه»
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{أي مما يلي سؤال بحث محدد؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] «التعليم والمدرسة والتكنولوجيا الحديثة»
+  \item[\textbf{ب)}] «الذكاء الاصطناعي والتعليم في العالم الحديث»
+  \item[\textbf{ج)}] «كل شيء عن النحو العربي وتاريخه الطويل»
+  \item[\textbf{د)}] «كيف يحسّن الذكاء الاصطناعي التعبير الكتابي؟»
+  \item[\textbf{هـ)}] «الأدب العربي القديم والحديث والمعاصر»
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{في المخطط المفاهيمي لدرس «الجملة الاسمية»، المفهومان المرتبطان مباشرة بالجملة الاسمية هما:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الفعل والفاعل
+  \item[\textbf{ب)}] المبتدأ والخبر
+  \item[\textbf{ج)}] الحال والتمييز
+  \item[\textbf{د)}] الجار والمجرور
+  \item[\textbf{هـ)}] النعت والمنعوت
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{قال طالب: «\textenglish{ChatGPT} هو الذكاء الاصطناعي كله». ما التصحيح الأدق؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الذكاء الاصطناعي نوع من أنواع \textenglish{ChatGPT} وجزء منه
+  \item[\textbf{ب)}] الذكاء الاصطناعي التوليدي أوسع من الذكاء الاصطناعي
+  \item[\textbf{ج)}] \textenglish{ChatGPT} أداة توليدية، والتوليدي نوع من الذكاء الاصطناعي
+  \item[\textbf{د)}] \textenglish{ChatGPT} ليس ذكاءً اصطناعيًا، بل محرك بحث تقليدي
+  \item[\textbf{هـ)}] كلامه صحيح، لأن \textenglish{ChatGPT} هو الأداة الوحيدة الموجودة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{أخذ فريق 20٪ من البيانات للاختبار، لكنه استعمل الأمثلة نفسها في التدريب أيضًا. ما الخلل؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لم يعد الاختبار بأمثلة جديدة، فلا يقيس الفهم
+  \item[\textbf{ب)}] الخلل أن البيانات صور وليست نصوصًا مكتوبة
+  \item[\textbf{ج)}] الخلل أن نسبة الاختبار صغيرة جدًا وغير كافية
+  \item[\textbf{د)}] الخلل في عدد مراحل التعلم التي اتبعها الفريق
+  \item[\textbf{هـ)}] لا خلل في ذلك، لأن نسبة 20٪ نسبة محترمة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{أي جملة تحقق الإفصاح والشفافية معًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] «استعملتُ أداة ما في البحث، ولا أذكر في أي جزء استعملتها»
+  \item[\textbf{ب)}] «الأداة كتبت كل شيء في هذا البحث، وأنا اكتفيت بتقديمه»
+  \item[\textbf{ج)}] «استعملتُ \textenglish{Gemini} لاقتراح خطة الفصل الأول، وتحققت من المعلومات»
+  \item[\textbf{د)}] «لم أستعمل أي أداة ذكاء اصطناعي في أي جزء من هذا البحث»
+  \item[\textbf{هـ)}] «استعملتُ الذكاء الاصطناعي في هذا البحث، وهذا كل ما أذكره»
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{أضافت أداة إلى ملخص نصٍّ إحصائيةً غير موجودة في النص الأصلي. أي سؤال مراجعة يكشف ذلك؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] هل أضافت معلومة غير موجودة؟
+  \item[\textbf{ب)}] هل الملخص قصير بما يكفي؟
+  \item[\textbf{ج)}] هل حذفت فكرة مهمة من النص؟
+  \item[\textbf{د)}] هل الملخص منسق في فقرات؟
+  \item[\textbf{هـ)}] هل الملخص مكتوب بالفصحى؟
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{شرحت أداة صورة مخطط بيانيًا شرحًا مقنعًا. لماذا لا يكفي ذلك لاستعماله في القسم؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] قد تخطئ في الأرقام أو العلاقات، فنقارن بالأصل
+  \item[\textbf{ب)}] لأن كل شرح مقنع خاطئ بالضرورة ولا يُعتمد
+  \item[\textbf{ج)}] لأن الشرح يجب أن يكون صوتيًا فقط لا مكتوبًا
+  \item[\textbf{د)}] لأن الأداة لا تستطيع قراءة المخططات أبدًا
+  \item[\textbf{هـ)}] لأن المخططات البيانية لا تُستعمل في القسم
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

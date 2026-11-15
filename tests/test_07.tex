@@ -1,0 +1,219 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{\thepage/2}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\khatt\textbf{الاختبار السابع في الذكاء الاصطناعي}}\\[2pt]
+{\normalsize أسئلة متعددة الاختيارات ــ الفصول من 1 إلى 6 ــ 15 سؤالًا}
+\end{center}
+\vspace{-4pt}\rule{\textwidth}{0.6pt}\\
+{\small\textbf{التعليمة:} لكل سؤال إجابة صحيحة واحدة فقط من بين خمسة اختيارات.
+اكتب \textbf{حرف} الإجابة الصحيحة في جدول الإجابات أسفل الصفحة الثانية.
+لكل سؤال نقطة واحدة (المجموع 15 نقطة).}
+\vspace{-2pt}
+\begin{multicols}{2}
+
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{1.}}\textbf{ماذا نسمي النص الذي نكتبه للأداة لنطلب منها شيئًا؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الأمر (\textenglish{Prompt})
+  \item[\textbf{ب)}] النموذج المدرَّب
+  \item[\textbf{ج)}] المُخرَج النهائي
+  \item[\textbf{د)}] بيانات التدريب
+  \item[\textbf{هـ)}] الخوارزمية
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{2.}}\textbf{كم عدد عناصر الأمر الجيد حسب الدرس؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] ستة
+  \item[\textbf{ب)}] سبعة
+  \item[\textbf{ج)}] ثلاثة
+  \item[\textbf{د)}] أربعة
+  \item[\textbf{هـ)}] خمسة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{3.}}\textbf{«الذكاء الاصطناعي والتعليم» هو:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] سؤال بحث
+  \item[\textbf{ب)}] ملخص نص
+  \item[\textbf{ج)}] موضوع بحث
+  \item[\textbf{د)}] جملة إفصاح
+  \item[\textbf{هـ)}] مصدر أكاديمي
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{4.}}\textbf{الشركة المطوِّرة لأداة \textenglish{Claude} هي:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] \textenglish{Microsoft}
+  \item[\textbf{ب)}] \textenglish{Google}
+  \item[\textbf{ج)}] \textenglish{OpenAI}
+  \item[\textbf{د)}] \textenglish{Alibaba}
+  \item[\textbf{هـ)}] \textenglish{Anthropic}
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{5.}}\textbf{تريد أستاذة قراءة مسجّلة لقصيدة مع ضبط الحركات. ما نوع المحتوى المطلوب من الأداة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] صورة
+  \item[\textbf{ب)}] مخطط
+  \item[\textbf{ج)}] جدول
+  \item[\textbf{د)}] صوت
+  \item[\textbf{هـ)}] برنامج
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{6.}}\textbf{ما الترتيب الصحيح لمراحل تعلم الآلة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] البيانات $\leftarrow$ النموذج $\leftarrow$ التدريب $\leftarrow$ الاختبار $\leftarrow$ النتيجة
+  \item[\textbf{ب)}] النموذج $\leftarrow$ البيانات $\leftarrow$ التدريب $\leftarrow$ النتيجة $\leftarrow$ الاختبار
+  \item[\textbf{ج)}] البيانات $\leftarrow$ الاختبار $\leftarrow$ التدريب $\leftarrow$ النموذج $\leftarrow$ النتيجة
+  \item[\textbf{د)}] البيانات $\leftarrow$ التدريب $\leftarrow$ النموذج $\leftarrow$ الاختبار $\leftarrow$ النتيجة
+  \item[\textbf{هـ)}] التدريب $\leftarrow$ البيانات $\leftarrow$ الاختبار $\leftarrow$ النموذج $\leftarrow$ النتيجة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{7.}}\textbf{ما الخطأ في الأمر «اشرح البلاغة»؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] طويل جدًا، ويتضمن تفاصيل غير ضرورية
+  \item[\textbf{ب)}] قصير جدًا، لا يحدد المستوى ولا الهدف
+  \item[\textbf{ج)}] فيه عدة مهام مختلطة في جملة واحدة
+  \item[\textbf{د)}] يحدد دورًا غير مناسب لموضوع البلاغة
+  \item[\textbf{هـ)}] يحدد قيودًا كثيرة يصعب على الأداة احترامها
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{8.}}\textbf{الاعتماد على معلومات الأداة دون التحقق منها استعمال:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] إفصاح كامل
+  \item[\textbf{ب)}] غير مسؤول
+  \item[\textbf{ج)}] مثالي ومفيد
+  \item[\textbf{د)}] مقبول بشروط
+  \item[\textbf{هـ)}] مقبول تمامًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{9.}}\textbf{لماذا يعطي البحث بموضوع عام نتائج كثيرة جدًا ومتفرقة؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] لأن محرك البحث معطّل
+  \item[\textbf{ب)}] لأنه واسع لا يحدد ما نريد
+  \item[\textbf{ج)}] لأنه مكتوب باللغة العربية
+  \item[\textbf{د)}] لأنه سؤال محدد ودقيق
+  \item[\textbf{هـ)}] لأن كلماته المفتاحية دقيقة
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{10.}}\textbf{حسب مخطط الدرس، أنواع الخبر هي:}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] فعل، أو حرف، أو ضمير
+  \item[\textbf{ب)}] مذكّر، أو مؤنث، أو مثنى
+  \item[\textbf{ج)}] مفرد، أو جملة، أو شبه جملة
+  \item[\textbf{د)}] ماضٍ، أو مضارع، أو أمر
+  \item[\textbf{هـ)}] منصوب، أو مجرور، أو مجزوم
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{11.}}\textbf{نموذج لتصنيف النصوص الأدبية تدرّب على الشعر فقط، فأخطأ مع المقامات النثرية. أي مرحلة كشفت المشكلة، وما الحل؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الاختبار؛ والحل إضافة نصوص نثرية إلى التدريب
+  \item[\textbf{ب)}] البيانات؛ والحل الاختبار بالقصائد الشعرية فقط
+  \item[\textbf{ج)}] النتيجة؛ والحل حذف النصوص النثرية من الاختبار
+  \item[\textbf{د)}] التدريب؛ والحل تقليل عدد القصائد في البيانات
+  \item[\textbf{هـ)}] النموذج؛ والحل قبول النتيجة كما هي دون تغيير
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{12.}}\textbf{هل الأمر الأطول هو دائمًا الأفضل؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] نعم؛ لأن الأداة تقيس جودة الأمر بعدد كلماته
+  \item[\textbf{ب)}] نعم؛ لأن طول الأمر وحده يضمن جودة الإجابة
+  \item[\textbf{ج)}] لا؛ المهم أن يكون واضحًا ويحمل العناصر اللازمة
+  \item[\textbf{د)}] لا؛ لأن الأمر القصير جدًا هو الأفضل دائمًا
+  \item[\textbf{هـ)}] لا؛ لأن الأداة ترفض كل أمر يتجاوز سطرين
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{13.}}\textbf{منعت المؤسسة استعمال الأدوات في امتحان معيّن، فاستعملها طالب ثم صرّح بذلك. ما التقييم؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] خالف قوانين المؤسسة، والإفصاح لا يبرر المخالفة
+  \item[\textbf{ب)}] عمله مقبول تمامًا لأنه صرّح باستعمال الأداة
+  \item[\textbf{ج)}] لا مشكلة في ذلك لأن الأداة مجرد مساعد له
+  \item[\textbf{د)}] عمله مقبول بشروط لأنه كان صادقًا مع الأستاذ
+  \item[\textbf{هـ)}] المسؤولية على المؤسسة لأنها لم تراقبه جيدًا
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{14.}}\textbf{أعاد طالب كتابة فقرة من كتاب بأسلوبه، دون ذكر المصدر. ما الخطأ؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] الخطأ أنه قرأ النص كاملًا قبل أن يكتب
+  \item[\textbf{ب)}] الخطأ أنه استعمل كلمات أقل من النص الأصلي
+  \item[\textbf{ج)}] الخطأ أنه حذف التكرار والأمثلة من الفقرة
+  \item[\textbf{د)}] لا خطأ في عمله، لأنه كتب الفقرة بأسلوبه
+  \item[\textbf{هـ)}] لم يذكر المصدر، وهي خطوة أساسية في التلخيص
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\noindent\begin{minipage}{\linewidth}
+\hangindent=0.7cm\hangafter=1\makebox[0.7cm][r]{\textbf{15.}}\textbf{يريد أستاذ: (1) نقل صفحة مخطوطة إلى نص رقمي، (2) تحويل هذا النص إلى خريطة ذهنية، (3) سماع قراءة النص. ما التحويلات بالترتيب؟}
+\begin{itemize}[leftmargin=0.95cm, labelsep=4pt, itemsep=0pt, topsep=2pt, parsep=0pt]
+  \item[\textbf{أ)}] صوت $\leftarrow$ نص، ثم نص $\leftarrow$ صورة، ثم مخطط $\leftarrow$ صوت
+  \item[\textbf{ب)}] نص $\leftarrow$ مخطط، ثم صورة $\leftarrow$ نص، ثم نص $\leftarrow$ صوت
+  \item[\textbf{ج)}] صورة $\leftarrow$ صوت، ثم نص $\leftarrow$ مخطط، ثم نص $\leftarrow$ صورة
+  \item[\textbf{د)}] صورة $\leftarrow$ نص، ثم نص $\leftarrow$ مخطط، ثم نص $\leftarrow$ صوت
+  \item[\textbf{هـ)}] نص $\leftarrow$ صورة، ثم مخطط $\leftarrow$ نص، ثم صوت $\leftarrow$ نص
+\end{itemize}
+\end{minipage}\par\vspace{7pt plus 4pt}
+\end{multicols}
+\vfill
+\begin{center}
+{\khatt\textbf{جدول الإجابات}}\\[3pt]
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.9cm}|*{15}{>{\centering\arraybackslash}m{0.62cm}|}}
+\hline
+\textbf{رقم السؤال} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\ \hline
+\textbf{الإجابة} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\[8pt] \hline
+\end{tabular}
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}m{7.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.2cm}|}
+\hline
+\textbf{الاسم واللقب} & \textbf{الفوج} & \textbf{العلامة} \\ \hline
+ & & \hfill /15 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}
