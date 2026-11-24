@@ -116,8 +116,6 @@ key = _P.replace(r'\cfoot{\thepage/@PAGES@}', r'\cfoot{}') + r'''\begin{center}
 %s
 \end{tabular}
 
-\vspace{10pt}
-{\small سلّم التنقيط: نقطة واحدة لكل سؤال (المجموع 15 نقطة). ترتيب الأسئلة: 1--3 سهلة، 4--10 متوسطة، 11--15 صعبة.}
 \end{center}
 \end{document}
 ''' % (nums, rows)

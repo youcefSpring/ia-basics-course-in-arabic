@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.6cm,bottom=1.4cm,left=1.3cm,right=1.3cm,headsep=8pt,footskip=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian, numerals=maghrib]{arabic}
+\setotherlanguage{english}
+\IfFontExistsTF{Amiri}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08]{Amiri}
+}{%
+  \newfontfamily\arabicfont[Script=Arabic, Scale=1.08, Path=../fonts/, Extension=.ttf,
+    UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic]{Amiri}
+}
+\IfFontExistsTF{AlBattar}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15]{AlBattar}
+}{%
+  \newfontfamily\khatt[Script=Arabic, Scale=1.15, Path=../fonts/,
+    BoldFont=ae_AlBattar.ttf]{ae_AlBattar.ttf}
+}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.8pt}
+\fancyhf{}
+\rhead{\khatt المدرسة العليا للأساتذة ببوزريعة}
+\lhead{\khatt ملحقة بومرداس}
+\lfoot{\khatt الأستاذ: د. بن عبد الرزاق يوسف}
+\cfoot{}
+\pagestyle{fancy}
+\parindent 0pt
+\setlength{\columnsep}{0.6cm}
+\setlength{\columnseprule}{0.4pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=*, itemsep=5pt, topsep=2pt}
+\begin{document}
+\begin{center}
+{\Large\khatt\textbf{مفتاح الإجابات ــ اختبارات الوضعيات الإشكالية من 1 إلى 30}}\\[4pt]
+{\small (نسخة الأستاذ ــ لا تُوزَّع على الطلبة)}\\[10pt]
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{|>{\centering\arraybackslash}m{3.2cm}|*{5}{>{\centering\arraybackslash}m{1.4cm}|}}
+\hline
+\textbf{رقم الوضعية} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\ \hline\hline
+\rowcolor{red!14}\textbf{الاختبار 1} & ب & هـ & د & ج & أ \\ \hline
+\rowcolor{orange!18}\textbf{الاختبار 2} & أ & هـ & د & ب & ج \\ \hline
+\rowcolor{yellow!25}\textbf{الاختبار 3} & هـ & أ & ب & د & ج \\ \hline
+\rowcolor{lime!22}\textbf{الاختبار 4} & هـ & د & ج & أ & ب \\ \hline
+\rowcolor{green!16}\textbf{الاختبار 5} & ج & ب & أ & هـ & د \\ \hline
+\rowcolor{teal!16}\textbf{الاختبار 6} & هـ & ج & ب & أ & د \\ \hline
+\rowcolor{cyan!16}\textbf{الاختبار 7} & ج & هـ & أ & د & ب \\ \hline
+\rowcolor{blue!12}\textbf{الاختبار 8} & ب & أ & هـ & د & ج \\ \hline
+\rowcolor{violet!14}\textbf{الاختبار 9} & ب & ج & هـ & د & أ \\ \hline
+\rowcolor{purple!14}\textbf{الاختبار 10} & أ & ج & د & هـ & ب \\ \hline
+\rowcolor{magenta!14}\textbf{الاختبار 11} & ب & ج & هـ & أ & د \\ \hline
+\rowcolor{brown!18}\textbf{الاختبار 12} & أ & ج & ب & هـ & د \\ \hline
+\rowcolor{gray!18}\textbf{الاختبار 13} & د & ب & هـ & ج & أ \\ \hline
+\rowcolor{olive!18}\textbf{الاختبار 14} & ب & هـ & د & ج & أ \\ \hline
+\rowcolor{red!14}\textbf{الاختبار 15} & ب & ج & هـ & أ & د \\ \hline
+\rowcolor{orange!18}\textbf{الاختبار 16} & أ & د & ب & هـ & ج \\ \hline
+\rowcolor{yellow!25}\textbf{الاختبار 17} & هـ & د & ج & أ & ب \\ \hline
+\rowcolor{lime!22}\textbf{الاختبار 18} & ج & أ & هـ & ب & د \\ \hline
+\rowcolor{green!16}\textbf{الاختبار 19} & هـ & ج & د & أ & ب \\ \hline
+\rowcolor{teal!16}\textbf{الاختبار 20} & د & أ & هـ & ج & ب \\ \hline
+\rowcolor{cyan!16}\textbf{الاختبار 21} & ج & د & هـ & ب & أ \\ \hline
+\rowcolor{blue!12}\textbf{الاختبار 22} & ب & ج & د & أ & هـ \\ \hline
+\rowcolor{violet!14}\textbf{الاختبار 23} & أ & ج & ب & د & هـ \\ \hline
+\rowcolor{purple!14}\textbf{الاختبار 24} & د & أ & ج & ب & هـ \\ \hline
+\rowcolor{magenta!14}\textbf{الاختبار 25} & أ & ب & هـ & د & ج \\ \hline
+\rowcolor{brown!18}\textbf{الاختبار 26} & ب & هـ & أ & ج & د \\ \hline
+\rowcolor{gray!18}\textbf{الاختبار 27} & هـ & أ & ب & د & ج \\ \hline
+\rowcolor{olive!18}\textbf{الاختبار 28} & د & ب & هـ & أ & ج \\ \hline
+\rowcolor{red!14}\textbf{الاختبار 29} & ب & هـ & د & أ & ج \\ \hline
+\rowcolor{orange!18}\textbf{الاختبار 30} & هـ & أ & د & ب & ج \\ \hline
+\end{tabular}
+\end{center}
+\end{document}

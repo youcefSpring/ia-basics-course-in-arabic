@@ -75,7 +75,6 @@ with open(os.path.join(here, 'exam.tex'), 'w', encoding='utf-8') as f:
 
 # ---------- مفتاح الإجابات ----------
 keys = ' & '.join(LETTERS[it['key']] for it in items)
-levels = ' & '.join(['سهل'] * 4 + ['متوسط'] * 6 + ['صعب'] * 7 + ['صعب جدًا'] * 3)
 key = _P.replace(r'\cfoot{\thepage/@PAGES@}', r'\cfoot{}') + r'''\begin{center}
 {\Large\khatt\textbf{مفتاح الإجابات ــ الاختبار في الذكاء الاصطناعي}}\\[4pt]
 {\small (نسخة الأستاذ ــ لا تُوزَّع على الطلبة)}\\[10pt]
@@ -86,9 +85,6 @@ key = _P.replace(r'\cfoot{\thepage/@PAGES@}', r'\cfoot{}') + r'''\begin{center}
 \rowcolor{%s}\textbf{الإجابة} & %s \\ \hline
 \end{tabular}
 
-\vspace{10pt}
-{\small سلّم التنقيط: نقطة واحدة لكل سؤال (المجموع 20 نقطة).
-ترتيب الأسئلة: 1--4 سهلة، 5--10 متوسطة، 11--17 صعبة، 18--20 صعبة جدًا.}
 \end{center}
 \end{document}
 ''' % (cols, ROW_COLORS[7], nums, ROW_COLORS[4], keys)
